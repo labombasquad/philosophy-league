@@ -12,18 +12,18 @@ import json, os, sys, urllib.request
 from datetime import datetime, timezone
 
 MANAGERS = [
-    {"manager": "Alex",    "country": "England",   "flag": "🇬🇧", "team_id": 10},
-    {"manager": "Toiv",    "country": "France",    "flag": "🇫🇷", "team_id": 2},
-    {"manager": "Miles",   "country": "Spain",     "flag": "🇪🇸", "team_id": 9},
-    {"manager": "Alec",    "country": "Argentina", "flag": "🇦🇷", "team_id": 26},
-    {"manager": "Nate",    "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Tom",     "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Charlie", "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Dane",    "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Tik",     "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Hunter",  "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Jonah",   "country": "",          "flag": "",    "team_id": 0},
-    {"manager": "Aaron",   "country": "",          "flag": "",    "team_id": 0},
+   {"manager": "Alex",    "country": "England",     "flag": "🇬🇧", "team_id": 10},
+    {"manager": "Toiv",    "country": "France",      "flag": "🇫🇷", "team_id": 2},
+    {"manager": "Miles",   "country": "Spain",       "flag": "🇪🇸", "team_id": 9},
+    {"manager": "Alec",    "country": "Argentina",   "flag": "🇦🇷", "team_id": 26},
+    {"manager": "Nate",    "country": "USA",         "flag": "🇺🇸", "team_id": 2384},
+    {"manager": "Tom",     "country": "Brazil",      "flag": "🇧🇷", "team_id": 6},
+    {"manager": "Charlie", "country": "Portugal",    "flag": "🇵🇹", "team_id": 27},
+    {"manager": "Dane",    "country": "Germany",     "flag": "🇩🇪", "team_id": 25},
+    {"manager": "Tik",     "country": "Netherlands", "flag": "🇳🇱", "team_id": 1114},
+    {"manager": "Hunter",  "country": "Norway",      "flag": "🇳🇴", "team_id": 1098},
+    {"manager": "Jonah",   "country": "Mexico",      "flag": "🇲🇽", "team_id": 16},
+    {"manager": "Aaron",   "country": "",            "flag": "",     "team_id": 0},
 ]
 
 WORLD_CUP_ID = 1
