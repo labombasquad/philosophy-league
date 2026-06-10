@@ -3,155 +3,663 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Philosophy League 2026 — World Cup Team Draft</title>
+<title>Philosophy League — 2026 World Cup Team Draft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {
-  --bg: #d4cbb8; --card: #f5f0e4; --parchment: #e8e0cc; --deep: #1c1814; --ink: #2e2820;
-  --brown: #5a4a32; --rust: #8b3a1a; --gold: #b8860b; --gold2: #d4a017; --border: #c0b090;
-  --stone: #8b806c; --shadow: rgba(30, 20, 10, 0.16); --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg:        #2b2318;
+  --bg2:       #352c1f;
+  --surface:   #f4ede0;
+  --surface2:  #ede3d0;
+  --border:    #c8b48a;
+  --border2:   #b09a72;
+  --ink:       #1e1710;
+  --ink2:      #4a3c28;
+  --muted:     #7a6a52;
+  --gold:      #c8960c;
+  --gold-lt:   #e8b424;
+  --rust:      #9b3a18;
+  --rust-lt:   #c04a22;
+  --silver:    #7a8888;
+  --bronze:    #8b5a2b;
+  --green-pos: #1f6b2e;
+  --red-neg:   #9b2a2a;
+  --next-bg:   #1e2d1e;
+  --next-border:#2e4a2e;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --r: 10px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  min-height: 100vh; background-color: var(--bg);
-  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 32%), repeating-linear-gradient(0deg, transparent, transparent 58px, rgba(30,20,10,0.05) 58px, rgba(30,20,10,0.05) 60px), repeating-linear-gradient(90deg, transparent, transparent 58px, rgba(30,20,10,0.03) 58px, rgba(30,20,10,0.03) 60px);
-  color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(
+    135deg, transparent 0px, transparent 40px,
+    rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px
+  );
 }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 72px; }
-header { padding: 38px 0 24px; text-align: center; }
-.header-emblem { font-size: 2.8rem; margin-bottom: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18)); }
-.league-eyebrow { color: var(--brown); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; margin-bottom: 8px; text-transform: uppercase; }
-h1 { color: var(--deep); font-family: var(--font-display); font-size: clamp(2.4rem, 7vw, 4.6rem); font-weight: 900; line-height: 0.98; margin-bottom: 10px; }
-.header-subtitle { color: var(--brown); font-size: clamp(0.92rem, 2.4vw, 1.08rem); font-weight: 700; }
-.header-divider { align-items: center; display: flex; gap: 14px; margin: 20px 0 0; }
-.header-divider::before, .header-divider::after { background: linear-gradient(to right, transparent, var(--border), transparent); content: ''; flex: 1; height: 1px; }
-.header-divider span { color: var(--gold); font-size: 1.2rem; }
-.status-banner { align-items: center; background: var(--deep); border-radius: 10px; color: var(--parchment); display: flex; gap: 12px; justify-content: space-between; margin-bottom: 16px; padding: 12px 16px; }
-.status-left { align-items: center; display: flex; gap: 10px; }
-.status-dot { background: #888; border-radius: 50%; flex-shrink: 0; height: 9px; width: 9px; }
-.status-dot.live { animation: pulse 1.8s infinite; background: #4caf50; box-shadow: 0 0 7px #4caf50; }
-.status-dot.stale { background: var(--gold2); } .status-dot.error { background: #e55; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
-.status-text { color: #fff; font-weight: 800; }
-.status-updated { color: #d2c7ad; font-size: 0.76rem; white-space: nowrap; }
-.btn-refresh, .btn { border: 0; border-radius: 7px; cursor: pointer; font-family: var(--font-body); font-weight: 800; transition: transform 0.15s, box-shadow 0.15s; }
-.btn-refresh:hover, .btn:hover { box-shadow: 0 3px 8px var(--shadow); transform: translateY(-1px); }
-.btn-refresh { background: transparent; border: 1px solid #5d5448; color: var(--parchment); font-size: 0.75rem; padding: 6px 11px; }
-.rules-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 3px 14px var(--shadow); margin-bottom: 18px; padding: 15px 18px; }
-.rules-title { color: var(--rust); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.12em; margin-bottom: 8px; text-transform: uppercase; }
-.rules-copy { color: var(--brown); font-size: 0.88rem; margin-bottom: 10px; }
-.steps { display: flex; flex-wrap: wrap; gap: 8px; }
-.step { background: var(--parchment); border: 1px solid var(--border); border-radius: 999px; color: var(--ink); font-size: 0.76rem; font-weight: 800; padding: 5px 10px; }
-.controls { align-items: center; display: flex; gap: 10px; justify-content: space-between; margin-bottom: 18px; }
-.btn { font-size: 0.78rem; letter-spacing: 0.04em; padding: 9px 16px; }
-.btn-secondary { background: var(--card); border: 1px solid var(--border); color: var(--ink); }
-.btn-primary { background: var(--rust); color: #fff; }
-.table-wrap { border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px var(--shadow); overflow-x: auto; }
-table { background: var(--card); border-collapse: collapse; width: 100%; }
-thead tr { background: var(--deep); border-bottom: 3px solid var(--gold); }
-th { color: var(--gold2); cursor: pointer; font-size: 0.68rem; font-weight: 900; letter-spacing: 0.12em; padding: 14px 15px; text-align: left; text-transform: uppercase; user-select: none; white-space: nowrap; }
-th.center, td.center { text-align: center; } th.sorted { color: #fff; } th .sort-icon { font-size: 0.58rem; margin-left: 4px; opacity: 0.55; }
-tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
-tbody tr:last-child { border-bottom: 0; } tbody tr:hover { background: #ede5d2; } tbody tr.rank-1 { background: rgba(184,134,11,0.10); }
-td { color: var(--ink); font-size: 0.88rem; padding: 13px 15px; vertical-align: middle; }
-.rank-badge { align-items: center; background: #d4cbb8; border-radius: 50%; color: var(--brown); display: inline-flex; font-family: var(--font-display); font-size: 0.96rem; font-weight: 900; height: 31px; justify-content: center; width: 31px; }
-.rank-1 .rank-badge { background: var(--gold); color: var(--deep); box-shadow: 0 0 0 2px var(--gold2); }
-.rank-2 .rank-badge { background: #a5abad; color: var(--deep); }
-.rank-3 .rank-badge { background: #8b5a2b; color: #fff; }
-.manager { display: block; font-size: 0.96rem; font-weight: 900; }
-.manager-sub { color: var(--stone); display: block; font-size: 0.7rem; margin-top: 1px; }
-.country-cell { align-items: center; display: flex; gap: 9px; }
-.flag { flex-shrink: 0; font-size: 1.45rem; line-height: 1; }
-.country-name { font-weight: 800; }
-.stage-pill { border-radius: 999px; display: inline-block; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.03em; padding: 4px 10px; white-space: nowrap; }
-.stage-champion { background: var(--gold); color: var(--deep); } .stage-final { background: #a0a8a8; color: var(--deep); } .stage-third { background: #8b5a2b; color: #fff; }
-.stage-semis { background: var(--rust); color: #fff; } .stage-quarters { background: var(--brown); color: #fff; } .stage-r16 { background: #7a6e58; color: #fff; }
-.stage-group { background: #c0b494; color: var(--ink); } .stage-pending { background: transparent; border: 1px dashed var(--border); color: var(--stone); }
-.gd-pos { color: #246424; font-weight: 900; } .gd-neg { color: var(--rust); font-weight: 900; } .gd-zero { color: var(--stone); font-weight: 800; }
-.next-game { color: var(--ink); font-size: 0.82rem; line-height: 1.25; min-width: 150px; }
-.next-game strong { display: block; font-size: 0.86rem; font-weight: 900; }
-.next-game span { color: var(--stone); display: block; font-size: 0.72rem; margin-top: 2px; }
-.draft-slot { align-items: center; background: var(--rust); border-radius: 7px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); color: #fff; display: inline-flex; font-family: var(--font-display); font-size: 1.08rem; font-weight: 900; height: 34px; justify-content: center; min-width: 34px; }
-.draft-slot.empty { background: transparent; border: 1px dashed var(--border); box-shadow: none; color: var(--stone); font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.05em; }
-.footer-bar { align-items: center; border-top: 1px solid var(--border); color: var(--brown); display: flex; flex-wrap: wrap; font-size: 0.8rem; gap: 12px; justify-content: space-between; margin-top: 24px; padding-top: 16px; }
-.footer-bar strong { color: var(--ink); }
-.empty-state { color: var(--stone); padding: 52px 18px; text-align: center; }
-.empty-state .big { font-size: 3rem; margin-bottom: 12px; }
-.modal-overlay { align-items: center; background: rgba(20,14,8,0.65); display: none; inset: 0; justify-content: center; padding: 20px; position: fixed; z-index: 100; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--card); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); max-width: 480px; padding: 26px; width: 100%; }
-.modal h2 { color: var(--deep); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 6px; }
-.modal-subhead { color: var(--brown); font-size: 0.86rem; margin-bottom: 18px; }
-label { color: var(--brown); display: block; font-size: 0.7rem; font-weight: 900; letter-spacing: 0.1em; margin-bottom: 6px; text-transform: uppercase; }
-input { background: #fff; border: 1px solid var(--border); border-radius: 7px; color: var(--ink); font-family: var(--font-body); font-size: 0.94rem; padding: 10px 12px; width: 100%; }
-.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
-.toast { background: var(--deep); border-left: 3px solid var(--gold); border-radius: 8px; bottom: 22px; color: var(--parchment); font-size: 0.88rem; opacity: 0; padding: 12px 20px; pointer-events: none; position: fixed; right: 22px; transform: translateY(8px); transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+.page { max-width: 1000px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ── HEADER ── */
+.header { padding: 36px 0 28px; text-align: center; border-bottom: 1px solid rgba(200,180,138,0.2); margin-bottom: 20px; }
+.header-icon { font-size: 2.6rem; line-height: 1; margin-bottom: 10px; }
+.header-league { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.header-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 8vw, 3.6rem); font-weight: 900; color: var(--surface); line-height: 1.05; margin-bottom: 4px; }
+.header-sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(0.9rem, 3vw, 1.1rem); color: rgba(244,237,224,0.5); margin-bottom: 18px; }
+.status-row { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(200,180,138,0.2); border-radius: 99px; padding: 5px 14px; font-size: 0.75rem; color: rgba(244,237,224,0.6); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #666; flex-shrink: 0; }
+.dot.live  { background: #4caf50; box-shadow: 0 0 5px #4caf50; animation: blink 2s infinite; }
+.dot.stale { background: var(--gold-lt); }
+.dot.error { background: #e55; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.status-time { color: rgba(244,237,224,0.3); }
+.btn-refresh-sm { background: transparent; border: none; color: rgba(244,237,224,0.4); cursor: pointer; font-size: 0.85rem; padding: 0 2px; transition: color 0.15s; }
+.btn-refresh-sm:hover { color: var(--gold-lt); }
+.wisdom { margin-top: 16px; font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: rgba(244,237,224,0.38); min-height: 1.4em; }
+.wisdom span { color: rgba(244,237,224,0.22); font-style: normal; font-size: 0.75rem; }
+
+/* ── TIEBREAKER ── */
+.tiebreak { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,180,138,0.15); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-size: 0.72rem; }
+.tiebreak-label { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.tiebreak-steps { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+.tiebreak-step { background: rgba(255,255,255,0.07); border: 1px solid rgba(200,180,138,0.18); border-radius: 4px; padding: 2px 9px; color: rgba(244,237,224,0.7); font-weight: 500; }
+.tiebreak-arrow { color: rgba(200,180,138,0.25); }
+
+/* ── TOOLBAR ── */
+.toolbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.btn { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 7px; border: none; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+.btn:active { transform: scale(0.97); }
+.btn-ghost { background: rgba(255,255,255,0.06); color: rgba(244,237,224,0.7); border: 1px solid rgba(200,180,138,0.22); }
+.btn-ghost:hover { background: rgba(255,255,255,0.1); color: var(--surface); }
+
+/* ── DESKTOP TABLE ── */
+.table-wrap { border-radius: var(--r); overflow: hidden; border: 1px solid rgba(200,180,138,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+thead tr { background: #1a1208; border-bottom: 2px solid var(--gold); }
+th { font-weight: 700; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding: 13px 12px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; }
+th:hover { color: var(--gold-lt); }
+th.sorted { color: #fff; }
+th .si { margin-left: 3px; opacity: 0.35; font-size: 0.58rem; }
+th.sorted .si { opacity: 1; }
+th.c, td.c { text-align: center; }
+tbody tr { border-bottom: 1px solid #e0d4be; transition: background 0.1s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--surface2); }
+tbody tr.r1 { background: rgba(200,150,12,0.07); }
+tbody tr.r1:hover { background: rgba(200,150,12,0.13); }
+td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
+
+/* rank badge */
+.rb { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-family: var(--font-serif); font-weight: 700; font-size: 0.9rem; }
+.r1 .rb { background: var(--gold);   color: #1a1208; outline: 2px solid var(--gold-lt); outline-offset: 1px; }
+.r2 .rb { background: var(--silver); color: #fff; }
+.r3 .rb { background: var(--bronze); color: #fff; }
+.ro .rb { background: #ddd3c0;       color: var(--muted); }
+
+/* manager */
+.mgr     { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+.mgr-sub { font-family: var(--font-serif); font-style: italic; font-size: 0.63rem; color: var(--muted); }
+
+/* country */
+.cc { display: flex; align-items: center; gap: 7px; }
+.fl { font-size: 1.3rem; line-height: 1; flex-shrink: 0; }
+.cn { font-weight: 600; color: var(--ink); }
+
+/* stage pill */
+.pill { display: inline-block; padding: 3px 9px; border-radius: 99px; font-size: 0.68rem; font-weight: 700; white-space: nowrap; }
+.p-champ   { background: var(--gold);   color: #1a1208; }
+.p-final   { background: #909a9a;       color: #fff; }
+.p-third   { background: var(--bronze); color: #fff; }
+.p-semis   { background: var(--rust);   color: #fff; }
+.p-qtr     { background: #6a5238;       color: #fff; }
+.p-r16     { background: #8a7a62;       color: #fff; }
+.p-group   { background: #bfaf96;       color: var(--ink); }
+.p-pending { background: transparent;   color: var(--muted); border: 1px dashed var(--border2); }
+
+/* gd */
+.gp { color: var(--green-pos); font-weight: 700; }
+.gn { color: var(--red-neg);   font-weight: 700; }
+.gz { color: var(--muted); }
+
+/* draft slot */
+.ds { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 30px; border-radius: 6px; font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem; background: var(--rust); color: #fff; }
+.ds.tbd { background: transparent; border: 1px dashed var(--border2); color: var(--muted); font-family: var(--font-sans); font-size: 0.62rem; font-weight: 500; }
+
+/* ── NEXT MATCH CELL (table) ── */
+.next-match-cell { min-width: 160px; }
+.nm-opponent { font-weight: 600; font-size: 0.82rem; color: var(--ink); white-space: nowrap; }
+.nm-ha { font-size: 0.7rem; color: var(--muted); margin-right: 3px; }
+.nm-time { font-size: 0.72rem; color: var(--ink2); margin-top: 1px; white-space: nowrap; }
+.nm-venue { font-size: 0.66rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.nm-countdown { display: inline-block; margin-top: 2px; font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: 99px; background: rgba(30,45,30,0.12); color: var(--green-pos); border: 1px solid rgba(31,107,46,0.2); white-space: nowrap; }
+.nm-countdown.soon { background: rgba(155,58,24,0.1); color: var(--rust); border-color: rgba(155,58,24,0.25); }
+.nm-none { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+
+/* edit btn */
+.btn-edit { font-size: 0.68rem; font-weight: 600; padding: 4px 10px; border-radius: 5px; border: 1px solid var(--border); background: var(--surface2); color: var(--ink2); cursor: pointer; transition: all 0.12s; white-space: nowrap; }
+.btn-edit:hover { background: var(--border); color: var(--ink); }
+
+/* ── MOBILE CARDS ── */
+@media (max-width: 680px) { .table-wrap { display: none; } .cards-wrap { display: flex; } }
+@media (min-width: 681px) { .table-wrap { display: block; } .cards-wrap { display: none; } }
+.cards-wrap { flex-direction: column; gap: 10px; }
+
+.card { background: var(--surface); border: 1px solid rgba(200,180,138,0.28); border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.3); }
+.card.cr1 { border-color: var(--gold); border-width: 2px; }
+
+.card-top { display: flex; align-items: center; gap: 12px; padding: 13px 15px 10px; border-bottom: 1px solid #e0d4be; }
+.card-rank { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; font-family: var(--font-serif); font-weight: 900; font-size: 1.05rem; }
+.cr1 .card-rank { background: var(--gold);   color: #1a1208; outline: 2px solid var(--gold-lt); outline-offset: 2px; }
+.cr2 .card-rank { background: var(--silver); color: #fff; }
+.cr3 .card-rank { background: var(--bronze); color: #fff; }
+.cro .card-rank { background: #ddd3c0;       color: var(--muted); }
+.card-name-block { flex: 1; min-width: 0; }
+.card-name { font-weight: 700; font-size: 1.02rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-country { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.card-flag { font-size: 1.15rem; }
+.card-country-name { font-size: 0.82rem; font-weight: 600; color: var(--ink2); }
+.card-stage { flex-shrink: 0; }
+
+/* next match card section */
+.card-next { padding: 9px 15px; background: rgba(30,45,30,0.06); border-bottom: 1px solid #e0d4be; display: flex; align-items: flex-start; gap: 10px; }
+.card-next-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.card-next-info { flex: 1; min-width: 0; }
+.card-next-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.card-next-opponent { font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+.card-next-ha { font-size: 0.72rem; color: var(--muted); margin-right: 3px; }
+.card-next-time { font-size: 0.75rem; color: var(--ink2); margin-top: 1px; }
+.card-next-venue { font-size: 0.68rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-next-countdown { display: inline-block; margin-top: 3px; font-size: 0.65rem; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: rgba(30,45,30,0.12); color: var(--green-pos); border: 1px solid rgba(31,107,46,0.2); }
+.card-next-countdown.soon { background: rgba(155,58,24,0.1); color: var(--rust); border-color: rgba(155,58,24,0.25); }
+.card-next-none { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+
+.card-stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 9px 15px 11px; gap: 4px; }
+.stat-block { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.stat-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.stat-val { font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.stat-val.gp { color: var(--green-pos); }
+.stat-val.gn { color: var(--red-neg); }
+.stat-val.gz { color: var(--muted); }
+.stat-val.ds-val { font-family: var(--font-serif); font-size: 1.05rem; color: var(--rust); }
+.stat-val.tbd-val { font-size: 0.7rem; color: var(--muted); font-weight: 500; }
+.card-footer { border-top: 1px solid #e0d4be; padding: 8px 15px; display: flex; justify-content: flex-end; }
+
+/* ── FOOTER ── */
+.footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(200,180,138,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-note { font-family: var(--font-serif); font-style: italic; font-size: 0.8rem; color: rgba(244,237,224,0.38); }
+.footer-count { font-size: 0.75rem; color: rgba(244,237,224,0.28); }
+
+/* ── MODAL ── */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(10,8,4,0.72); z-index: 100; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(3px); }
+.overlay.open { display: flex; }
+.modal { background: var(--surface); border: 1px solid var(--border2); border-radius: 14px; padding: 26px 28px; width: 100%; max-width: 420px; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+.modal h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.modal-sub { font-family: var(--font-serif); font-style: italic; font-size: 0.8rem; color: var(--muted); margin-bottom: 20px; }
+.form-field { margin-bottom: 14px; }
+label { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+input, select { width: 100%; background: #fff; border: 1.5px solid var(--border); border-radius: 7px; color: var(--ink); font-family: var(--font-sans); font-size: 1rem; padding: 10px 12px; outline: none; transition: border-color 0.15s; }
+input:focus, select:focus { border-color: var(--rust); }
+.modal-actions { display: flex; gap: 8px; margin-top: 20px; justify-content: flex-end; }
+.btn-cancel { background: var(--surface2); color: var(--ink2); border: 1px solid var(--border); border-radius: 7px; padding: 9px 18px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.btn-save   { background: var(--rust); color: #fff; border: none; border-radius: 7px; padding: 9px 20px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+.btn-save:hover { background: var(--rust-lt); }
+
+/* ── TOAST ── */
+.toast { position: fixed; bottom: 24px; right: 20px; left: 20px; max-width: 320px; margin: 0 auto; background: #1a1208; color: var(--surface); font-family: var(--font-serif); font-style: italic; font-size: 0.9rem; padding: 12px 20px; border-radius: 8px; border-left: 3px solid var(--gold); z-index: 200; opacity: 0; transform: translateY(10px); transition: opacity 0.22s, transform 0.22s; pointer-events: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
 .toast.show { opacity: 1; transform: translateY(0); }
-.mobile-card, .mobile-top, .mobile-details, .mobile-actions { display: contents; }
-@media (max-width: 700px) {
-  body { font-size: 14px; } .wrap { padding: 0 12px 44px; } header { padding: 24px 0 16px; } .header-emblem { font-size: 2.1rem; margin-bottom: 6px; }
-  .league-eyebrow { font-size: 0.6rem; letter-spacing: 0.11em; } h1 { font-size: 2.28rem; line-height: 1.02; }
-  .header-subtitle { font-size: 0.88rem; line-height: 1.35; margin: 0 auto; max-width: 330px; } .header-divider { margin-top: 16px; }
-  .status-banner { align-items: flex-start; border-radius: 10px; flex-direction: column; gap: 8px; padding: 11px 12px; }
-  .status-banner > div:last-child { justify-content: space-between; width: 100%; } .status-updated { font-size: 0.68rem; white-space: normal; }
-  .rules-card { padding: 12px; } .rules-title { margin-bottom: 6px; } .rules-copy { font-size: 0.8rem; } .step { font-size: 0.68rem; padding: 4px 8px; }
-  .controls, .footer-bar { display: none; } .table-wrap { border: none; box-shadow: none; overflow: visible; }
-  table, thead, tbody, tr, th, td { display: block; } thead { display: none; }
-  tbody tr { background: var(--card); border: 1px solid var(--border); border-radius: 15px; box-shadow: 0 3px 12px var(--shadow); margin-bottom: 13px; padding: 14px; }
-  tbody tr:hover { background: var(--card); } tbody tr.rank-1 { background: rgba(184,134,11,0.13); }
-  td { border: none; padding: 0; text-align: left; } td.desktop-cell { display: none; }
-  .mobile-card { display: block; } .mobile-top { align-items: center; display: flex; gap: 12px; margin-bottom: 12px; }
-  .mobile-top .rank-badge { flex-shrink: 0; height: 48px; width: 48px; font-size: 1.35rem; }
-  .mobile-title { min-width: 0; } .mobile-title .manager { font-size: 1.06rem; line-height: 1.1; } .mobile-title .country-cell { margin-top: 4px; }
-  .mobile-title .flag { font-size: 1.35rem; } .mobile-title .country-name { font-size: 0.95rem; }
-  .mobile-status-row { align-items: center; display: flex; gap: 8px; justify-content: space-between; margin-bottom: 12px; }
-  .mobile-next { background: rgba(232,224,204,0.72); border: 1px solid var(--border); border-radius: 11px; margin-bottom: 12px; padding: 10px 11px; }
-  .mobile-label { color: var(--rust); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.12em; margin-bottom: 5px; text-transform: uppercase; }
-  .mobile-next-main { color: var(--ink); font-size: 0.94rem; font-weight: 900; } .mobile-next-time { color: var(--stone); font-size: 0.78rem; font-weight: 700; margin-top: 2px; }
-  .mobile-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
-  .mobile-stat { background: rgba(232,224,204,0.58); border: 1px solid var(--border); border-radius: 10px; padding: 8px 6px; text-align: center; }
-  .mobile-stat-label { color: var(--brown); font-size: 0.6rem; font-weight: 900; letter-spacing: 0.08em; margin-bottom: 3px; text-transform: uppercase; }
-  .mobile-stat-value { font-size: 0.92rem; font-weight: 900; }
-  .mobile-actions { display: flex; gap: 10px; justify-content: space-between; align-items: center; } .mobile-draft { align-items: center; display: flex; gap: 8px; }
-  .mobile-draft-label { color: var(--brown); font-size: 0.68rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; } .mobile-actions .btn { padding: 9px 14px !important; } .modal { padding: 22px; }
-}
+
+.empty { text-align: center; padding: 56px 20px; color: rgba(244,237,224,0.3); }
+.empty .eicon { font-size: 3rem; margin-bottom: 14px; }
+.empty .eq { font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: rgba(244,237,224,0.42); margin-bottom: 5px; }
+.empty .ea { font-size: 0.75rem; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header><div class="header-emblem">🏆⚽🏈</div><div class="league-eyebrow">The Philosophy League · 2026</div><h1>The Philosophy League</h1><div class="header-subtitle">World Cup Team Draft · Fantasy Football Draft Order Tracker</div><div class="header-divider"><span>⚜</span></div></header>
-  <div class="status-banner"><div class="status-left"><div class="status-dot" id="statusDot"></div><span class="status-text" id="statusText">Loading scores…</span></div><div style="display:flex; align-items:center; gap:12px;"><span class="status-updated" id="statusUpdated"></span><button class="btn-refresh" onclick="loadData()">↻ Refresh</button></div></div>
-  <div class="rules-card"><div class="rules-title">The World Cup Draft</div><div class="rules-copy">Each philosopher drafted a World Cup team. Final World Cup standings determine the order in which fantasy football draft slots are chosen.</div><div class="steps"><span class="step">1. Furthest Stage</span><span class="step">2. Goal Differential</span><span class="step">3. Goals Scored</span><span class="step">4. Random Draw</span></div></div>
-  <div class="controls"><button class="btn btn-secondary" onclick="openSettingsModal()">⚙ Settings</button><button class="btn btn-secondary" onclick="exportCSV()">↓ Export CSV</button></div>
-  <div class="table-wrap"><table id="mainTable"><thead><tr><th class="center sorted" data-col="rank" onclick="sortBy('rank')">Rank <span class="sort-icon">▲</span></th><th data-col="manager" onclick="sortBy('manager')">Philosopher <span class="sort-icon">⇅</span></th><th data-col="country" onclick="sortBy('country')">Nation <span class="sort-icon">⇅</span></th><th data-col="nextGame">Next Game</th><th data-col="stage" onclick="sortBy('stage')">Stage <span class="sort-icon">⇅</span></th><th class="center" data-col="gd" onclick="sortBy('gd')">GD <span class="sort-icon">⇅</span></th><th class="center" data-col="gf" onclick="sortBy('gf')">GF <span class="sort-icon">⇅</span></th><th class="center" data-col="draftSlot">Draft Slot</th><th class="center">Choose Slot</th></tr></thead><tbody id="tableBody"></tbody></table></div>
-  <div class="footer-bar"><div><strong>Rule:</strong> Final World Cup ranking determines order of choosing fantasy draft slots.</div><div id="entryCount" style="white-space:nowrap;"></div></div>
+<div class="page">
+
+<header class="header">
+  <div class="header-icon">🏛️🏈</div>
+  <div class="header-league">Philosophy League · Est. 2026</div>
+  <h1 class="header-title">World Cup Team Draft</h1>
+  <p class="header-sub">2026 FIFA World Cup · Fantasy Football Draft Order Contest</p>
+  <div class="status-row">
+    <div class="dot" id="statusDot"></div>
+    <span id="statusText" style="color:rgba(244,237,224,0.65)">Loading…</span>
+    <span class="status-time" id="statusTime"></span>
+    <button class="btn-refresh-sm" onclick="loadData()" title="Refresh">↻</button>
+  </div>
+  <div class="wisdom" id="wisdomLine"></div>
+</header>
+
+<div class="tiebreak">
+  <span class="tiebreak-label">Tiebreaker</span>
+  <div class="tiebreak-steps">
+    <span class="tiebreak-step">Ⅰ Stage Reached</span>
+    <span class="tiebreak-arrow">›</span>
+    <span class="tiebreak-step">Ⅱ Goal Differential</span>
+    <span class="tiebreak-arrow">›</span>
+    <span class="tiebreak-step">Ⅲ Goals Scored</span>
+    <span class="tiebreak-arrow">›</span>
+    <span class="tiebreak-step">Ⅳ Fate</span>
+  </div>
 </div>
-<div class="modal-overlay" id="draftModal"><div class="modal"><h2 id="draftModalTitle">Record Draft Slot</h2><div class="modal-subhead">Enter the fantasy football draft slot this philosopher chose.</div><label for="fDraft">Draft Slot Chosen (1–12)</label><input id="fDraft" type="number" min="1" max="12" placeholder="e.g. 1" /><div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal('draftModal')">Cancel</button><button class="btn btn-primary" onclick="saveDraftSlot()">Save</button></div></div></div>
-<div class="modal-overlay" id="settingsModal"><div class="modal"><h2>League Settings</h2><div class="modal-subhead">These settings are saved only in your browser.</div><label for="sLeague">League Name</label><input id="sLeague" type="text" placeholder="The Philosophy League 2026" style="margin-bottom:12px;" /><label for="sTournament">Tournament Label</label><input id="sTournament" type="text" placeholder="2026 FIFA World Cup" /><div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal('settingsModal')">Cancel</button><button class="btn btn-primary" onclick="saveSettings()">Save</button></div></div></div>
+
+<div class="toolbar">
+  <button class="btn btn-ghost" onclick="openSettings()">⚙ Settings</button>
+  <button class="btn btn-ghost" onclick="exportCSV()">↓ CSV</button>
+</div>
+
+<!-- DESKTOP TABLE -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="c sorted" data-col="rank"    onclick="sortBy('rank')">Rank <span class="si">▲</span></th>
+        <th             data-col="manager" onclick="sortBy('manager')">Manager <span class="si">⇅</span></th>
+        <th             data-col="country" onclick="sortBy('country')">Nation <span class="si">⇅</span></th>
+        <th             data-col="stage"   onclick="sortBy('stage')">Stage <span class="si">⇅</span></th>
+        <th class="c"   data-col="gd"      onclick="sortBy('gd')">GD <span class="si">⇅</span></th>
+        <th class="c"   data-col="gf"      onclick="sortBy('gf')">GF <span class="si">⇅</span></th>
+        <th                                >Next Match</th>
+        <th class="c"   data-col="draftSlot">Draft Pick</th>
+        <th class="c">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<!-- MOBILE CARDS -->
+<div class="cards-wrap" id="cardsBody"></div>
+
+<div class="footer">
+  <div class="footer-note">Rank determines order of choosing fantasy draft slots. First place picks first.</div>
+  <div class="footer-count" id="footerCount"></div>
+</div>
+
+</div>
+
+<!-- DRAFT SLOT MODAL -->
+<div class="overlay" id="draftOverlay">
+  <div class="modal">
+    <h2 id="draftTitle">Record Draft Pick</h2>
+    <div class="modal-sub">"Choose wisely — the unexamined pick is not worth making."</div>
+    <div class="form-field">
+      <label for="fDraft">Draft Slot Chosen (1–12)</label>
+      <input id="fDraft" type="number" min="1" max="12" placeholder="e.g. 1" inputmode="numeric" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeOverlay('draftOverlay')">Cancel</button>
+      <button class="btn-save"   onclick="saveDraft()">Inscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <h2>Settings</h2>
+    <div class="modal-sub">"Know thyself — and thy league name." — Socrates, probably</div>
+    <div class="form-field">
+      <label for="sLeague">League Name</label>
+      <input id="sLeague" type="text" placeholder="Philosophy League" />
+    </div>
+    <div class="form-field">
+      <label for="sTournament">Tournament Label</label>
+      <input id="sTournament" type="text" placeholder="2026 FIFA World Cup" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeOverlay('settingsOverlay')">Cancel</button>
+      <button class="btn-save"   onclick="saveSettings()">Save</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
+
 <script>
-const STAGE_LABEL = {'-1': 'Pending', '0': 'Group Stage', '1': 'Round of 16', '2': 'Quarterfinals', '3': 'Semifinals', '4': '3rd Place', '5': 'Runner-Up', '6': 'Champion 🏆'};
-const STAGE_CLASS = {'-1': 'stage-pending', '0': 'stage-group', '1': 'stage-r16', '2': 'stage-quarters', '3': 'stage-semis', '4': 'stage-third', '5': 'stage-final', '6': 'stage-champion'};
-let liveEntries = []; let draftSlots = {}; let settings = { league: 'The Philosophy League 2026', tournament: '2026 FIFA World Cup' }; let editingId = null; let sortCol = 'rank'; let sortDir = 1;
-function saveLocal() { localStorage.setItem('phil_draft_slots', JSON.stringify(draftSlots)); localStorage.setItem('phil_settings', JSON.stringify(settings)); }
-function loadLocal() { try { const d = localStorage.getItem('phil_draft_slots'); const s = localStorage.getItem('phil_settings'); if (d) draftSlots = JSON.parse(d); if (s) settings = { ...settings, ...JSON.parse(s) }; } catch (_) {} }
-async function loadData() { setStatus('loading', 'Loading latest standings…', ''); try { const res = await fetch(`data.json?_=${Date.now()}`); if (!res.ok) throw new Error(`HTTP ${res.status}`); const json = await res.json(); liveEntries = (json.entries || []).map(e => ({ ...e, draftSlot: draftSlots[e.id] ?? draftSlots[e.team_id] ?? e.draftSlot ?? null })); const updated = json.updatedAt || 'unknown'; if (liveEntries.length === 0) setStatus('stale', 'Awaiting first data sync', updated); else setStatus('live', `${liveEntries.length} philosophers loaded`, updated); } catch (err) { console.error('data.json fetch failed:', err); setStatus('error', 'Could not load data.json', ''); } render(); }
-function setStatus(type, text, updated) { const dot = document.getElementById('statusDot'); const txt = document.getElementById('statusText'); const upd = document.getElementById('statusUpdated'); dot.className = 'status-dot ' + (type === 'live' ? 'live' : type === 'error' ? 'error' : 'stale'); txt.textContent = text; upd.textContent = updated ? `Last updated: ${updated}` : ''; }
-function computeRanks(entries) { const known = entries.filter(e => parseInt(e.stage) >= 0).map(e => ({ ...e, gd: e.gf - e.ga })).sort((a, b) => { if (parseInt(b.stage) !== parseInt(a.stage)) return parseInt(b.stage) - parseInt(a.stage); if (b.gd !== a.gd) return b.gd - a.gd; return b.gf - a.gf; }); const pending = entries.filter(e => parseInt(e.stage) < 0).map(e => ({ ...e, gd: 0 })); let rank = 1; known.forEach((e, i) => { if (i > 0) { const p = known[i - 1]; if (!(p.stage === e.stage && p.gd === e.gd && p.gf === e.gf)) rank = i + 1; } e.rank = rank; }); pending.forEach(e => { e.rank = null; }); return [...known, ...pending]; }
-function render() { document.getElementById('entryCount').textContent = `${liveEntries.length} of 12 philosophers loaded`; let ranked = computeRanks(liveEntries); if (sortCol !== 'rank') { ranked = [...ranked].sort((a, b) => { if (sortCol === 'gd') return sortDir * ((b.gf - b.ga) - (a.gf - a.ga)); if (sortCol === 'stage') return sortDir * (parseInt(b.stage) - parseInt(a.stage)); if (sortCol === 'gf') return sortDir * (b.gf - a.gf); if (sortCol === 'manager' || sortCol === 'country') return sortDir * (a[sortCol] || '').localeCompare(b[sortCol] || ''); return 0; }); } const tbody = document.getElementById('tableBody'); if (ranked.length === 0) { tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state"><div class="big">🏆</div><strong>No teams loaded yet.</strong><br />Run the GitHub Action to populate data.json.</div></td></tr>`; return; } tbody.innerHTML = ranked.map(e => { const gd = e.gf - e.ga; const gdClass = gd > 0 ? 'gd-pos' : gd < 0 ? 'gd-neg' : 'gd-zero'; const gdStr = gd > 0 ? `+${gd}` : `${gd}`; const rankNum = e.rank != null ? e.rank : '–'; const rankClass = e.rank === 1 ? 'rank-1' : e.rank === 2 ? 'rank-2' : e.rank === 3 ? 'rank-3' : 'rank-other'; const stageKey = String(e.stage); const known = parseInt(e.stage) >= 0; const draftCell = e.draftSlot ? `<span class="draft-slot">${e.draftSlot}</span>` : `<span class="draft-slot empty">TBD</span>`; const entryId = esc(e.id || e.team_id); const country = e.country || 'TBD'; const flag = e.flag || '🏳️'; const ng = e.nextGame || {}; const nextOpponent = ng.opponent && ng.opponent !== 'TBD' ? `${ng.homeAway ? ng.homeAway + ' ' : ''}${ng.opponent}` : 'TBD'; const nextTime = ng.timeCT || 'TBD'; const goalsValue = known ? e.gf : '–'; const gdValue = known ? gdStr : '–'; const stageValue = STAGE_LABEL[stageKey] || 'Pending'; return `<tr class="${rankClass}"><td class="desktop-cell center"><span class="rank-badge">${rankNum}</span></td><td class="desktop-cell"><span class="manager">${esc(e.manager)}</span><span class="manager-sub">Philosopher</span></td><td class="desktop-cell"><div class="country-cell"><span class="flag">${esc(flag)}</span><span class="country-name">${esc(country)}</span></div></td><td class="desktop-cell"><div class="next-game"><strong>${esc(nextOpponent)}</strong><span>${esc(nextTime)}</span></div></td><td class="desktop-cell"><span class="stage-pill ${STAGE_CLASS[stageKey] || 'stage-pending'}">${esc(stageValue)}</span></td><td class="desktop-cell center ${gdClass}">${esc(gdValue)}</td><td class="desktop-cell center">${esc(goalsValue)}</td><td class="desktop-cell center">${draftCell}</td><td class="desktop-cell center"><button class="btn btn-secondary" style="padding:6px 12px;font-size:0.72rem" onclick="openDraftModal('${entryId}')">Edit</button></td><td class="mobile-card" colspan="9"><div class="mobile-top"><span class="rank-badge">${rankNum}</span><div class="mobile-title"><span class="manager">${esc(e.manager)}</span><div class="country-cell"><span class="flag">${esc(flag)}</span><span class="country-name">${esc(country)}</span></div></div></div><div class="mobile-status-row"><span class="stage-pill ${STAGE_CLASS[stageKey] || 'stage-pending'}">${esc(stageValue)}</span><div class="mobile-draft"><span class="mobile-draft-label">Draft Slot</span>${draftCell}</div></div><div class="mobile-next"><div class="mobile-label">Next Match</div><div class="mobile-next-main">${esc(nextOpponent)}</div><div class="mobile-next-time">${esc(nextTime)}</div></div><div class="mobile-details"><div class="mobile-stat"><div class="mobile-stat-label">GD</div><div class="mobile-stat-value ${gdClass}">${esc(gdValue)}</div></div><div class="mobile-stat"><div class="mobile-stat-label">GF</div><div class="mobile-stat-value">${esc(goalsValue)}</div></div><div class="mobile-stat"><div class="mobile-stat-label">Stage</div><div class="mobile-stat-value">${known ? esc(e.stage) : '–'}</div></div></div><div class="mobile-actions"><button class="btn btn-secondary" onclick="openDraftModal('${entryId}')">Edit Draft Slot</button></div></td></tr>`; }).join(''); }
-function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-function sortBy(col) { sortDir = sortCol === col ? -sortDir : 1; sortCol = col; document.querySelectorAll('th').forEach(th => { th.classList.toggle('sorted', th.dataset.col === col); const icon = th.querySelector('.sort-icon'); if (icon) icon.textContent = th.dataset.col === col ? (sortDir === 1 ? '▲' : '▼') : '⇅'; }); render(); }
-function openDraftModal(id) { editingId = id; const e = liveEntries.find(x => String(x.id) === id || String(x.team_id) === id); document.getElementById('draftModalTitle').textContent = e ? `Record Draft Slot — ${e.manager}` : 'Record Draft Slot'; document.getElementById('fDraft').value = e?.draftSlot || ''; document.getElementById('draftModal').classList.add('open'); }
-function saveDraftSlot() { const val = parseInt(document.getElementById('fDraft').value); if (!val || val < 1 || val > 12) { alert('Enter a valid draft slot from 1 to 12.'); return; } draftSlots[editingId] = val; const e = liveEntries.find(x => String(x.id) === editingId || String(x.team_id) === editingId); if (e) e.draftSlot = val; saveLocal(); render(); closeModal('draftModal'); toast('Draft slot saved.'); }
-function openSettingsModal() { document.getElementById('sLeague').value = settings.league || ''; document.getElementById('sTournament').value = settings.tournament || ''; document.getElementById('settingsModal').classList.add('open'); }
-function saveSettings() { settings.league = document.getElementById('sLeague').value.trim() || 'The Philosophy League 2026'; settings.tournament = document.getElementById('sTournament').value.trim() || '2026 FIFA World Cup'; saveLocal(); closeModal('settingsModal'); toast('Settings saved.'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-function exportCSV() { const ranked = computeRanks(liveEntries); const rows = [['Rank', 'Philosopher', 'Country', 'Next Game', 'Stage', 'GD', 'GF', 'GA', 'Draft Slot']]; ranked.forEach(e => { rows.push([e.rank || '', e.manager, e.country, `${e.nextGame?.homeAway ? e.nextGame.homeAway + ' ' : ''}${e.nextGame?.opponent || 'TBD'} — ${e.nextGame?.timeCT || 'TBD'}`, STAGE_LABEL[String(e.stage)] || '', e.gf - e.ga, e.gf, e.ga, e.draftSlot || '']); }); const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n'); const blob = new Blob([csv], { type: 'text/csv' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'philosophy_league_world_cup_draft.csv'; a.click(); }
-function toast(msg) { const el = document.getElementById('toast'); el.textContent = msg; el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2600); }
-document.querySelectorAll('.modal-overlay').forEach(o => { o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }); });
-loadLocal(); loadData(); setInterval(loadData, 5 * 60 * 1000);
+const WISDOMS = [
+  { q: "We are what we repeatedly draft. Excellence is not an act, but a habit.", a: "Aristotle" },
+  { q: "The impediment to the first-round pick advances the first-round pick.", a: "Marcus Aurelius" },
+  { q: "God is dead. And your goalkeeper is injured.", a: "Nietzsche" },
+  { q: "Hell is other people's World Cup picks outscoring yours.", a: "Sartre" },
+  { q: "One cannot step into the same waiver wire twice.", a: "Heraclitus" },
+  { q: "Whereof one's team cannot score, thereof one must remain silent.", a: "Wittgenstein" },
+  { q: "The only true wisdom is knowing your squad has already peaked.", a: "Socrates" },
+  { q: "Give me a lever long enough and I shall move the draft board.", a: "Archimedes" },
+  { q: "It is not enough to win — everyone else must finish below you in GD.", a: "Plato" },
+];
+
+const RANK_QUIPS = [
+  "ὁ νικῶν · The Victor","The Earnest Competitor","Bronze & Stoic",
+  "Camus says: imagine Sisyphus drafting","Mediocrity is its own reward",
+  "In the republic, someone finishes sixth","The most philosophical position",
+  "Kant would not have drafted this","Even Nietzsche lost fantasy sometimes",
+  "The examined loss is still a loss","Penultimate: Latin for 'not last'",
+  "Closest to the ground, most grounded",
+];
+
+const STAGE_LABEL = {'-1':'Pending','0':'Group Stage','1':'Round of 16','2':'Quarterfinals','3':'Semifinals','4':'3rd Place','5':'Runner-Up','6':'Champion 🏆'};
+const STAGE_CLASS = {'-1':'p-pending','0':'p-group','1':'p-r16','2':'p-qtr','3':'p-semis','4':'p-third','5':'p-final','6':'p-champ'};
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let live      = [];
+let slots     = {};
+let cfg       = { league: 'Philosophy League', tournament: '2026 FIFA World Cup' };
+let editingId = null;
+let sortCol   = 'rank';
+let sortDir   = 1;
+
+// ── STORAGE ───────────────────────────────────────────────────────────────────
+function persist() {
+  localStorage.setItem('phil_slots', JSON.stringify(slots));
+  localStorage.setItem('phil_cfg',   JSON.stringify(cfg));
+}
+function restore() {
+  try {
+    const s = localStorage.getItem('phil_slots');
+    const c = localStorage.getItem('phil_cfg');
+    if (s) slots = JSON.parse(s);
+    if (c) cfg   = { ...cfg, ...JSON.parse(c) };
+  } catch(_) {}
+}
+
+// ── FETCH ─────────────────────────────────────────────────────────────────────
+async function loadData() {
+  setStatus('stale', 'Consulting the oracle…', '');
+  try {
+    const r    = await fetch(`data.json?_=${Date.now()}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const json = await r.json();
+    live = (json.entries || []).map(e => ({
+      ...e,
+      draftSlot: slots[e.id] ?? slots[String(e.team_id)] ?? e.draftSlot ?? null,
+    }));
+    setStatus(live.length ? 'live' : 'stale',
+      live.length ? `${live.length} nations loaded` : 'Awaiting first sync',
+      json.updatedAt || '');
+  } catch(err) {
+    setStatus('error', 'Score sync failed', '');
+  }
+  render();
+}
+
+function setStatus(type, text, time) {
+  document.getElementById('statusDot').className   = 'dot ' + type;
+  document.getElementById('statusText').textContent = text;
+  document.getElementById('statusTime').textContent = time ? `· ${time}` : '';
+}
+
+// ── NEXT MATCH HELPERS ────────────────────────────────────────────────────────
+function nextMatchHTML(ng, tableMode) {
+  if (!ng || !ng.opponent || ng.opponent === 'TBD') {
+    return tableMode
+      ? `<span class="nm-none">No upcoming match</span>`
+      : `<span class="card-next-none">No upcoming match</span>`;
+  }
+
+  const countdown = ng.iso ? formatCountdown(ng.iso) : null;
+  const cdClass   = countdown && countdown.soon ? ' soon' : '';
+
+  if (tableMode) {
+    return `
+      <div class="next-match-cell">
+        <div class="nm-opponent">
+          <span class="nm-ha">${x(ng.homeAway)}</span>${x(ng.opponent)}
+        </div>
+        <div class="nm-time">${x(ng.timeCT || '')}</div>
+        ${ng.venue ? `<div class="nm-venue">${x(ng.venue)}</div>` : ''}
+        ${countdown ? `<div class="nm-countdown${cdClass}">${countdown.label}</div>` : ''}
+      </div>`;
+  } else {
+    return `
+      <div class="card-next-opponent">
+        <span class="card-next-ha">${x(ng.homeAway)}</span>${x(ng.opponent)}
+      </div>
+      <div class="card-next-time">${x(ng.timeCT || '')}</div>
+      ${ng.venue ? `<div class="card-next-venue">${x(ng.venue)}</div>` : ''}
+      ${countdown ? `<div class="card-next-countdown${cdClass}">${countdown.label}</div>` : ''}`;
+  }
+}
+
+function formatCountdown(iso) {
+  const now  = Date.now();
+  const then = new Date(iso).getTime();
+  const diff = then - now;
+  if (diff < 0) return { label: 'In progress / Finished', soon: false };
+  const h = Math.floor(diff / 3600000);
+  const d = Math.floor(h / 24);
+  const soon = h < 24;
+  let label;
+  if (h < 1)       label = 'Starting soon';
+  else if (h < 24) label = `In ${h}h`;
+  else if (d === 1) label = 'Tomorrow';
+  else              label = `In ${d} days`;
+  return { label, soon };
+}
+
+// ── RANKING ───────────────────────────────────────────────────────────────────
+function rankEntries(entries) {
+  const known   = entries.filter(e => parseInt(e.stage) >= 0)
+    .map(e => ({ ...e, gd: e.gf - e.ga }))
+    .sort((a, b) => {
+      const ds = parseInt(b.stage) - parseInt(a.stage);
+      if (ds) return ds;
+      if (b.gd !== a.gd) return b.gd - a.gd;
+      return b.gf - a.gf;
+    });
+  const pending = entries.filter(e => parseInt(e.stage) < 0).map(e => ({ ...e, gd: 0 }));
+  let r = 1;
+  known.forEach((e, i) => {
+    if (i > 0) {
+      const p = known[i-1];
+      if (!(p.stage === e.stage && p.gd === e.gd && p.gf === e.gf)) r = i + 1;
+    }
+    e.rank = r;
+  });
+  pending.forEach(e => e.rank = null);
+  return [...known, ...pending];
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  document.getElementById('footerCount').textContent = `${live.length} / 12 enrolled`;
+  let ranked = rankEntries(live);
+
+  if (sortCol !== 'rank') {
+    ranked = [...ranked].sort((a, b) => {
+      if (sortCol === 'gd')    return sortDir * ((b.gf-b.ga)-(a.gf-a.ga));
+      if (sortCol === 'stage') return sortDir * (parseInt(b.stage)-parseInt(a.stage));
+      if (sortCol === 'gf')    return sortDir * (b.gf - a.gf);
+      if (sortCol === 'manager'||sortCol === 'country')
+        return sortDir * (a[sortCol]||'').localeCompare(b[sortCol]||'');
+      return 0;
+    });
+  }
+  renderTable(ranked);
+  renderCards(ranked);
+}
+
+function renderTable(ranked) {
+  const tbody = document.getElementById('tableBody');
+  if (!ranked.length) {
+    tbody.innerHTML = `<tr><td colspan="9"><div class="empty" style="background:var(--surface)">
+      <div class="eicon">🏛️</div>
+      <div class="eq">"The unexamined league is not worth running."</div>
+      <div class="ea" style="color:var(--muted)">Scores load automatically once GitHub Actions is configured</div>
+    </div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = ranked.map(e => {
+    const gd      = e.gf - e.ga;
+    const gdCls   = gd > 0 ? 'gp' : gd < 0 ? 'gn' : 'gz';
+    const gdStr   = gd > 0 ? `+${gd}` : `${gd}`;
+    const rn      = e.rank ?? '–';
+    const rowCls  = e.rank===1?'r1':e.rank===2?'r2':e.rank===3?'r3':'ro';
+    const sk      = String(e.stage);
+    const known   = parseInt(e.stage) >= 0;
+    const quip    = e.rank ? (RANK_QUIPS[e.rank-1]||RANK_QUIPS[11]) : 'Fate undecided';
+    const dsCell  = e.draftSlot ? `<span class="ds">${e.draftSlot}</span>` : `<span class="ds tbd">TBD</span>`;
+    const eid = x(String(e.id || e.team_id));
+    return `<tr class="${rowCls}" title="${x(quip)}">
+      <td class="c"><span class="rb">${rn}</span></td>
+      <td><div style="line-height:1.3"><div class="mgr">${x(e.manager)}</div><div class="mgr-sub">${known?'Competing':'Awaiting Fate'}</div></div></td>
+      <td><div class="cc"><span class="fl">${x(e.flag||'🏳')}</span><span class="cn">${x(e.country)}</span></div></td>
+      <td><span class="pill ${STAGE_CLASS[sk]||'p-pending'}">${STAGE_LABEL[sk]||'Pending'}</span></td>
+      <td class="c ${gdCls}">${known?gdStr:'–'}</td>
+      <td class="c">${known?e.gf:'–'}</td>
+      <td>${nextMatchHTML(e.nextGame, true)}</td>
+      <td class="c">${dsCell}</td>
+      <td class="c"><button class="btn-edit" onclick="openDraft('${eid}')">Edit Pick</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderCards(ranked) {
+  const wrap = document.getElementById('cardsBody');
+  if (!ranked.length) {
+    wrap.innerHTML = `<div class="empty"><div class="eicon">🏛️</div>
+      <div class="eq">"The unexamined league is not worth running."</div>
+      <div class="ea" style="color:rgba(244,237,224,0.3)">Scores load automatically via GitHub Actions</div>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML = ranked.map(e => {
+    const gd      = e.gf - e.ga;
+    const gdCls   = gd > 0 ? 'gp' : gd < 0 ? 'gn' : 'gz';
+    const gdStr   = gd > 0 ? `+${gd}` : `${gd}`;
+    const rn      = e.rank ?? '–';
+    const cardCls = e.rank===1?'cr1':e.rank===2?'cr2':e.rank===3?'cr3':'cro';
+    const sk      = String(e.stage);
+    const known   = parseInt(e.stage) >= 0;
+    const dsVal   = e.draftSlot
+      ? `<span class="stat-val ds-val">${e.draftSlot}</span>`
+      : `<span class="stat-val tbd-val">TBD</span>`;
+    const eid = x(String(e.id || e.team_id));
+    const hasNext = e.nextGame && e.nextGame.opponent && e.nextGame.opponent !== 'TBD';
+
+    return `<div class="card ${cardCls}">
+      <div class="card-top">
+        <div class="card-rank">${rn}</div>
+        <div class="card-name-block">
+          <div class="card-name">${x(e.manager)}</div>
+          <div class="card-country">
+            <span class="card-flag">${x(e.flag||'🏳')}</span>
+            <span class="card-country-name">${x(e.country)}</span>
+          </div>
+        </div>
+        <div class="card-stage">
+          <span class="pill ${STAGE_CLASS[sk]||'p-pending'}">${STAGE_LABEL[sk]||'Pending'}</span>
+        </div>
+      </div>
+      <div class="card-next">
+        <div class="card-next-icon">⚽</div>
+        <div class="card-next-info">
+          <div class="card-next-label">Next Match</div>
+          ${hasNext ? nextMatchHTML(e.nextGame, false) : '<span class="card-next-none">No upcoming match</span>'}
+        </div>
+      </div>
+      <div class="card-stats">
+        <div class="stat-block"><div class="stat-label">GD</div><div class="stat-val ${gdCls}">${known?gdStr:'–'}</div></div>
+        <div class="stat-block"><div class="stat-label">Goals For</div><div class="stat-val">${known?e.gf:'–'}</div></div>
+        <div class="stat-block"><div class="stat-label">Goals Ag.</div><div class="stat-val">${known?e.ga:'–'}</div></div>
+        <div class="stat-block"><div class="stat-label">Draft Pick</div>${dsVal}</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-edit" onclick="openDraft('${eid}')">Edit Draft Pick</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function x(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ── SORT ──────────────────────────────────────────────────────────────────────
+function sortBy(col) {
+  sortDir = sortCol===col ? -sortDir : 1;
+  sortCol = col;
+  document.querySelectorAll('th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.col === col);
+    const si = th.querySelector('.si');
+    if (si) si.textContent = th.dataset.col===col ? (sortDir===1?'▲':'▼') : '⇅';
+  });
+  render();
+}
+
+// ── DRAFT MODAL ───────────────────────────────────────────────────────────────
+function openDraft(id) {
+  editingId = id;
+  const e = live.find(e => String(e.id)===id || String(e.team_id)===id);
+  document.getElementById('draftTitle').textContent = e ? `Draft Pick — ${e.manager}` : 'Record Draft Pick';
+  document.getElementById('fDraft').value = e?.draftSlot || '';
+  document.getElementById('draftOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('fDraft').focus(), 100);
+}
+
+function saveDraft() {
+  const val = parseInt(document.getElementById('fDraft').value);
+  if (!val||val<1||val>12) { alert('Please enter a slot between 1 and 12.'); return; }
+  slots[editingId] = val;
+  const e = live.find(e => String(e.id)===editingId || String(e.team_id)===editingId);
+  if (e) e.draftSlot = val;
+  persist(); render();
+  closeOverlay('draftOverlay');
+  showToast('So it is written.');
+}
+
+// ── SETTINGS ──────────────────────────────────────────────────────────────────
+function openSettings() {
+  document.getElementById('sLeague').value     = cfg.league     || '';
+  document.getElementById('sTournament').value = cfg.tournament || '';
+  document.getElementById('settingsOverlay').classList.add('open');
+}
+function saveSettings() {
+  cfg.league     = document.getElementById('sLeague').value.trim()     || 'Philosophy League';
+  cfg.tournament = document.getElementById('sTournament').value.trim() || '2026 FIFA World Cup';
+  persist(); closeOverlay('settingsOverlay');
+  showToast('The settings are inscribed.');
+}
+function closeOverlay(id) { document.getElementById(id).classList.remove('open'); }
+
+// ── EXPORT ────────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const rows = [['Rank','Manager','Country','Stage','GD','GF','GA','Next Opponent','Next Match Time','Draft Pick']];
+  rankEntries(live).forEach(e => {
+    const ng = e.nextGame || {};
+    rows.push([e.rank||'', e.manager, e.country, STAGE_LABEL[String(e.stage)]||'',
+      e.gf-e.ga, e.gf, e.ga,
+      ng.opponent ? `${ng.homeAway} ${ng.opponent}` : '',
+      ng.timeCT || '',
+      e.draftSlot||'']);
+  });
+  const blob = new Blob([rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n')],{type:'text/csv'});
+  Object.assign(document.createElement('a'),{href:URL.createObjectURL(blob),download:'philosophy_league_wc.csv'}).click();
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2800);
+}
+function pick(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.overlay').forEach(o =>
+  o.addEventListener('click', e => { if (e.target===o) o.classList.remove('open'); })
+);
+const w = pick(WISDOMS);
+document.getElementById('wisdomLine').innerHTML = `"${w.q}" <span>— ${w.a}</span>`;
+restore();
+loadData();
+setInterval(loadData, 5*60*1000);
 </script>
 </body>
 </html>
