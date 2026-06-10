@@ -1,6 +1,6 @@
 {
   "leagueName": "Philosophy League 2026",
-  "updatedAt": "2026-06-10 13:59 UTC",
+  "updatedAt": "2026-06-10 14:40 UTC",
   "entries": [
     {
       "id": "auto-alex",
@@ -148,11 +148,11 @@
     {
       "id": "auto-aaron",
       "manager": "Aaron",
-      "flag": "",
-      "country": "",
-      "team_id": 0,
+      "flag": "🇧🇪",
+      "country": "Belgium",
+      "team_id": 1,
       "stage": -1,
-      "stageLabel": "TBD",
+      "stageLabel": "Pending",
       "gf": 0,
       "ga": 0,
       "gd": 0,
