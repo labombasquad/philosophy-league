@@ -1,136 +1,232 @@
 {
-  "updatedAt": "Jun 10 2026, 19:17 UTC",
+  "updatedAt": "Jun 10 2026, 19:27 UTC",
   "entries": [
     {
-      "id": "team-3",
-      "manager": "Example Manager 1",
-      "flag": "🇦🇷",
-      "country": "Argentina",
-      "team_id": 3,
+      "id": "team-66",
+      "manager": "Alex",
+      "flag": "🇬🇧",
+      "country": "England",
+      "team_id": 66,
       "stage": -1,
       "gf": 0,
       "ga": 0,
-      "draftSlot": null
-    },
-    {
-      "id": "team-6",
-      "manager": "Example Manager 2",
-      "flag": "🇧🇷",
-      "country": "Brazil",
-      "team_id": 6,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "nextGame": {
+        "opponent": "Croatia",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jun 17 at 3:00 PM CT",
+        "iso": "2026-06-17T15:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Dallas Stadium"
+      },
       "draftSlot": null
     },
     {
       "id": "team-773",
-      "manager": "Example Manager 3",
+      "manager": "Toiv",
       "flag": "🇫🇷",
       "country": "France",
       "team_id": 773,
       "stage": -1,
       "gf": 0,
       "ga": 0,
-      "draftSlot": null
-    },
-    {
-      "id": "team-759",
-      "manager": "Example Manager 4",
-      "flag": "🇩🇪",
-      "country": "Germany",
-      "team_id": 759,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "nextGame": {
+        "opponent": "Senegal",
+        "homeAway": "vs",
+        "timeCT": "Tue, Jun 16 at 2:00 PM CT",
+        "iso": "2026-06-16T14:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "New York New Jersey Stadium"
+      },
       "draftSlot": null
     },
     {
       "id": "team-760",
-      "manager": "Example Manager 5",
+      "manager": "Miles",
       "flag": "🇪🇸",
       "country": "Spain",
       "team_id": 760,
       "stage": -1,
       "gf": 0,
       "ga": 0,
+      "nextGame": {
+        "opponent": "Cabo Verde",
+        "homeAway": "vs",
+        "timeCT": "Mon, Jun 15 at 11:00 AM CT",
+        "iso": "2026-06-15T11:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Atlanta Stadium"
+      },
       "draftSlot": null
     },
     {
-      "id": "team-765",
-      "manager": "Example Manager 6",
-      "flag": "🇵🇹",
-      "country": "Portugal",
-      "team_id": 765,
+      "id": "team-3",
+      "manager": "Alec",
+      "flag": "🇦🇷",
+      "country": "Argentina",
+      "team_id": 3,
       "stage": -1,
       "gf": 0,
       "ga": 0,
-      "draftSlot": null
-    },
-    {
-      "id": "team-66",
-      "manager": "Example Manager 7",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "country": "England",
-      "team_id": 66,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
-      "draftSlot": null
-    },
-    {
-      "id": "team-770",
-      "manager": "Example Manager 8",
-      "flag": "🇳🇱",
-      "country": "Netherlands",
-      "team_id": 770,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "nextGame": {
+        "opponent": "Algeria",
+        "homeAway": "vs",
+        "timeCT": "Tue, Jun 16 at 8:00 PM CT",
+        "iso": "2026-06-16T20:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Kansas City Stadium"
+      },
       "draftSlot": null
     },
     {
       "id": "team-762",
-      "manager": "Example Manager 9",
+      "manager": "Nate",
       "flag": "🇺🇸",
       "country": "USA",
       "team_id": 762,
       "stage": -1,
       "gf": 0,
       "ga": 0,
+      "nextGame": {
+        "opponent": "Paraguay",
+        "homeAway": "vs",
+        "timeCT": "Fri, Jun 12 at 8:00 PM CT",
+        "iso": "2026-06-12T20:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Los Angeles Stadium"
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-6",
+      "manager": "Tom",
+      "flag": "🇧🇷",
+      "country": "Brazil",
+      "team_id": 6,
+      "stage": -1,
+      "gf": 0,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "Morocco",
+        "homeAway": "vs",
+        "timeCT": "Sat, Jun 13 at 5:00 PM CT",
+        "iso": "2026-06-13T17:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "New York New Jersey Stadium"
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-765",
+      "manager": "Charlie",
+      "flag": "🇵🇹",
+      "country": "Portugal",
+      "team_id": 765,
+      "stage": -1,
+      "gf": 0,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "DR Congo",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jun 17 at 12:00 PM CT",
+        "iso": "2026-06-17T12:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Houston Stadium"
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-759",
+      "manager": "Dane",
+      "flag": "🇩🇪",
+      "country": "Germany",
+      "team_id": 759,
+      "stage": -1,
+      "gf": 0,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "Curaçao",
+        "homeAway": "vs",
+        "timeCT": "Sun, Jun 14 at 12:00 PM CT",
+        "iso": "2026-06-14T12:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Houston Stadium"
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-770",
+      "manager": "Tik",
+      "flag": "🇳🇱",
+      "country": "Netherlands",
+      "team_id": 770,
+      "stage": -1,
+      "gf": 0,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "Japan",
+        "homeAway": "vs",
+        "timeCT": "Sun, Jun 14 at 3:00 PM CT",
+        "iso": "2026-06-14T15:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Dallas Stadium"
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-1109",
+      "manager": "Hunter",
+      "flag": "🇳🇴",
+      "country": "Norway",
+      "team_id": 1109,
+      "stage": -1,
+      "gf": 0,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "Iraq",
+        "homeAway": "at",
+        "timeCT": "Tue, Jun 16 at 5:00 PM CT",
+        "iso": "2026-06-16T17:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Boston Stadium"
+      },
       "draftSlot": null
     },
     {
       "id": "team-764",
-      "manager": "Example Manager 10",
+      "manager": "Jonah",
       "flag": "🇲🇽",
       "country": "Mexico",
       "team_id": 764,
       "stage": -1,
       "gf": 0,
       "ga": 0,
+      "nextGame": {
+        "opponent": "South Africa",
+        "homeAway": "vs",
+        "timeCT": "Thu, Jun 11 at 2:00 PM CT",
+        "iso": "2026-06-11T14:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Mexico City Stadium"
+      },
       "draftSlot": null
     },
     {
-      "id": "team-827",
-      "manager": "Example Manager 11",
-      "flag": "🇯🇵",
-      "country": "Japan",
-      "team_id": 827,
+      "id": "team-805",
+      "manager": "Aaron",
+      "flag": "🇧🇪",
+      "country": "Belgium",
+      "team_id": 805,
       "stage": -1,
       "gf": 0,
       "ga": 0,
-      "draftSlot": null
-    },
-    {
-      "id": "team-1013",
-      "manager": "Example Manager 12",
-      "flag": "🇲🇦",
-      "country": "Morocco",
-      "team_id": 1013,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "nextGame": {
+        "opponent": "Egypt",
+        "homeAway": "vs",
+        "timeCT": "Mon, Jun 15 at 2:00 PM CT",
+        "iso": "2026-06-15T14:00:00-05:00",
+        "round": "Group Stage",
+        "venue": "Seattle Stadium"
+      },
       "draftSlot": null
     }
   ]
