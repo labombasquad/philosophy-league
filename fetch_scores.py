@@ -23,7 +23,7 @@ MANAGERS = [
     {"manager": "Tik",     "country": "Netherlands", "flag": "🇳🇱", "team_id": 1114},
     {"manager": "Hunter",  "country": "Norway",      "flag": "🇳🇴", "team_id": 1098},
     {"manager": "Jonah",   "country": "Mexico",      "flag": "🇲🇽", "team_id": 16},
-    {"manager": "Aaron",   "country": "",            "flag": "",     "team_id": 0},
+    {"manager": "Aaron", "country": "Belgium", "flag": "🇧🇪", "team_id": 1},
 ]
 
 WORLD_CUP_ID = 1
