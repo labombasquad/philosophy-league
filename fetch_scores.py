@@ -215,6 +215,24 @@ def main():
     if not api_key:
         print("ERROR: API_FOOTBALL_KEY environment variable not set.", file=sys.stderr)
         sys.exit(1)
+        
+        print("Testing World Cup teams endpoint...")
+
+teams_data = api_get(
+    "teams",
+    {
+        "league": WORLD_CUP_ID,
+        "season": SEASON,
+    },
+    api_key,
+)
+
+teams = teams_data.get("response", [])
+print(f"World Cup teams found: {len(teams)}")
+
+for item in teams[:10]:
+    team = item.get("team", {})
+    print(f"{team.get('id')} - {team.get('name')}")
 
     print("Fetching full World Cup schedule...")
 
