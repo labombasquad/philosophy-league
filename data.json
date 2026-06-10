@@ -1,6 +1,6 @@
 {
-  "leagueName": "Philosophy League 2026",
-  "updatedAt": "2026-06-10 14:40 UTC",
+  "leagueName": "The Philosophy League 2026",
+  "updatedAt": "2026-06-10 14:52 UTC",
   "entries": [
     {
       "id": "auto-alex",
@@ -13,6 +13,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -26,6 +34,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -39,6 +55,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -52,6 +76,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -65,6 +97,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -78,6 +118,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -91,6 +139,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -104,6 +160,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -117,6 +181,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -130,6 +202,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -143,6 +223,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     },
     {
@@ -156,6 +244,14 @@
       "gf": 0,
       "ga": 0,
       "gd": 0,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "TBD",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
       "draftSlot": null
     }
   ]
