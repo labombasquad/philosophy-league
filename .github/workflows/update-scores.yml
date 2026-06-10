@@ -1,35 +1,34 @@
 name: Update World Cup Scores
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
-
-permissions:
-  contents: write
+    - cron: '0 * * * *'   # every hour
+  workflow_dispatch:        # manual trigger from Actions tab
 
 jobs:
-  update:
+  fetch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Check out repo
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.12'
 
-      - name: Run score fetcher
+      - name: Fetch World Cup scores
         env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: python fetch_scores.py
 
-      - name: Commit updated data.json
+      - name: Commit data.json if changed
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git diff --staged --quiet || git commit -m "Update World Cup scores"
+          git diff --staged --quiet || git commit -m "chore: update World Cup scores [skip ci]"
           git push
