@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 11 2026, 21:25 UTC",
+  "updatedAt": "Jun 11 2026, 23:14 UTC",
   "entries": [
     {
       "id": "team-66",
@@ -201,12 +201,12 @@
       "gf": 0,
       "ga": 0,
       "nextGame": {
-        "opponent": "South Africa",
+        "opponent": "South Korea",
         "homeAway": "vs",
-        "timeCT": "Thu, Jun 11 at 2:00 PM CT",
-        "iso": "2026-06-11T14:00:00-05:00",
+        "timeCT": "Thu, Jun 18 at 8:00 PM CT",
+        "iso": "2026-06-18T20:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Mexico City Stadium"
+        "venue": "Estadio Guadalajara"
       },
       "draftSlot": null
     },
