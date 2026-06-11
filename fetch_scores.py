@@ -29,17 +29,17 @@ from datetime import datetime, timezone
 # ══════════════════════════════════════════════════════════════════════════════
 
 MANAGERS = [
-    {"manager": "Alex",    "country": "England",     "flag": "🇬🇧", "team_id": 66},
+    {"manager": "Alex",    "country": "England",     "flag": "🇬🇧", "team_id": 770},
     {"manager": "Toiv",    "country": "France",      "flag": "🇫🇷", "team_id": 773},
     {"manager": "Miles",   "country": "Spain",       "flag": "🇪🇸", "team_id": 760},
-    {"manager": "Alec",    "country": "Argentina",   "flag": "🇦🇷", "team_id": 3},
-    {"manager": "Nate",    "country": "USA",         "flag": "🇺🇸", "team_id": 762},
-    {"manager": "Tom",     "country": "Brazil",      "flag": "🇧🇷", "team_id": 6},
+    {"manager": "Alec",    "country": "Argentina",   "flag": "🇦🇷", "team_id": 762},
+    {"manager": "Nate",    "country": "USA",         "flag": "🇺🇸", "team_id": 771},
+    {"manager": "Tom",     "country": "Brazil",      "flag": "🇧🇷", "team_id": 764},
     {"manager": "Charlie", "country": "Portugal",    "flag": "🇵🇹", "team_id": 765},
     {"manager": "Dane",    "country": "Germany",     "flag": "🇩🇪", "team_id": 759},
-    {"manager": "Tik",     "country": "Netherlands", "flag": "🇳🇱", "team_id": 770},
-    {"manager": "Hunter",  "country": "Norway",      "flag": "🇳🇴", "team_id": 1109},
-    {"manager": "Jonah",   "country": "Mexico",      "flag": "🇲🇽", "team_id": 764},
+    {"manager": "Tik",     "country": "Netherlands", "flag": "🇳🇱", "team_id": 8601},
+    {"manager": "Hunter",  "country": "Norway",      "flag": "🇳🇴", "team_id": 8872},
+    {"manager": "Jonah",   "country": "Mexico",      "flag": "🇲🇽", "team_id": 769},
     {"manager": "Aaron",   "country": "Belgium",     "flag": "🇧🇪", "team_id": 805},
 ]
 
@@ -136,7 +136,6 @@ def main():
 
                 home_id    = m["homeTeam"]["id"]
                 away_id    = m["awayTeam"]["id"]
-                print(f"  FINISHED: {m['homeTeam'].get('name')} (id={home_id}) vs {m['awayTeam'].get('name')} (id={away_id}) — {m['score']['fullTime']}")
                 home_goals = m["score"]["fullTime"].get("home") or 0
                 away_goals = m["score"]["fullTime"].get("away") or 0
                 stage_str  = m.get("stage", "GROUP_STAGE")
@@ -239,6 +238,45 @@ def lookup_team(token, query):
         print(f"  Error: {e}")
 
 
+def verify_ids(token):
+    """Cross-check all MANAGER team_ids against the WC team list from the API."""
+    print("Verifying team IDs against football-data.org World Cup team list...\n")
+    try:
+        data  = api_get("competitions/WC/teams", token)
+        teams = data.get("teams", [])
+    except Exception as e:
+        print(f"Error fetching teams: {e}")
+        return
+
+    api_ids = {t["id"]: t["name"] for t in teams}
+
+    all_ok = True
+    for m in MANAGERS:
+        tid  = m["team_id"]
+        name = api_ids.get(tid)
+        if name:
+            match = "✅" if m["country"].lower() in name.lower() or name.lower() in m["country"].lower() else "⚠️  NAME MISMATCH"
+            print(f"  {match}  {m['manager']:8s} → {m['country']:14s} id={tid} → API says: '{name}'")
+            if "⚠️" in match:
+                all_ok = False
+        else:
+            all_ok = False
+            # Find closest match by name
+            guesses = [t for t in teams if m["country"].lower() in t["name"].lower()
+                       or t["name"].lower() in m["country"].lower()]
+            if guesses:
+                suggestions = ", ".join(f"'{t['name']}' (id={t['id']})" for t in guesses)
+                print(f"  ❌  {m['manager']:8s} → {m['country']:14s} id={tid} NOT FOUND — did you mean: {suggestions}?")
+            else:
+                print(f"  ❌  {m['manager']:8s} → {m['country']:14s} id={tid} NOT FOUND in WC team list")
+
+    print()
+    if all_ok:
+        print("All team IDs verified ✅")
+    else:
+        print("Fix the IDs marked ❌ or ⚠️ above, then re-run.")
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "--lookup":
         tok = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
@@ -246,5 +284,11 @@ if __name__ == "__main__":
             print("Set FOOTBALL_DATA_TOKEN env var first.")
         else:
             lookup_team(tok, sys.argv[2])
+    elif len(sys.argv) >= 2 and sys.argv[1] == "--verify":
+        tok = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
+        if not tok:
+            print("Set FOOTBALL_DATA_TOKEN env var first.")
+        else:
+            verify_ids(tok)
     else:
         main()
