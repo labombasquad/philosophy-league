@@ -1,12 +1,12 @@
 {
-  "updatedAt": "Jun 11 2026, 23:14 UTC",
+  "updatedAt": "Jun 11 2026, 23:22 UTC",
   "entries": [
     {
-      "id": "team-66",
+      "id": "team-770",
       "manager": "Alex",
       "flag": "🇬🇧",
       "country": "England",
-      "team_id": 66,
+      "team_id": 770,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -59,11 +59,11 @@
       "draftSlot": null
     },
     {
-      "id": "team-3",
+      "id": "team-762",
       "manager": "Alec",
       "flag": "🇦🇷",
       "country": "Argentina",
-      "team_id": 3,
+      "team_id": 762,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -78,11 +78,11 @@
       "draftSlot": null
     },
     {
-      "id": "team-762",
+      "id": "team-771",
       "manager": "Nate",
       "flag": "🇺🇸",
       "country": "USA",
-      "team_id": 762,
+      "team_id": 771,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -97,11 +97,11 @@
       "draftSlot": null
     },
     {
-      "id": "team-6",
+      "id": "team-764",
       "manager": "Tom",
       "flag": "🇧🇷",
       "country": "Brazil",
-      "team_id": 6,
+      "team_id": 764,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -154,11 +154,11 @@
       "draftSlot": null
     },
     {
-      "id": "team-770",
+      "id": "team-8601",
       "manager": "Tik",
       "flag": "🇳🇱",
       "country": "Netherlands",
-      "team_id": 770,
+      "team_id": 8601,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -173,11 +173,11 @@
       "draftSlot": null
     },
     {
-      "id": "team-1109",
+      "id": "team-8872",
       "manager": "Hunter",
       "flag": "🇳🇴",
       "country": "Norway",
-      "team_id": 1109,
+      "team_id": 8872,
       "stage": -1,
       "gf": 0,
       "ga": 0,
@@ -192,13 +192,13 @@
       "draftSlot": null
     },
     {
-      "id": "team-764",
+      "id": "team-769",
       "manager": "Jonah",
       "flag": "🇲🇽",
       "country": "Mexico",
-      "team_id": 764,
-      "stage": -1,
-      "gf": 0,
+      "team_id": 769,
+      "stage": 0,
+      "gf": 2,
       "ga": 0,
       "nextGame": {
         "opponent": "South Korea",
