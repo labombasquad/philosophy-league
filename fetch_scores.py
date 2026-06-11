@@ -136,6 +136,7 @@ def main():
 
                 home_id    = m["homeTeam"]["id"]
                 away_id    = m["awayTeam"]["id"]
+                print(f"  FINISHED: {m['homeTeam'].get('name')} (id={home_id}) vs {m['awayTeam'].get('name')} (id={away_id}) — {m['score']['fullTime']}")
                 home_goals = m["score"]["fullTime"].get("home") or 0
                 away_goals = m["score"]["fullTime"].get("away") or 0
                 stage_str  = m.get("stage", "GROUP_STAGE")
