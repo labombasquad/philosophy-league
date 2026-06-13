@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 12 2026, 23:23 UTC",
+  "updatedAt": "Jun 13 2026, 04:20 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -83,16 +83,16 @@
       "flag": "🇺🇸",
       "country": "USA",
       "team_id": 771,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "stage": 0,
+      "gf": 4,
+      "ga": 1,
       "nextGame": {
-        "opponent": "Paraguay",
+        "opponent": "Australia",
         "homeAway": "vs",
-        "timeCT": "Fri, Jun 12 at 8:00 PM CT",
-        "iso": "2026-06-12T20:00:00-05:00",
+        "timeCT": "Fri, Jun 19 at 2:00 PM CT",
+        "iso": "2026-06-19T14:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Los Angeles Stadium"
+        "venue": "Seattle Stadium"
       },
       "draftSlot": null
     },
