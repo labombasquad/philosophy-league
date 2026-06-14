@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 14 2026, 17:25 UTC",
+  "updatedAt": "Jun 14 2026, 19:44 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -140,9 +140,9 @@
       "flag": "🇩🇪",
       "country": "Germany",
       "team_id": 759,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "stage": 0,
+      "gf": 7,
+      "ga": 1,
       "nextGame": {
         "opponent": "Curaçao",
         "homeAway": "vs",
