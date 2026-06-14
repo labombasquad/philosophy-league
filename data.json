@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 14 2026, 19:44 UTC",
+  "updatedAt": "Jun 14 2026, 21:19 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -144,12 +144,12 @@
       "gf": 7,
       "ga": 1,
       "nextGame": {
-        "opponent": "Curaçao",
+        "opponent": "Ivory Coast",
         "homeAway": "vs",
-        "timeCT": "Sun, Jun 14 at 12:00 PM CT",
-        "iso": "2026-06-14T12:00:00-05:00",
+        "timeCT": "Sat, Jun 20 at 3:00 PM CT",
+        "iso": "2026-06-20T15:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Houston Stadium"
+        "venue": "Toronto Stadium"
       },
       "draftSlot": null
     },
