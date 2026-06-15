@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 15 2026, 17:56 UTC",
+  "updatedAt": "Jun 15 2026, 21:14 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -45,14 +45,14 @@
       "flag": "🇪🇸",
       "country": "Spain",
       "team_id": 760,
-      "stage": -1,
+      "stage": 0,
       "gf": 0,
       "ga": 0,
       "nextGame": {
-        "opponent": "Cabo Verde",
+        "opponent": "Saudi Arabia",
         "homeAway": "vs",
-        "timeCT": "Mon, Jun 15 at 11:00 AM CT",
-        "iso": "2026-06-15T11:00:00-05:00",
+        "timeCT": "Sun, Jun 21 at 11:00 AM CT",
+        "iso": "2026-06-21T11:00:00-05:00",
         "round": "Group Stage",
         "venue": "Atlanta Stadium"
       },
@@ -216,9 +216,9 @@
       "flag": "🇧🇪",
       "country": "Belgium",
       "team_id": 805,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "stage": 0,
+      "gf": 1,
+      "ga": 1,
       "nextGame": {
         "opponent": "Egypt",
         "homeAway": "vs",
