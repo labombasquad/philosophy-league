@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 15 2026, 21:14 UTC",
+  "updatedAt": "Jun 15 2026, 23:50 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -220,12 +220,12 @@
       "gf": 1,
       "ga": 1,
       "nextGame": {
-        "opponent": "Egypt",
+        "opponent": "Iran",
         "homeAway": "vs",
-        "timeCT": "Mon, Jun 15 at 2:00 PM CT",
-        "iso": "2026-06-15T14:00:00-05:00",
+        "timeCT": "Sun, Jun 21 at 2:00 PM CT",
+        "iso": "2026-06-21T14:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Seattle Stadium"
+        "venue": "Los Angeles Stadium"
       },
       "draftSlot": null
     }
