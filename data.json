@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 16 2026, 17:07 UTC",
+  "updatedAt": "Jun 16 2026, 21:10 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -26,9 +26,9 @@
       "flag": "🇫🇷",
       "country": "France",
       "team_id": 773,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "stage": 0,
+      "gf": 3,
+      "ga": 1,
       "nextGame": {
         "opponent": "Senegal",
         "homeAway": "vs",
