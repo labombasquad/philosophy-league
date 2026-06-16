@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 16 2026, 21:10 UTC",
+  "updatedAt": "Jun 16 2026, 23:27 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -30,12 +30,12 @@
       "gf": 3,
       "ga": 1,
       "nextGame": {
-        "opponent": "Senegal",
+        "opponent": "Iraq",
         "homeAway": "vs",
-        "timeCT": "Tue, Jun 16 at 2:00 PM CT",
-        "iso": "2026-06-16T14:00:00-05:00",
+        "timeCT": "Mon, Jun 22 at 4:00 PM CT",
+        "iso": "2026-06-22T16:00:00-05:00",
         "round": "Group Stage",
-        "venue": "New York New Jersey Stadium"
+        "venue": "Philadelphia Stadium"
       },
       "draftSlot": null
     },
