@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 17 2026, 20:21 UTC",
+  "updatedAt": "Jun 17 2026, 22:47 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -7,9 +7,9 @@
       "flag": "🇬🇧",
       "country": "England",
       "team_id": 770,
-      "stage": -1,
-      "gf": 0,
-      "ga": 0,
+      "stage": 0,
+      "gf": 4,
+      "ga": 2,
       "nextGame": {
         "opponent": "Croatia",
         "homeAway": "vs",
