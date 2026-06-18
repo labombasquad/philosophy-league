@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 17 2026, 22:47 UTC",
+  "updatedAt": "Jun 18 2026, 00:19 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -11,12 +11,12 @@
       "gf": 4,
       "ga": 2,
       "nextGame": {
-        "opponent": "Croatia",
+        "opponent": "Ghana",
         "homeAway": "vs",
-        "timeCT": "Wed, Jun 17 at 3:00 PM CT",
-        "iso": "2026-06-17T15:00:00-05:00",
+        "timeCT": "Tue, Jun 23 at 3:00 PM CT",
+        "iso": "2026-06-23T15:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Dallas Stadium"
+        "venue": "Boston Stadium"
       },
       "draftSlot": null
     },
