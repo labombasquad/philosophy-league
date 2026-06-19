@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 19 2026, 19:55 UTC",
+  "updatedAt": "Jun 19 2026, 21:14 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -84,7 +84,7 @@
       "country": "USA",
       "team_id": 771,
       "stage": 0,
-      "gf": 4,
+      "gf": 6,
       "ga": 1,
       "nextGame": {
         "opponent": "Australia",
