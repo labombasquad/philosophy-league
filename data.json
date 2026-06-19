@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 19 2026, 21:14 UTC",
+  "updatedAt": "Jun 19 2026, 23:03 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -87,12 +87,12 @@
       "gf": 6,
       "ga": 1,
       "nextGame": {
-        "opponent": "Australia",
-        "homeAway": "vs",
-        "timeCT": "Fri, Jun 19 at 2:00 PM CT",
-        "iso": "2026-06-19T14:00:00-05:00",
+        "opponent": "Turkey",
+        "homeAway": "at",
+        "timeCT": "Thu, Jun 25 at 9:00 PM CT",
+        "iso": "2026-06-25T21:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Seattle Stadium"
+        "venue": "Los Angeles Stadium"
       },
       "draftSlot": null
     },
