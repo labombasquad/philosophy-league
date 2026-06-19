@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 18 2026, 23:49 UTC",
+  "updatedAt": "Jun 19 2026, 05:00 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -198,15 +198,15 @@
       "country": "Mexico",
       "team_id": 769,
       "stage": 0,
-      "gf": 2,
+      "gf": 3,
       "ga": 0,
       "nextGame": {
-        "opponent": "South Korea",
-        "homeAway": "vs",
-        "timeCT": "Thu, Jun 18 at 8:00 PM CT",
-        "iso": "2026-06-18T20:00:00-05:00",
+        "opponent": "Czechia",
+        "homeAway": "at",
+        "timeCT": "Wed, Jun 24 at 8:00 PM CT",
+        "iso": "2026-06-24T20:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Estadio Guadalajara"
+        "venue": "Mexico City Stadium"
       },
       "draftSlot": null
     },
