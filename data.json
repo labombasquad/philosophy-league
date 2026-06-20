@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 20 2026, 18:17 UTC",
+  "updatedAt": "Jun 20 2026, 20:19 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -160,15 +160,15 @@
       "country": "Netherlands",
       "team_id": 8601,
       "stage": 0,
-      "gf": 2,
-      "ga": 2,
+      "gf": 7,
+      "ga": 3,
       "nextGame": {
-        "opponent": "Sweden",
-        "homeAway": "vs",
-        "timeCT": "Sat, Jun 20 at 12:00 PM CT",
-        "iso": "2026-06-20T12:00:00-05:00",
+        "opponent": "Tunisia",
+        "homeAway": "at",
+        "timeCT": "Thu, Jun 25 at 6:00 PM CT",
+        "iso": "2026-06-25T18:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Houston Stadium"
+        "venue": "Kansas City Stadium"
       },
       "draftSlot": null
     },
