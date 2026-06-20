@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 19 2026, 23:03 UTC",
+  "updatedAt": "Jun 20 2026, 04:13 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -103,15 +103,15 @@
       "country": "Brazil",
       "team_id": 764,
       "stage": 0,
-      "gf": 1,
+      "gf": 4,
       "ga": 1,
       "nextGame": {
-        "opponent": "Haiti",
-        "homeAway": "vs",
-        "timeCT": "Fri, Jun 19 at 7:30 PM CT",
-        "iso": "2026-06-19T19:30:00-05:00",
+        "opponent": "Scotland",
+        "homeAway": "at",
+        "timeCT": "Wed, Jun 24 at 5:00 PM CT",
+        "iso": "2026-06-24T17:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Philadelphia Stadium"
+        "venue": "Miami Stadium"
       },
       "draftSlot": null
     },
