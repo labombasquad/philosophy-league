@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 21 2026, 17:46 UTC",
+  "updatedAt": "Jun 21 2026, 19:51 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -46,15 +46,15 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 0,
-      "gf": 0,
+      "gf": 5,
       "ga": 0,
       "nextGame": {
-        "opponent": "Saudi Arabia",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jun 21 at 11:00 AM CT",
-        "iso": "2026-06-21T11:00:00-05:00",
+        "opponent": "Uruguay",
+        "homeAway": "at",
+        "timeCT": "Fri, Jun 26 at 7:00 PM CT",
+        "iso": "2026-06-26T19:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Atlanta Stadium"
+        "venue": "Estadio Guadalajara"
       },
       "draftSlot": null
     },
