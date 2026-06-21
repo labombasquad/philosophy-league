@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 21 2026, 21:20 UTC",
+  "updatedAt": "Jun 21 2026, 23:21 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -220,12 +220,12 @@
       "gf": 1,
       "ga": 1,
       "nextGame": {
-        "opponent": "Iran",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jun 21 at 2:00 PM CT",
-        "iso": "2026-06-21T14:00:00-05:00",
+        "opponent": "New Zealand",
+        "homeAway": "at",
+        "timeCT": "Fri, Jun 26 at 10:00 PM CT",
+        "iso": "2026-06-26T22:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Los Angeles Stadium"
+        "venue": "BC Place Vancouver"
       },
       "draftSlot": null
     }
