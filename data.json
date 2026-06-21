@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 20 2026, 22:14 UTC",
+  "updatedAt": "Jun 21 2026, 00:14 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -144,12 +144,12 @@
       "gf": 9,
       "ga": 2,
       "nextGame": {
-        "opponent": "Ivory Coast",
-        "homeAway": "vs",
-        "timeCT": "Sat, Jun 20 at 3:00 PM CT",
-        "iso": "2026-06-20T15:00:00-05:00",
+        "opponent": "Ecuador",
+        "homeAway": "at",
+        "timeCT": "Thu, Jun 25 at 3:00 PM CT",
+        "iso": "2026-06-25T15:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Toronto Stadium"
+        "venue": "New York New Jersey Stadium"
       },
       "draftSlot": null
     },
