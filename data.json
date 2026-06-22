@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 22 2026, 17:42 UTC",
+  "updatedAt": "Jun 22 2026, 20:55 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -65,13 +65,13 @@
       "country": "Argentina",
       "team_id": 762,
       "stage": 0,
-      "gf": 3,
+      "gf": 5,
       "ga": 0,
       "nextGame": {
-        "opponent": "Austria",
-        "homeAway": "vs",
-        "timeCT": "Mon, Jun 22 at 12:00 PM CT",
-        "iso": "2026-06-22T12:00:00-05:00",
+        "opponent": "Jordan",
+        "homeAway": "at",
+        "timeCT": "Sat, Jun 27 at 9:00 PM CT",
+        "iso": "2026-06-27T21:00:00-05:00",
         "round": "Group Stage",
         "venue": "Dallas Stadium"
       },
