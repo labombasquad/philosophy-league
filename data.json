@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 23 2026, 00:13 UTC",
+  "updatedAt": "Jun 23 2026, 05:07 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -27,7 +27,7 @@
       "country": "France",
       "team_id": 773,
       "stage": 0,
-      "gf": 3,
+      "gf": 6,
       "ga": 1,
       "nextGame": {
         "opponent": "Norway",
@@ -179,15 +179,15 @@
       "country": "Norway",
       "team_id": 8872,
       "stage": 0,
-      "gf": 4,
-      "ga": 1,
+      "gf": 7,
+      "ga": 3,
       "nextGame": {
-        "opponent": "Senegal",
+        "opponent": "France",
         "homeAway": "vs",
-        "timeCT": "Mon, Jun 22 at 7:00 PM CT",
-        "iso": "2026-06-22T19:00:00-05:00",
+        "timeCT": "Fri, Jun 26 at 2:00 PM CT",
+        "iso": "2026-06-26T14:00:00-05:00",
         "round": "Group Stage",
-        "venue": "New York New Jersey Stadium"
+        "venue": "Boston Stadium"
       },
       "draftSlot": null
     },
