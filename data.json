@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 23 2026, 18:04 UTC",
+  "updatedAt": "Jun 23 2026, 21:02 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -122,15 +122,15 @@
       "country": "Portugal",
       "team_id": 765,
       "stage": 0,
-      "gf": 1,
+      "gf": 6,
       "ga": 1,
       "nextGame": {
-        "opponent": "Uzbekistan",
-        "homeAway": "vs",
-        "timeCT": "Tue, Jun 23 at 12:00 PM CT",
-        "iso": "2026-06-23T12:00:00-05:00",
+        "opponent": "Colombia",
+        "homeAway": "at",
+        "timeCT": "Sat, Jun 27 at 6:30 PM CT",
+        "iso": "2026-06-27T18:30:00-05:00",
         "round": "Group Stage",
-        "venue": "Houston Stadium"
+        "venue": "Miami Stadium"
       },
       "draftSlot": null
     },
