@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 23 2026, 21:02 UTC",
+  "updatedAt": "Jun 23 2026, 23:12 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -11,12 +11,12 @@
       "gf": 4,
       "ga": 2,
       "nextGame": {
-        "opponent": "Ghana",
-        "homeAway": "vs",
-        "timeCT": "Tue, Jun 23 at 3:00 PM CT",
-        "iso": "2026-06-23T15:00:00-05:00",
+        "opponent": "Panama",
+        "homeAway": "at",
+        "timeCT": "Sat, Jun 27 at 4:00 PM CT",
+        "iso": "2026-06-27T16:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Boston Stadium"
+        "venue": "New York New Jersey Stadium"
       },
       "draftSlot": null
     },
