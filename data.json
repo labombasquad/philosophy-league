@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 22 2026, 22:50 UTC",
+  "updatedAt": "Jun 23 2026, 00:13 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -30,12 +30,12 @@
       "gf": 3,
       "ga": 1,
       "nextGame": {
-        "opponent": "Iraq",
-        "homeAway": "vs",
-        "timeCT": "Mon, Jun 22 at 4:00 PM CT",
-        "iso": "2026-06-22T16:00:00-05:00",
+        "opponent": "Norway",
+        "homeAway": "at",
+        "timeCT": "Fri, Jun 26 at 2:00 PM CT",
+        "iso": "2026-06-26T14:00:00-05:00",
         "round": "Group Stage",
-        "venue": "Philadelphia Stadium"
+        "venue": "Boston Stadium"
       },
       "draftSlot": null
     },
