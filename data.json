@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 24 2026, 23:11 UTC",
+  "updatedAt": "Jun 25 2026, 04:06 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -103,7 +103,7 @@
       "country": "Brazil",
       "team_id": 764,
       "stage": 0,
-      "gf": 4,
+      "gf": 7,
       "ga": 1,
       "nextGame": {
         "opponent": "Scotland",
@@ -198,7 +198,7 @@
       "country": "Mexico",
       "team_id": 769,
       "stage": 0,
-      "gf": 3,
+      "gf": 6,
       "ga": 0,
       "nextGame": {
         "opponent": "Czechia",
