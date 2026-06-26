@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 26 2026, 00:15 UTC",
+  "updatedAt": "Jun 26 2026, 05:13 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -84,8 +84,8 @@
       "country": "USA",
       "team_id": 771,
       "stage": 0,
-      "gf": 6,
-      "ga": 1,
+      "gf": 8,
+      "ga": 4,
       "nextGame": {
         "opponent": "Turkey",
         "homeAway": "at",
@@ -160,8 +160,8 @@
       "country": "Netherlands",
       "team_id": 8601,
       "stage": 0,
-      "gf": 7,
-      "ga": 3,
+      "gf": 10,
+      "ga": 4,
       "nextGame": {
         "opponent": "Tunisia",
         "homeAway": "at",
