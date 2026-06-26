@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 26 2026, 20:00 UTC",
+  "updatedAt": "Jun 26 2026, 22:18 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -27,8 +27,8 @@
       "country": "France",
       "team_id": 773,
       "stage": 0,
-      "gf": 6,
-      "ga": 1,
+      "gf": 10,
+      "ga": 2,
       "nextGame": {
         "opponent": "Norway",
         "homeAway": "at",
@@ -179,8 +179,8 @@
       "country": "Norway",
       "team_id": 8872,
       "stage": 0,
-      "gf": 7,
-      "ga": 3,
+      "gf": 8,
+      "ga": 7,
       "nextGame": {
         "opponent": "France",
         "homeAway": "vs",
