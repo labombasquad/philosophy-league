@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 27 2026, 04:56 UTC",
+  "updatedAt": "Jun 27 2026, 07:53 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -217,8 +217,8 @@
       "country": "Belgium",
       "team_id": 805,
       "stage": 0,
-      "gf": 1,
-      "ga": 1,
+      "gf": 6,
+      "ga": 2,
       "nextGame": {
         "opponent": "New Zealand",
         "homeAway": "at",
