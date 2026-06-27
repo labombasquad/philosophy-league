@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 27 2026, 00:14 UTC",
+  "updatedAt": "Jun 27 2026, 04:56 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -46,7 +46,7 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 0,
-      "gf": 4,
+      "gf": 5,
       "ga": 0,
       "nextGame": {
         "opponent": "Uruguay",
