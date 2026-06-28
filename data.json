@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 27 2026, 22:07 UTC",
+  "updatedAt": "Jun 28 2026, 00:08 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -8,7 +8,7 @@
       "country": "England",
       "team_id": 770,
       "stage": 0,
-      "gf": 4,
+      "gf": 6,
       "ga": 2,
       "nextGame": {
         "opponent": "Panama",
