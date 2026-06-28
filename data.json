@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 28 2026, 00:08 UTC",
+  "updatedAt": "Jun 28 2026, 05:21 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -65,8 +65,8 @@
       "country": "Argentina",
       "team_id": 762,
       "stage": 0,
-      "gf": 5,
-      "ga": 0,
+      "gf": 8,
+      "ga": 1,
       "nextGame": {
         "opponent": "Jordan",
         "homeAway": "at",
