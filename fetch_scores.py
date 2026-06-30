@@ -283,9 +283,19 @@ def main():
                         team_won = (winner == "AWAY_TEAM")
 
                     if FINAL_STAGE and stage_str == FINAL_STAGE:
+                        # Final winner = champion, final loser = runner-up.
                         effective = top_rank + 1 if team_won else top_rank
                     else:
-                        effective = STAGE_RANK.get(stage_str, 0)
+                        current_round_rank = STAGE_RANK.get(stage_str, 0)
+
+                        # For knockout rounds, a win means the team has reached
+                        # the NEXT stage. Example: winning LAST_32 means the
+                        # team is now in the Round of 16. A loss means they
+                        # finished in that current stage.
+                        if stage_str != "GROUP_STAGE" and team_won:
+                            effective = min(current_round_rank + 1, top_rank)
+                        else:
+                            effective = current_round_rank
 
                     if effective > s["best_stage"]:
                         s["best_stage"] = effective
