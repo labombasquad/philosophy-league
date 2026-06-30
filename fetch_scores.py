@@ -58,7 +58,9 @@ MANAGERS = [
 KNOWN_STAGE_LABELS = {
     "GROUP_STAGE":    "Group Stage",
     "ROUND_OF_32":    "Round of 32",
+    "LAST_32":        "Round of 32",   # confirmed: this is what football-data.org actually returns
     "ROUND_OF_16":    "Round of 16",
+    "LAST_16":        "Round of 16",   # defensive alias, in case they use the same LAST_X convention
     "QUARTER_FINALS": "Quarterfinals",
     "SEMI_FINALS":    "Semifinals",
     "THIRD_PLACE":    "3rd Place",
@@ -68,7 +70,9 @@ KNOWN_STAGE_LABELS = {
 SHORT_STAGE_LABELS = {
     "GROUP_STAGE":    "Groups",
     "ROUND_OF_32":    "R32",
+    "LAST_32":        "R32",
     "ROUND_OF_16":    "R16",
+    "LAST_16":        "R16",
     "QUARTER_FINALS": "QF",
     "SEMI_FINALS":    "SF",
     "THIRD_PLACE":    "3rd Place",
