@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 05:09 UTC",
+  "updatedAt": "Jun 30 2026, 09:51 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -178,7 +178,7 @@
       "stage": 1,
       "stageLabel": "Eliminated – R32",
       "eliminated": true,
-      "gf": 14,
+      "gf": 13,
       "ga": 8,
       "nextGame": {
         "opponent": "TBD",
