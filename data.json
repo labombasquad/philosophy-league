@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 18:02 UTC",
+  "updatedAt": "Jun 30 2026, 20:59 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -196,17 +196,17 @@
       "flag": "🇳🇴",
       "country": "Norway",
       "team_id": 8872,
-      "stage": 1,
-      "stageLabel": "Round of 32",
+      "stage": 2,
+      "stageLabel": "Round of 16",
       "eliminated": false,
-      "gf": 8,
-      "ga": 7,
+      "gf": 10,
+      "ga": 8,
       "nextGame": {
-        "opponent": "Ivory Coast",
-        "homeAway": "at",
-        "timeCT": "Tue, Jun 30 at 12:00 PM CT",
-        "iso": "2026-06-30T12:00:00-05:00",
-        "round": "Round of 32",
+        "opponent": "Winner of Brazil/Japan",
+        "homeAway": "vs",
+        "timeCT": "Sun, Jul 5 at 3:00 PM CT",
+        "iso": "2026-07-05T15:00:00-05:00",
+        "round": "Round of 16",
         "venue": ""
       },
       "draftSlot": null
