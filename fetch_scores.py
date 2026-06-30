@@ -118,6 +118,67 @@ def get_next_game(country, fixtures_by_country, eliminated=False):
     return games[-1]
 
 
+ROUND_LABEL = {
+    "GROUP_STAGE":    "Group Stage",
+    "ROUND_OF_32":    "Round of 32",
+    "ROUND_OF_16":    "Round of 16",
+    "QUARTER_FINALS": "Quarterfinals",
+    "SEMI_FINALS":    "Semifinals",
+    "THIRD_PLACE":    "3rd Place Match",
+    "FINAL":          "Final",
+}
+
+def utc_iso_to_ct(utc_date_str):
+    """football-data.org returns UTC ISO timestamps. Convert to a CT-labeled
+    display string. WC games run June–July, which is CDT (UTC-5)."""
+    try:
+        dt_utc = datetime.fromisoformat(utc_date_str.replace("Z", "+00:00"))
+    except ValueError:
+        return utc_date_str, None
+    from datetime import timedelta
+    dt_ct = dt_utc - timedelta(hours=5)
+    label = dt_ct.strftime("%a, %b %-d at %-I:%M %p CT")
+    iso_ct = dt_ct.strftime("%Y-%m-%dT%H:%M:%S-05:00")
+    return label, iso_ct
+
+
+def build_next_match_from_api(team_id, matches):
+    """Find this team's earliest non-finished match directly from the live
+    API schedule. Once a bracket slot resolves (e.g. 'Winner of R32 Match 4'
+    becomes 'Portugal'), football-data.org fills in the real team — so this
+    keeps next-round matchups, dates, and venues current automatically with
+    zero manual fixture editing."""
+    candidates = []
+    for m in matches:
+        if m.get("status") in ("FINISHED", "CANCELLED", "POSTPONED"):
+            continue
+        home = m.get("homeTeam") or {}
+        away = m.get("awayTeam") or {}
+        is_home = home.get("id") == team_id
+        is_away = away.get("id") == team_id
+        if not (is_home or is_away):
+            continue
+        candidates.append((m, is_home, home, away))
+
+    if not candidates:
+        return None
+
+    candidates.sort(key=lambda c: c[0].get("utcDate") or "9999")
+    m, is_home, home, away = candidates[0]
+    opp = away if is_home else home
+    opp_name = opp.get("name") or "TBD"
+    time_ct, iso_ct = utc_iso_to_ct(m.get("utcDate", "")) if m.get("utcDate") else ("TBD", None)
+
+    return {
+        "opponent": opp_name,
+        "homeAway": "vs" if is_home else "at",
+        "timeCT":   time_ct,
+        "iso":      iso_ct,
+        "round":    ROUND_LABEL.get(m.get("stage", ""), m.get("stage", "")),
+        "venue":    (m.get("venue") or ""),
+    }
+
+
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -127,12 +188,14 @@ def main():
     team_ids   = {m["team_id"] for m in MANAGERS}
     stats      = {m["team_id"]: {"gf": 0, "ga": 0, "best_stage": -1, "eliminated": False} for m in MANAGERS}
     fixtures_db = load_fixtures()
+    all_matches = []   # populated from API if token present; used for live next-match lookup
 
     if token:
         print("Fetching live World Cup scores from football-data.org…")
         try:
             data    = api_get("competitions/WC/matches", token)
             matches = data.get("matches", [])
+            all_matches = matches
             print(f"  {len(matches)} total matches in API response")
 
             finished = 0
@@ -196,7 +259,15 @@ def main():
         tid       = m["team_id"]
         s         = stats[tid]
         stage_val = s["best_stage"]
-        next_game = get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
+
+        # Prefer the live API schedule (auto-resolves real opponents as the
+        # bracket fills in); fall back to the static fixtures.json (mainly
+        # useful for the group stage, or when running without a token).
+        next_game = None
+        if not s["eliminated"] and all_matches:
+            next_game = build_next_match_from_api(tid, all_matches)
+        if next_game is None:
+            next_game = get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
 
         print(
             f"  {m['flag']} {m['country']:14s} ({m['manager']:8s}) → "
