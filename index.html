@@ -118,9 +118,11 @@ td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
 .p-third   { background: var(--bronze); color: #fff; }
 .p-semis   { background: var(--rust);   color: #fff; }
 .p-qtr     { background: #6a5238;       color: #fff; }
+.p-r32     { background: #a89878;       color: var(--ink); }
 .p-r16     { background: #8a7a62;       color: #fff; }
 .p-group   { background: #bfaf96;       color: var(--ink); }
 .p-pending { background: transparent;   color: var(--muted); border: 1px dashed var(--border2); }
+.p-eliminated { background: rgba(155,42,42,0.12); color: var(--red-neg); border: 1px solid rgba(155,42,42,0.3); }
 
 /* gd */
 .gp { color: var(--green-pos); font-weight: 700; }
@@ -345,8 +347,8 @@ const RANK_QUIPS = [
   "Closest to the ground, most grounded",
 ];
 
-const STAGE_LABEL = {'-1':'Pending','0':'Group Stage','1':'Round of 16','2':'Quarterfinals','3':'Semifinals','4':'3rd Place','5':'Runner-Up','6':'Champion 🏆'};
-const STAGE_CLASS = {'-1':'p-pending','0':'p-group','1':'p-r16','2':'p-qtr','3':'p-semis','4':'p-third','5':'p-final','6':'p-champ'};
+const STAGE_LABEL = {'-1':'Pending','0':'Group Stage','1':'Round of 32','2':'Round of 16','3':'Quarterfinals','4':'Semifinals','5':'3rd Place','6':'Runner-Up','7':'Champion 🏆'};
+const STAGE_CLASS = {'-1':'p-pending','0':'p-group','1':'p-r32','2':'p-r16','3':'p-qtr','4':'p-semis','5':'p-third','6':'p-final','7':'p-champ'};
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
 let live      = [];
@@ -397,11 +399,12 @@ function setStatus(type, text, time) {
 }
 
 // ── NEXT MATCH HELPERS ────────────────────────────────────────────────────────
-function nextMatchHTML(ng, tableMode) {
+function nextMatchHTML(ng, tableMode, eliminated) {
   if (!ng || !ng.opponent || ng.opponent === 'TBD') {
+    const msg = eliminated ? 'Eliminated' : 'No upcoming match';
     return tableMode
-      ? `<span class="nm-none">No upcoming match</span>`
-      : `<span class="card-next-none">No upcoming match</span>`;
+      ? `<span class="nm-none">${msg}</span>`
+      : `<span class="card-next-none">${msg}</span>`;
   }
 
   const countdown = ng.iso ? formatCountdown(ng.iso) : null;
@@ -507,14 +510,17 @@ function renderTable(ranked) {
     const quip    = e.rank ? (RANK_QUIPS[e.rank-1]||RANK_QUIPS[11]) : 'Fate undecided';
     const dsCell  = e.draftSlot ? `<span class="ds">${e.draftSlot}</span>` : `<span class="ds tbd">TBD</span>`;
     const eid = x(String(e.id || e.team_id));
+    const elim = !!e.eliminated;
+    const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
+    const pillTxt = elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending');
     return `<tr class="${rowCls}" title="${x(quip)}">
       <td class="c"><span class="rb">${rn}</span></td>
       <td><div style="line-height:1.3"><div class="mgr">${x(e.manager)}</div><div class="mgr-sub">${known?'Competing':'Awaiting Fate'}</div></div></td>
       <td><div class="cc"><span class="fl">${x(e.flag||'🏳')}</span><span class="cn">${x(e.country)}</span></div></td>
-      <td><span class="pill ${STAGE_CLASS[sk]||'p-pending'}">${STAGE_LABEL[sk]||'Pending'}</span></td>
+      <td><span class="pill ${pillCls}">${pillTxt}</span></td>
       <td class="c ${gdCls}">${known?gdStr:'–'}</td>
       <td class="c">${known?e.gf:'–'}</td>
-      <td>${nextMatchHTML(e.nextGame, true)}</td>
+      <td>${nextMatchHTML(e.nextGame, true, elim)}</td>
       <td class="c">${dsCell}</td>
       <td class="c"><button class="btn-edit" onclick="openDraft('${eid}')">Edit Pick</button></td>
     </tr>`;
@@ -543,6 +549,9 @@ function renderCards(ranked) {
       : `<span class="stat-val tbd-val">TBD</span>`;
     const eid = x(String(e.id || e.team_id));
     const hasNext = e.nextGame && e.nextGame.opponent && e.nextGame.opponent !== 'TBD';
+    const elim = !!e.eliminated;
+    const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
+    const pillTxt = elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending');
 
     return `<div class="card ${cardCls}">
       <div class="card-top">
@@ -555,14 +564,14 @@ function renderCards(ranked) {
           </div>
         </div>
         <div class="card-stage">
-          <span class="pill ${STAGE_CLASS[sk]||'p-pending'}">${STAGE_LABEL[sk]||'Pending'}</span>
+          <span class="pill ${pillCls}">${pillTxt}</span>
         </div>
       </div>
       <div class="card-next">
         <div class="card-next-icon">⚽</div>
         <div class="card-next-info">
           <div class="card-next-label">Next Match</div>
-          ${hasNext ? nextMatchHTML(e.nextGame, false) : '<span class="card-next-none">No upcoming match</span>'}
+          ${hasNext ? nextMatchHTML(e.nextGame, false, elim) : `<span class="card-next-none">${elim?'Eliminated':'No upcoming match'}</span>`}
         </div>
       </div>
       <div class="card-stats">
