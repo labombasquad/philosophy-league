@@ -169,6 +169,112 @@ def get_next_game(country, fixtures_by_country, eliminated=False):
     return games[-1]
 
 
+# ── BRACKET FALLBACKS ─────────────────────────────────────────────────────────
+# football-data.org is the source of truth when it has a real opponent attached.
+# These fallbacks are only used when the API has not resolved a future bracket
+# slot yet, such as "Portugal vs TBD" after Portugal wins the Round of 32.
+#
+# Times are Central Time.
+
+def norm_name(value):
+    return str(value or "").lower().replace("&", "and").replace("-", " ").strip()
+
+
+def name_in(country, names):
+    c = norm_name(country)
+    return any(c == norm_name(n) for n in names)
+
+
+def make_fallback(opponent, home_away, time_ct, iso, round_name, venue=""):
+    return {
+        "opponent": opponent,
+        "homeAway": home_away,
+        "timeCT": time_ct,
+        "iso": iso,
+        "round": round_name,
+        "venue": venue
+    }
+
+
+R32_WINNER_FALLBACKS = [
+    # Round of 32 winners -> Round of 16
+    ({"South Africa", "Canada"}, "Winner of Netherlands/Morocco", "vs", "Sat, Jul 4 at 12:00 PM CT", "2026-07-04T12:00:00-05:00"),
+    ({"Netherlands", "Morocco"}, "Winner of Canada/South Africa", "vs", "Sat, Jul 4 at 12:00 PM CT", "2026-07-04T12:00:00-05:00"),
+
+    ({"Germany", "Paraguay"}, "Winner of France/Sweden", "vs", "Sat, Jul 4 at 4:00 PM CT", "2026-07-04T16:00:00-05:00"),
+    ({"France", "Sweden"}, "Winner of Germany/Paraguay", "vs", "Sat, Jul 4 at 4:00 PM CT", "2026-07-04T16:00:00-05:00"),
+
+    ({"Brazil", "Japan"}, "Winner of Ivory Coast/Norway", "vs", "Sun, Jul 5 at 3:00 PM CT", "2026-07-05T15:00:00-05:00"),
+    ({"Ivory Coast", "Norway"}, "Winner of Brazil/Japan", "vs", "Sun, Jul 5 at 3:00 PM CT", "2026-07-05T15:00:00-05:00"),
+
+    ({"Mexico", "Ecuador"}, "Winner of England/DR Congo", "vs", "Sun, Jul 5 at 7:00 PM CT", "2026-07-05T19:00:00-05:00"),
+    ({"England", "Congo DR", "DR Congo"}, "Winner of Mexico/Ecuador", "vs", "Sun, Jul 5 at 7:00 PM CT", "2026-07-05T19:00:00-05:00"),
+
+    ({"Portugal", "Croatia"}, "Winner of Spain/Austria", "vs", "Mon, Jul 6 at 2:00 PM CT", "2026-07-06T14:00:00-05:00"),
+    ({"Spain", "Austria"}, "Winner of Portugal/Croatia", "vs", "Mon, Jul 6 at 2:00 PM CT", "2026-07-06T14:00:00-05:00"),
+
+    ({"United States", "USA", "Bosnia and Herzegovina", "Bosnia-Herzegovina"}, "Winner of Belgium/Senegal", "vs", "Mon, Jul 6 at 7:00 PM CT", "2026-07-06T19:00:00-05:00"),
+    ({"Belgium", "Senegal"}, "Winner of USA/Bosnia-Herzegovina", "vs", "Mon, Jul 6 at 7:00 PM CT", "2026-07-06T19:00:00-05:00"),
+
+    ({"Australia", "Egypt"}, "Winner of Argentina/Cape Verde", "vs", "Tue, Jul 7 at 11:00 AM CT", "2026-07-07T11:00:00-05:00"),
+    ({"Argentina", "Cape Verde", "Cape Verde Islands"}, "Winner of Australia/Egypt", "vs", "Tue, Jul 7 at 11:00 AM CT", "2026-07-07T11:00:00-05:00"),
+
+    ({"Switzerland", "Algeria"}, "Winner of Colombia/Ghana", "vs", "Tue, Jul 7 at 3:00 PM CT", "2026-07-07T15:00:00-05:00"),
+    ({"Colombia", "Ghana"}, "Winner of Switzerland/Algeria", "vs", "Tue, Jul 7 at 3:00 PM CT", "2026-07-07T15:00:00-05:00"),
+]
+
+
+QF_FALLBACKS = [
+    # Round of 16 winners -> Quarterfinals
+    ({"Canada", "South Africa", "Morocco", "Netherlands"}, "Winner of Paraguay/France/Sweden", "vs", "Thu, Jul 9 at 3:00 PM CT", "2026-07-09T15:00:00-05:00"),
+    ({"Germany", "Paraguay", "France", "Sweden"}, "Winner of Canada/Morocco", "vs", "Thu, Jul 9 at 3:00 PM CT", "2026-07-09T15:00:00-05:00"),
+
+    ({"Portugal", "Croatia", "Spain", "Austria"}, "Winner of USA/Belgium/Senegal", "vs", "Fri, Jul 10 at 2:00 PM CT", "2026-07-10T14:00:00-05:00"),
+    ({"United States", "USA", "Bosnia and Herzegovina", "Bosnia-Herzegovina", "Belgium", "Senegal"}, "Winner of Portugal/Spain", "vs", "Fri, Jul 10 at 2:00 PM CT", "2026-07-10T14:00:00-05:00"),
+
+    ({"Brazil", "Japan", "Ivory Coast", "Norway"}, "Winner of Mexico/England/Ecuador/DR Congo", "vs", "Sat, Jul 11 at 4:00 PM CT", "2026-07-11T16:00:00-05:00"),
+    ({"Mexico", "Ecuador", "England", "Congo DR", "DR Congo"}, "Winner of Brazil/Norway", "vs", "Sat, Jul 11 at 4:00 PM CT", "2026-07-11T16:00:00-05:00"),
+
+    ({"Argentina", "Cape Verde", "Cape Verde Islands", "Australia", "Egypt"}, "Winner of Switzerland/Colombia/Ghana/Algeria", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
+    ({"Switzerland", "Algeria", "Colombia", "Ghana"}, "Winner of Argentina/Australia/Egypt", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
+]
+
+
+SF_FALLBACKS = [
+    # Quarterfinal winners -> Semifinals
+    ({"Canada", "South Africa", "Morocco", "Netherlands", "Germany", "Paraguay", "France", "Sweden"}, "Winner of Portugal/Spain/USA/Belgium", "vs", "Tue, Jul 14 at 2:00 PM CT", "2026-07-14T14:00:00-05:00"),
+    ({"Portugal", "Croatia", "Spain", "Austria", "United States", "USA", "Bosnia and Herzegovina", "Bosnia-Herzegovina", "Belgium", "Senegal"}, "Winner of Canada/Morocco/France/Paraguay", "vs", "Tue, Jul 14 at 2:00 PM CT", "2026-07-14T14:00:00-05:00"),
+
+    ({"Brazil", "Japan", "Ivory Coast", "Norway", "Mexico", "Ecuador", "England", "Congo DR", "DR Congo"}, "Winner of Argentina/Australia/Colombia/Ghana", "vs", "Wed, Jul 15 at 2:00 PM CT", "2026-07-15T14:00:00-05:00"),
+    ({"Argentina", "Cape Verde", "Cape Verde Islands", "Australia", "Egypt", "Switzerland", "Algeria", "Colombia", "Ghana"}, "Winner of Brazil/Mexico/England/Norway", "vs", "Wed, Jul 15 at 2:00 PM CT", "2026-07-15T14:00:00-05:00"),
+]
+
+
+def get_bracket_fallback(country, stage_val):
+    """Return a bracket-path fallback for teams that have advanced but whose
+    next opponent has not resolved in football-data.org yet."""
+    r16_rank = STAGE_RANK.get("ROUND_OF_16", STAGE_RANK.get("LAST_16", 2))
+    qf_rank = STAGE_RANK.get("QUARTER_FINALS", 3)
+    sf_rank = STAGE_RANK.get("SEMI_FINALS", 4)
+
+    if stage_val == r16_rank:
+        for names, opponent, ha, time_ct, iso in R32_WINNER_FALLBACKS:
+            if name_in(country, names):
+                return make_fallback(opponent, ha, time_ct, iso, "Round of 16")
+
+    if stage_val == qf_rank:
+        for names, opponent, ha, time_ct, iso in QF_FALLBACKS:
+            if name_in(country, names):
+                return make_fallback(opponent, ha, time_ct, iso, "Quarterfinals")
+
+    if stage_val == sf_rank:
+        for names, opponent, ha, time_ct, iso in SF_FALLBACKS:
+            if name_in(country, names):
+                return make_fallback(opponent, ha, time_ct, iso, "Semifinals")
+
+    return None
+
+
 def utc_iso_to_ct(utc_date_str):
     """football-data.org returns UTC ISO timestamps. Convert to a CT-labeled
     display string. WC games run June–July, which is CDT (UTC-5)."""
@@ -288,10 +394,9 @@ def main():
                     else:
                         current_round_rank = STAGE_RANK.get(stage_str, 0)
 
-                        # For knockout rounds, a win means the team has reached
-                        # the NEXT stage. Example: winning LAST_32 means the
-                        # team is now in the Round of 16. A loss means they
-                        # finished in that current stage.
+                        # In knockout play, a win means the team has reached
+                        # the next stage. Example: winning LAST_32 means the
+                        # team is now in the Round of 16.
                         if stage_str != "GROUP_STAGE" and team_won:
                             effective = min(current_round_rank + 1, top_rank)
                         else:
@@ -336,8 +441,34 @@ def main():
         next_game = None
         if not s["eliminated"] and all_matches:
             next_game = build_next_match_from_api(tid, all_matches)
+
+        # If the API has the future match but not the opponent yet, prefer the
+        # known bracket path over a plain TBD.
+        api_opponent_unresolved = (
+            next_game is not None and
+            (not next_game.get("opponent") or "TBD" in str(next_game.get("opponent", "")).upper())
+        )
+        if api_opponent_unresolved:
+            fb = get_bracket_fallback(m["country"], stage_val)
+            if fb:
+                next_game = fb
+
         if next_game is None:
-            next_game = get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
+            fb = get_bracket_fallback(m["country"], stage_val)
+            next_game = fb or get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
+
+        # If fallback/static data points to a past match after the team has
+        # advanced, try the bracket fallback again. This avoids stale entries
+        # like Brazil still showing Japan after Brazil won the R32 match.
+        if not s["eliminated"] and next_game and next_game.get("iso"):
+            try:
+                ng_time = datetime.fromisoformat(next_game["iso"])
+                if ng_time.timestamp() < datetime.now(timezone.utc).timestamp() - 10800:
+                    fb = get_bracket_fallback(m["country"], stage_val)
+                    if fb:
+                        next_game = fb
+            except ValueError:
+                pass
 
         # A team that has QUALIFIED for a later round but hasn't played it yet
         # would otherwise still show "Group Stage" (best_stage only advances on
