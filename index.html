@@ -348,6 +348,7 @@ const RANK_QUIPS = [
 ];
 
 const STAGE_LABEL = {'-1':'Pending','0':'Group Stage','1':'Round of 32','2':'Round of 16','3':'Quarterfinals','4':'Semifinals','5':'3rd Place','6':'Runner-Up','7':'Champion 🏆'};
+const STAGE_LABEL_SHORT = {'-1':'Pending','0':'Groups','1':'R32','2':'R16','3':'QF','4':'SF','5':'3rd Place','6':'Final','7':'Champion'};
 const STAGE_CLASS = {'-1':'p-pending','0':'p-group','1':'p-r32','2':'p-r16','3':'p-qtr','4':'p-semis','5':'p-third','6':'p-final','7':'p-champ'};
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
@@ -512,7 +513,7 @@ function renderTable(ranked) {
     const eid = x(String(e.id || e.team_id));
     const elim = !!e.eliminated;
     const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
-    const pillTxt = elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending');
+    const pillTxt = elim ? `Eliminated &#8211; ${STAGE_LABEL_SHORT[sk]||'Knockout'}` : (STAGE_LABEL[sk]||'Pending');
     return `<tr class="${rowCls}" title="${x(quip)}">
       <td class="c"><span class="rb">${rn}</span></td>
       <td><div style="line-height:1.3"><div class="mgr">${x(e.manager)}</div><div class="mgr-sub">${known?'Competing':'Awaiting Fate'}</div></div></td>
@@ -551,7 +552,7 @@ function renderCards(ranked) {
     const hasNext = e.nextGame && e.nextGame.opponent && e.nextGame.opponent !== 'TBD';
     const elim = !!e.eliminated;
     const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
-    const pillTxt = elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending');
+    const pillTxt = elim ? `Eliminated &#8211; ${STAGE_LABEL_SHORT[sk]||'Knockout'}` : (STAGE_LABEL[sk]||'Pending');
 
     return `<div class="card ${cardCls}">
       <div class="card-top">
