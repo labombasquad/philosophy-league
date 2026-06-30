@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 00:11 UTC",
+  "updatedAt": "Jun 30 2026, 04:07 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -8,15 +8,16 @@
       "country": "England",
       "team_id": 770,
       "stage": 0,
+      "eliminated": false,
       "gf": 6,
       "ga": 2,
       "nextGame": {
-        "opponent": "Panama",
-        "homeAway": "at",
-        "timeCT": "Sat, Jun 27 at 4:00 PM CT",
-        "iso": "2026-06-27T16:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "New York New Jersey Stadium"
+        "opponent": "DR Congo",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jul 1 at 11:00 AM CT",
+        "iso": "2026-07-01T11:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "Mercedes-Benz Stadium, Atlanta"
       },
       "draftSlot": null
     },
@@ -27,15 +28,16 @@
       "country": "France",
       "team_id": 773,
       "stage": 0,
+      "eliminated": false,
       "gf": 10,
       "ga": 2,
       "nextGame": {
-        "opponent": "Norway",
-        "homeAway": "at",
-        "timeCT": "Fri, Jun 26 at 2:00 PM CT",
-        "iso": "2026-06-26T14:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Boston Stadium"
+        "opponent": "Sweden",
+        "homeAway": "vs",
+        "timeCT": "Tue, Jun 30 at 4:00 PM CT",
+        "iso": "2026-06-30T16:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "MetLife Stadium, East Rutherford"
       },
       "draftSlot": null
     },
@@ -46,15 +48,16 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 0,
+      "eliminated": false,
       "gf": 5,
       "ga": 0,
       "nextGame": {
-        "opponent": "Uruguay",
-        "homeAway": "at",
-        "timeCT": "Fri, Jun 26 at 7:00 PM CT",
-        "iso": "2026-06-26T19:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Estadio Guadalajara"
+        "opponent": "Austria",
+        "homeAway": "vs",
+        "timeCT": "Thu, Jul 2 at 2:00 PM CT",
+        "iso": "2026-07-02T14:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "SoFi Stadium, Inglewood"
       },
       "draftSlot": null
     },
@@ -65,15 +68,16 @@
       "country": "Argentina",
       "team_id": 762,
       "stage": 0,
+      "eliminated": false,
       "gf": 8,
       "ga": 1,
       "nextGame": {
-        "opponent": "Jordan",
-        "homeAway": "at",
-        "timeCT": "Sat, Jun 27 at 9:00 PM CT",
-        "iso": "2026-06-27T21:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Dallas Stadium"
+        "opponent": "Cape Verde",
+        "homeAway": "vs",
+        "timeCT": "Fri, Jul 3 at 5:00 PM CT",
+        "iso": "2026-07-03T17:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "Hard Rock Stadium, Miami Gardens"
       },
       "draftSlot": null
     },
@@ -84,15 +88,16 @@
       "country": "USA",
       "team_id": 771,
       "stage": 0,
+      "eliminated": false,
       "gf": 8,
       "ga": 4,
       "nextGame": {
-        "opponent": "Turkey",
-        "homeAway": "at",
-        "timeCT": "Thu, Jun 25 at 9:00 PM CT",
-        "iso": "2026-06-25T21:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Los Angeles Stadium"
+        "opponent": "Bosnia and Herzegovina",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jul 1 at 7:00 PM CT",
+        "iso": "2026-07-01T19:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "Levi's Stadium, Santa Clara"
       },
       "draftSlot": null
     },
@@ -103,15 +108,16 @@
       "country": "Brazil",
       "team_id": 764,
       "stage": 0,
+      "eliminated": false,
       "gf": 9,
       "ga": 2,
       "nextGame": {
-        "opponent": "Scotland",
-        "homeAway": "at",
-        "timeCT": "Wed, Jun 24 at 5:00 PM CT",
-        "iso": "2026-06-24T17:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Miami Stadium"
+        "opponent": "Japan",
+        "homeAway": "vs",
+        "timeCT": "Mon, Jun 29 at 1:00 PM CT",
+        "iso": "2026-06-29T13:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "NRG Stadium, Houston"
       },
       "draftSlot": null
     },
@@ -122,15 +128,16 @@
       "country": "Portugal",
       "team_id": 765,
       "stage": 0,
+      "eliminated": false,
       "gf": 6,
       "ga": 1,
       "nextGame": {
-        "opponent": "Colombia",
-        "homeAway": "at",
-        "timeCT": "Sat, Jun 27 at 6:30 PM CT",
-        "iso": "2026-06-27T18:30:00-05:00",
-        "round": "Group Stage",
-        "venue": "Miami Stadium"
+        "opponent": "Croatia",
+        "homeAway": "vs",
+        "timeCT": "Thu, Jul 2 at 6:00 PM CT",
+        "iso": "2026-07-02T18:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "BMO Field, Toronto"
       },
       "draftSlot": null
     },
@@ -141,15 +148,16 @@
       "country": "Germany",
       "team_id": 759,
       "stage": 0,
-      "gf": 15,
-      "ga": 10,
+      "eliminated": true,
+      "gf": 14,
+      "ga": 9,
       "nextGame": {
-        "opponent": "Ecuador",
-        "homeAway": "at",
-        "timeCT": "Thu, Jun 25 at 3:00 PM CT",
-        "iso": "2026-06-25T15:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "New York New Jersey Stadium"
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
+        "venue": ""
       },
       "draftSlot": null
     },
@@ -160,15 +168,16 @@
       "country": "Netherlands",
       "team_id": 8601,
       "stage": 0,
-      "gf": 10,
-      "ga": 4,
+      "eliminated": true,
+      "gf": 14,
+      "ga": 8,
       "nextGame": {
-        "opponent": "Tunisia",
-        "homeAway": "at",
-        "timeCT": "Thu, Jun 25 at 6:00 PM CT",
-        "iso": "2026-06-25T18:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Kansas City Stadium"
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
+        "venue": ""
       },
       "draftSlot": null
     },
@@ -179,15 +188,16 @@
       "country": "Norway",
       "team_id": 8872,
       "stage": 0,
+      "eliminated": false,
       "gf": 8,
       "ga": 7,
       "nextGame": {
-        "opponent": "France",
+        "opponent": "Ivory Coast",
         "homeAway": "vs",
-        "timeCT": "Fri, Jun 26 at 2:00 PM CT",
-        "iso": "2026-06-26T14:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Boston Stadium"
+        "timeCT": "Tue, Jun 30 at 1:00 PM CT",
+        "iso": "2026-06-30T13:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "AT&T Stadium, Arlington"
       },
       "draftSlot": null
     },
@@ -198,15 +208,16 @@
       "country": "Mexico",
       "team_id": 769,
       "stage": 0,
+      "eliminated": false,
       "gf": 6,
       "ga": 0,
       "nextGame": {
-        "opponent": "Czechia",
-        "homeAway": "at",
-        "timeCT": "Wed, Jun 24 at 8:00 PM CT",
-        "iso": "2026-06-24T20:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "Mexico City Stadium"
+        "opponent": "Ecuador",
+        "homeAway": "vs",
+        "timeCT": "Tue, Jun 30 at 9:00 PM CT",
+        "iso": "2026-06-30T21:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "Estadio Azteca, Mexico City"
       },
       "draftSlot": null
     },
@@ -217,15 +228,16 @@
       "country": "Belgium",
       "team_id": 805,
       "stage": 0,
+      "eliminated": false,
       "gf": 6,
       "ga": 2,
       "nextGame": {
-        "opponent": "New Zealand",
-        "homeAway": "at",
-        "timeCT": "Fri, Jun 26 at 10:00 PM CT",
-        "iso": "2026-06-26T22:00:00-05:00",
-        "round": "Group Stage",
-        "venue": "BC Place Vancouver"
+        "opponent": "Senegal",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jul 1 at 3:00 PM CT",
+        "iso": "2026-07-01T15:00:00-05:00",
+        "round": "Round of 32",
+        "venue": "Lumen Field, Seattle"
       },
       "draftSlot": null
     }
