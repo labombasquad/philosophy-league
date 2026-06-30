@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 29 2026, 22:13 UTC",
+  "updatedAt": "Jun 30 2026, 00:11 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -141,8 +141,8 @@
       "country": "Germany",
       "team_id": 759,
       "stage": 0,
-      "gf": 10,
-      "ga": 4,
+      "gf": 15,
+      "ga": 10,
       "nextGame": {
         "opponent": "Ecuador",
         "homeAway": "at",
