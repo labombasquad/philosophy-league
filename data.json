@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 04:23 UTC",
+  "updatedAt": "Jun 30 2026, 04:27 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -8,7 +8,7 @@
       "country": "England",
       "team_id": 770,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 6,
       "ga": 2,
@@ -17,7 +17,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 11:00 AM CT",
         "iso": "2026-07-01T11:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -29,7 +29,7 @@
       "country": "France",
       "team_id": 773,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 10,
       "ga": 2,
@@ -38,7 +38,7 @@
         "homeAway": "vs",
         "timeCT": "Tue, Jun 30 at 4:00 PM CT",
         "iso": "2026-06-30T16:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -50,7 +50,7 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 5,
       "ga": 0,
@@ -59,7 +59,7 @@
         "homeAway": "vs",
         "timeCT": "Thu, Jul 2 at 2:00 PM CT",
         "iso": "2026-07-02T14:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -71,7 +71,7 @@
       "country": "Argentina",
       "team_id": 762,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 8,
       "ga": 1,
@@ -80,7 +80,7 @@
         "homeAway": "vs",
         "timeCT": "Fri, Jul 3 at 5:00 PM CT",
         "iso": "2026-07-03T17:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -92,7 +92,7 @@
       "country": "USA",
       "team_id": 771,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 8,
       "ga": 4,
@@ -101,7 +101,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 7:00 PM CT",
         "iso": "2026-07-01T19:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -113,7 +113,7 @@
       "country": "Brazil",
       "team_id": 764,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 9,
       "ga": 2,
@@ -134,7 +134,7 @@
       "country": "Portugal",
       "team_id": 765,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 6,
       "ga": 1,
@@ -143,7 +143,7 @@
         "homeAway": "vs",
         "timeCT": "Thu, Jul 2 at 6:00 PM CT",
         "iso": "2026-07-02T18:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -155,7 +155,7 @@
       "country": "Germany",
       "team_id": 759,
       "stage": 1,
-      "stageLabel": "Eliminated – Last 32",
+      "stageLabel": "Eliminated – R32",
       "eliminated": true,
       "gf": 14,
       "ga": 9,
@@ -176,9 +176,9 @@
       "country": "Netherlands",
       "team_id": 8601,
       "stage": 1,
-      "stageLabel": "Eliminated – Last 32",
+      "stageLabel": "Eliminated – R32",
       "eliminated": true,
-      "gf": 13,
+      "gf": 14,
       "ga": 8,
       "nextGame": {
         "opponent": "TBD",
@@ -197,7 +197,7 @@
       "country": "Norway",
       "team_id": 8872,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 8,
       "ga": 7,
@@ -206,7 +206,7 @@
         "homeAway": "at",
         "timeCT": "Tue, Jun 30 at 12:00 PM CT",
         "iso": "2026-06-30T12:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -218,7 +218,7 @@
       "country": "Mexico",
       "team_id": 769,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 6,
       "ga": 0,
@@ -227,7 +227,7 @@
         "homeAway": "vs",
         "timeCT": "Tue, Jun 30 at 8:00 PM CT",
         "iso": "2026-06-30T20:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
@@ -239,7 +239,7 @@
       "country": "Belgium",
       "team_id": 805,
       "stage": 1,
-      "stageLabel": "Last 32",
+      "stageLabel": "Round of 32",
       "eliminated": false,
       "gf": 6,
       "ga": 2,
@@ -248,7 +248,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 3:00 PM CT",
         "iso": "2026-07-01T15:00:00-05:00",
-        "round": "Last 32",
+        "round": "Round of 32",
         "venue": ""
       },
       "draftSlot": null
