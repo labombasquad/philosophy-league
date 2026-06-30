@@ -47,22 +47,24 @@ MANAGERS = [
 # football-data.org v4 stage strings → our numeric rank (higher = further)
 STAGE_RANK = {
     "GROUP_STAGE":    0,
-    "ROUND_OF_16":    1,
-    "QUARTER_FINALS": 2,
-    "SEMI_FINALS":    3,
-    "THIRD_PLACE":    4,
-    # FINAL: winner → 6, loser → 5 (handled separately below)
+    "ROUND_OF_32":    1,   # new for the 48-team 2026 format — was missing, causing every
+    "ROUND_OF_16":    2,   # R32 match to silently fall back to "Group Stage" (rank 0)
+    "QUARTER_FINALS": 3,
+    "SEMI_FINALS":    4,
+    "THIRD_PLACE":    5,
+    # FINAL: winner → 7, loser → 6 (handled separately below)
 }
 
 STAGE_DISPLAY = {
     -1: "Pending",
     0:  "Group Stage",
-    1:  "Round of 16",
-    2:  "Quarterfinals",
-    3:  "Semifinals",
-    4:  "3rd Place",
-    5:  "Runner-Up",
-    6:  "Champion 🏆",
+    1:  "Round of 32",
+    2:  "Round of 16",
+    3:  "Quarterfinals",
+    4:  "Semifinals",
+    5:  "3rd Place",
+    6:  "Runner-Up",
+    7:  "Champion 🏆",
 }
 
 # ── HELPERS ───────────────────────────────────────────────────────────────────
@@ -86,11 +88,14 @@ def load_fixtures():
         return json.load(f)
 
 
-def get_next_game(country, fixtures_by_country):
+def get_next_game(country, fixtures_by_country, eliminated=False):
     """Return the next upcoming (or soonest past) game for a country."""
     games = fixtures_by_country.get(country, [])
     if not games:
         return {"opponent": "TBD", "homeAway": "", "timeCT": "TBD", "iso": None, "round": "", "venue": ""}
+
+    if eliminated:
+        return {"opponent": "TBD", "homeAway": "", "timeCT": "Eliminated", "iso": None, "round": "", "venue": ""}
 
     now = datetime.now(timezone.utc)
 
@@ -107,7 +112,9 @@ def get_next_game(country, fixtures_by_country):
         else:
             return g  # no ISO, just return it
 
-    # All games are in the past — return the last one
+    # All games are in the past and the team is presumably still alive (no API
+    # token, or fixtures.json hasn't been extended to the next round yet) —
+    # return the last known game rather than inventing one.
     return games[-1]
 
 
@@ -118,7 +125,7 @@ def main():
 
     # Build accumulators for live scores
     team_ids   = {m["team_id"] for m in MANAGERS}
-    stats      = {m["team_id"]: {"gf": 0, "ga": 0, "best_stage": -1} for m in MANAGERS}
+    stats      = {m["team_id"]: {"gf": 0, "ga": 0, "best_stage": -1, "eliminated": False} for m in MANAGERS}
     fixtures_db = load_fixtures()
 
     if token:
@@ -155,12 +162,21 @@ def main():
                         team_won = (winner == "AWAY_TEAM")
 
                     if stage_str == "FINAL":
-                        effective = 6 if team_won else 5
+                        effective = 7 if team_won else 6
                     else:
                         effective = STAGE_RANK.get(stage_str, 0)
 
                     if effective > s["best_stage"]:
                         s["best_stage"] = effective
+
+                    # A knockout match (anything past Group Stage) that wasn't won
+                    # eliminates the team — including a Final loss (Runner-Up).
+                    if stage_str != "GROUP_STAGE" and not team_won:
+                        s["eliminated"] = True
+                    elif team_won:
+                        # Winning a later match un-sets a stale elimination flag
+                        # (shouldn't normally happen, but keeps state consistent).
+                        s["eliminated"] = False
 
             print(f"  {finished} finished matches processed")
 
@@ -180,27 +196,29 @@ def main():
         tid       = m["team_id"]
         s         = stats[tid]
         stage_val = s["best_stage"]
-        next_game = get_next_game(m["country"], fixtures_db)
+        next_game = get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
 
         print(
             f"  {m['flag']} {m['country']:14s} ({m['manager']:8s}) → "
             f"Stage: {STAGE_DISPLAY.get(stage_val, '?'):12s} "
+            f"{'[ELIMINATED] ' if s['eliminated'] else ''}"
             f"GF={s['gf']} GA={s['ga']} | "
             f"Next: {next_game.get('homeAway','')} {next_game.get('opponent','TBD')} "
             f"({next_game.get('timeCT','TBD')})"
         )
 
         results.append({
-            "id":        f"team-{tid}",
-            "manager":   m["manager"],
-            "flag":      m["flag"],
-            "country":   m["country"],
-            "team_id":   tid,
-            "stage":     stage_val,
-            "gf":        s["gf"],
-            "ga":        s["ga"],
-            "nextGame":  next_game,
-            "draftSlot": None,   # managed in the browser
+            "id":         f"team-{tid}",
+            "manager":    m["manager"],
+            "flag":       m["flag"],
+            "country":    m["country"],
+            "team_id":    tid,
+            "stage":      stage_val,
+            "eliminated": s["eliminated"],
+            "gf":         s["gf"],
+            "ga":         s["ga"],
+            "nextGame":   next_game,
+            "draftSlot":  None,   # managed in the browser
         })
 
     output = {
