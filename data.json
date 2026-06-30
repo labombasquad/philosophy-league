@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 04:11 UTC",
+  "updatedAt": "Jun 30 2026, 04:16 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -16,7 +16,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 11:00 AM CT",
         "iso": "2026-07-01T11:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -36,7 +36,7 @@
         "homeAway": "vs",
         "timeCT": "Tue, Jun 30 at 4:00 PM CT",
         "iso": "2026-06-30T16:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -56,7 +56,7 @@
         "homeAway": "vs",
         "timeCT": "Thu, Jul 2 at 2:00 PM CT",
         "iso": "2026-07-02T14:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -76,7 +76,7 @@
         "homeAway": "vs",
         "timeCT": "Fri, Jul 3 at 5:00 PM CT",
         "iso": "2026-07-03T17:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -96,7 +96,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 7:00 PM CT",
         "iso": "2026-07-01T19:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -107,7 +107,7 @@
       "flag": "🇧🇷",
       "country": "Brazil",
       "team_id": 764,
-      "stage": 0,
+      "stage": 1,
       "eliminated": false,
       "gf": 9,
       "ga": 2,
@@ -136,7 +136,7 @@
         "homeAway": "vs",
         "timeCT": "Thu, Jul 2 at 6:00 PM CT",
         "iso": "2026-07-02T18:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -147,7 +147,7 @@
       "flag": "🇩🇪",
       "country": "Germany",
       "team_id": 759,
-      "stage": 0,
+      "stage": 1,
       "eliminated": true,
       "gf": 14,
       "ga": 9,
@@ -167,7 +167,7 @@
       "flag": "🇳🇱",
       "country": "Netherlands",
       "team_id": 8601,
-      "stage": 0,
+      "stage": 1,
       "eliminated": true,
       "gf": 13,
       "ga": 8,
@@ -196,7 +196,7 @@
         "homeAway": "at",
         "timeCT": "Tue, Jun 30 at 12:00 PM CT",
         "iso": "2026-06-30T12:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -216,7 +216,7 @@
         "homeAway": "vs",
         "timeCT": "Tue, Jun 30 at 8:00 PM CT",
         "iso": "2026-06-30T20:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
@@ -236,7 +236,7 @@
         "homeAway": "vs",
         "timeCT": "Wed, Jul 1 at 3:00 PM CT",
         "iso": "2026-07-01T15:00:00-05:00",
-        "round": "LAST_32",
+        "round": "Last 32",
         "venue": ""
       },
       "draftSlot": null
