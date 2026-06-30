@@ -141,6 +141,7 @@ td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
 .nm-venue { font-size: 0.66rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 .nm-countdown { display: inline-block; margin-top: 2px; font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: 99px; background: rgba(30,45,30,0.12); color: var(--green-pos); border: 1px solid rgba(31,107,46,0.2); white-space: nowrap; }
 .nm-countdown.soon { background: rgba(155,58,24,0.1); color: var(--rust); border-color: rgba(155,58,24,0.25); }
+.nm-countdown.stale { background: rgba(122,106,82,0.12); color: var(--muted); border-color: rgba(122,106,82,0.25); font-style: italic; }
 .nm-none { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
 /* edit btn */
@@ -179,6 +180,7 @@ td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
 .card-next-venue { font-size: 0.68rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-next-countdown { display: inline-block; margin-top: 3px; font-size: 0.65rem; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: rgba(30,45,30,0.12); color: var(--green-pos); border: 1px solid rgba(31,107,46,0.2); }
 .card-next-countdown.soon { background: rgba(155,58,24,0.1); color: var(--rust); border-color: rgba(155,58,24,0.25); }
+.card-next-countdown.stale { background: rgba(122,106,82,0.12); color: var(--muted); border-color: rgba(122,106,82,0.25); font-style: italic; }
 .card-next-none { font-size: 0.78rem; color: var(--muted); font-style: italic; }
 
 .card-stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 9px 15px 11px; gap: 4px; }
@@ -409,7 +411,7 @@ function nextMatchHTML(ng, tableMode, eliminated) {
   }
 
   const countdown = ng.iso ? formatCountdown(ng.iso) : null;
-  const cdClass   = countdown && countdown.soon ? ' soon' : '';
+  const cdClass   = countdown && countdown.soon ? ' soon' : (countdown && countdown.stale ? ' stale' : '');
 
   if (tableMode) {
     return `
@@ -436,7 +438,15 @@ function formatCountdown(iso) {
   const now  = Date.now();
   const then = new Date(iso).getTime();
   const diff = then - now;
-  if (diff < 0) return { label: 'In progress / Finished', soon: false };
+  if (diff < 0) {
+    const hoursPast = -diff / 3600000;
+    // A match plausibly runs ~2h (90min + stoppage + halftime). Past that,
+    // this is almost certainly a finished result the hourly fetch hasn't
+    // caught up with yet, not a live match — say so plainly rather than
+    // leaving an ambiguous "in progress" label hanging around for hours.
+    if (hoursPast > 2.5) return { label: 'Result pending update', soon: false, stale: true };
+    return { label: 'In progress', soon: false };
+  }
   const h = Math.floor(diff / 3600000);
   const d = Math.floor(h / 24);
   const soon = h < 24;
@@ -513,7 +523,7 @@ function renderTable(ranked) {
     const eid = x(String(e.id || e.team_id));
     const elim = !!e.eliminated;
     const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
-    const pillTxt = elim ? `Eliminated &#8211; ${STAGE_LABEL_SHORT[sk]||'Knockout'}` : (STAGE_LABEL[sk]||'Pending');
+    const pillTxt = e.stageLabel || (elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending'));
     return `<tr class="${rowCls}" title="${x(quip)}">
       <td class="c"><span class="rb">${rn}</span></td>
       <td><div style="line-height:1.3"><div class="mgr">${x(e.manager)}</div><div class="mgr-sub">${known?'Competing':'Awaiting Fate'}</div></div></td>
@@ -552,7 +562,7 @@ function renderCards(ranked) {
     const hasNext = e.nextGame && e.nextGame.opponent && e.nextGame.opponent !== 'TBD';
     const elim = !!e.eliminated;
     const pillCls = elim ? 'p-eliminated' : (STAGE_CLASS[sk]||'p-pending');
-    const pillTxt = elim ? `Eliminated &#8211; ${STAGE_LABEL_SHORT[sk]||'Knockout'}` : (STAGE_LABEL[sk]||'Pending');
+    const pillTxt = e.stageLabel || (elim ? 'Eliminated' : (STAGE_LABEL[sk]||'Pending'));
 
     return `<div class="card ${cardCls}">
       <div class="card-top">
@@ -642,7 +652,7 @@ function exportCSV() {
   const rows = [['Rank','Manager','Country','Stage','GD','GF','GA','Next Opponent','Next Match Time','Draft Pick']];
   rankEntries(live).forEach(e => {
     const ng = e.nextGame || {};
-    rows.push([e.rank||'', e.manager, e.country, STAGE_LABEL[String(e.stage)]||'',
+    rows.push([e.rank||'', e.manager, e.country, e.stageLabel || STAGE_LABEL[String(e.stage)]||'',
       e.gf-e.ga, e.gf, e.ga,
       ng.opponent ? `${ng.homeAway} ${ng.opponent}` : '',
       ng.timeCT || '',
