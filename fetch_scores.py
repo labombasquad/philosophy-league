@@ -44,28 +44,62 @@ MANAGERS = [
 ]
 
 # ── STAGE MAPPINGS ────────────────────────────────────────────────────────────
-# football-data.org v4 stage strings → our numeric rank (higher = further)
-STAGE_RANK = {
-    "GROUP_STAGE":    0,
-    "ROUND_OF_32":    1,   # new for the 48-team 2026 format — was missing, causing every
-    "ROUND_OF_16":    2,   # R32 match to silently fall back to "Group Stage" (rank 0)
-    "QUARTER_FINALS": 3,
-    "SEMI_FINALS":    4,
-    "THIRD_PLACE":    5,
-    # FINAL: winner → 7, loser → 6 (handled separately below)
+# NOTE: football-data.org's documented stage enum (GROUP_STAGE, ROUND_OF_16,
+# QUARTER_FINALS, SEMI_FINALS, FINAL) predates the 2026 48-team format and the
+# new Round of 32. Rather than guess the literal string they use for it (a
+# previous version guessed "ROUND_OF_32" and it didn't match the live data),
+# stage ranking is now built DYNAMICALLY each run from whatever stage values
+# actually appear in the API response, ordered by each stage's earliest match
+# date. This self-corrects no matter what football-data.org calls the round.
+# Known display names are still used when a stage string matches one of the
+# common ones; anything unrecognized falls back to a prettified version of
+# the raw string (e.g. "ROUND_OF_32" -> "Round Of 32") so it never blanks out.
+
+KNOWN_STAGE_LABELS = {
+    "GROUP_STAGE":    "Group Stage",
+    "ROUND_OF_32":    "Round of 32",
+    "ROUND_OF_16":    "Round of 16",
+    "QUARTER_FINALS": "Quarterfinals",
+    "SEMI_FINALS":    "Semifinals",
+    "THIRD_PLACE":    "3rd Place",
+    "FINAL":          "Final",
 }
 
-STAGE_DISPLAY = {
-    -1: "Pending",
-    0:  "Group Stage",
-    1:  "Round of 32",
-    2:  "Round of 16",
-    3:  "Quarterfinals",
-    4:  "Semifinals",
-    5:  "3rd Place",
-    6:  "Runner-Up",
-    7:  "Champion 🏆",
-}
+def prettify_stage(stage_str):
+    return KNOWN_STAGE_LABELS.get(stage_str, stage_str.replace("_", " ").title())
+
+
+def build_dynamic_stage_rank(matches):
+    """Order every distinct stage string by its earliest scheduled date.
+    GROUP_STAGE is forced to rank 0 regardless (it's always first). The
+    FINAL stage (last chronologically) is excluded here and handled
+    separately by the caller so winner/loser can be split into two ranks."""
+    earliest = {}
+    for m in matches:
+        stage = m.get("stage")
+        date  = m.get("utcDate")
+        if not stage or not date:
+            continue
+        if stage not in earliest or date < earliest[stage]:
+            earliest[stage] = date
+
+    if "GROUP_STAGE" not in earliest:
+        earliest["GROUP_STAGE"] = "0000-01-01"  # ensure it always sorts first
+
+    ordered = sorted(earliest.keys(), key=lambda s: earliest[s])
+    # GROUP_STAGE must be rank 0 no matter where it sorted (defensive)
+    ordered = ["GROUP_STAGE"] + [s for s in ordered if s != "GROUP_STAGE"]
+
+    rank = {stage: i for i, stage in enumerate(ordered)}
+    final_stage = ordered[-1] if len(ordered) > 1 else None
+    return rank, final_stage
+
+
+# Built once live data is available; see main(). Empty dict / None until then.
+STAGE_RANK  = {}
+FINAL_STAGE = None
+
+STAGE_DISPLAY = {-1: "Pending"}  # populated dynamically alongside STAGE_RANK
 
 # ── HELPERS ───────────────────────────────────────────────────────────────────
 
@@ -118,16 +152,6 @@ def get_next_game(country, fixtures_by_country, eliminated=False):
     return games[-1]
 
 
-ROUND_LABEL = {
-    "GROUP_STAGE":    "Group Stage",
-    "ROUND_OF_32":    "Round of 32",
-    "ROUND_OF_16":    "Round of 16",
-    "QUARTER_FINALS": "Quarterfinals",
-    "SEMI_FINALS":    "Semifinals",
-    "THIRD_PLACE":    "3rd Place Match",
-    "FINAL":          "Final",
-}
-
 def utc_iso_to_ct(utc_date_str):
     """football-data.org returns UTC ISO timestamps. Convert to a CT-labeled
     display string. WC games run June–July, which is CDT (UTC-5)."""
@@ -174,7 +198,7 @@ def build_next_match_from_api(team_id, matches):
         "homeAway": "vs" if is_home else "at",
         "timeCT":   time_ct,
         "iso":      iso_ct,
-        "round":    ROUND_LABEL.get(m.get("stage", ""), m.get("stage", "")),
+        "round":    prettify_stage(m.get("stage", "")),
         "venue":    (m.get("venue") or ""),
     }
 
@@ -197,6 +221,22 @@ def main():
             matches = data.get("matches", [])
             all_matches = matches
             print(f"  {len(matches)} total matches in API response")
+
+            global STAGE_RANK, FINAL_STAGE, STAGE_DISPLAY
+            STAGE_RANK, FINAL_STAGE = build_dynamic_stage_rank(matches)
+            # Reserve final's loser/winner as the top two ranks beyond what
+            # build_dynamic_stage_rank assigned everything else.
+            top_rank = max(STAGE_RANK.values()) if STAGE_RANK else 0
+            STAGE_DISPLAY = {-1: "Pending"}
+            for stage, rnk in STAGE_RANK.items():
+                if stage == FINAL_STAGE:
+                    continue  # handled below as runner-up/champion
+                STAGE_DISPLAY[rnk] = prettify_stage(stage)
+            if FINAL_STAGE:
+                STAGE_DISPLAY[top_rank]     = "Runner-Up"
+                STAGE_DISPLAY[top_rank + 1] = "Champion 🏆"
+            print(f"  Detected stages (chronological): {list(STAGE_RANK.keys())}"
+                  + (f", final stage = '{FINAL_STAGE}'" if FINAL_STAGE else ""))
 
             finished = 0
             for m in matches:
@@ -224,8 +264,8 @@ def main():
                         s["ga"] += home_goals
                         team_won = (winner == "AWAY_TEAM")
 
-                    if stage_str == "FINAL":
-                        effective = 7 if team_won else 6
+                    if FINAL_STAGE and stage_str == FINAL_STAGE:
+                        effective = top_rank + 1 if team_won else top_rank
                     else:
                         effective = STAGE_RANK.get(stage_str, 0)
 
