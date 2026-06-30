@@ -79,8 +79,8 @@ body {
 .btn-ghost:hover { background: rgba(255,255,255,0.1); color: var(--surface); }
 
 /* ── DESKTOP TABLE ── */
-.table-wrap { border-radius: var(--r); overflow: hidden; border: 1px solid rgba(200,180,138,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
-table { width: 100%; border-collapse: collapse; background: var(--surface); }
+.table-wrap { border-radius: var(--r); overflow-x: auto; overflow-y: hidden; border: 1px solid rgba(200,180,138,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+table { width: 100%; min-width: 1040px; border-collapse: collapse; background: var(--surface); }
 thead tr { background: #1a1208; border-bottom: 2px solid var(--gold); }
 th { font-weight: 700; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding: 13px 12px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; }
 th:hover { color: var(--gold-lt); }
