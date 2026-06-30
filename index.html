@@ -79,10 +79,24 @@ body {
 .btn-ghost:hover { background: rgba(255,255,255,0.1); color: var(--surface); }
 
 /* ── DESKTOP TABLE ── */
-.table-wrap { border-radius: var(--r); overflow-x: auto; overflow-y: hidden; border: 1px solid rgba(200,180,138,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
-table { width: 100%; min-width: 1040px; border-collapse: collapse; background: var(--surface); }
+.table-wrap { border-radius: var(--r); overflow: hidden; border: 1px solid rgba(200,180,138,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; background: var(--surface); }
+
+/* desktop column sizing — keeps everything visible without horizontal scroll */
+@media (min-width: 681px) {
+  th:nth-child(1), td:nth-child(1) { width: 7%; }
+  th:nth-child(2), td:nth-child(2) { width: 12%; }
+  th:nth-child(3), td:nth-child(3) { width: 14%; }
+  th:nth-child(4), td:nth-child(4) { width: 14%; }
+  th:nth-child(5), td:nth-child(5) { width: 6%; }
+  th:nth-child(6), td:nth-child(6) { width: 6%; }
+  th:nth-child(7), td:nth-child(7) { width: 25%; }
+  th:nth-child(8), td:nth-child(8) { width: 9%; }
+  th:nth-child(9), td:nth-child(9) { width: 7%; }
+}
+
 thead tr { background: #1a1208; border-bottom: 2px solid var(--gold); }
-th { font-weight: 700; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding: 13px 12px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; }
+th { font-weight: 700; font-size: 0.61rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gold); padding: 12px 8px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; }
 th:hover { color: var(--gold-lt); }
 th.sorted { color: #fff; }
 th .si { margin-left: 3px; opacity: 0.35; font-size: 0.58rem; }
@@ -93,7 +107,7 @@ tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: var(--surface2); }
 tbody tr.r1 { background: rgba(200,150,12,0.07); }
 tbody tr.r1:hover { background: rgba(200,150,12,0.13); }
-td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
+td { padding: 10px 8px; font-size: 0.82rem; vertical-align: middle; }
 
 /* rank badge */
 .rb { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-family: var(--font-serif); font-weight: 700; font-size: 0.9rem; }
@@ -134,18 +148,18 @@ td { padding: 11px 12px; font-size: 0.85rem; vertical-align: middle; }
 .ds.tbd { background: transparent; border: 1px dashed var(--border2); color: var(--muted); font-family: var(--font-sans); font-size: 0.62rem; font-weight: 500; }
 
 /* ── NEXT MATCH CELL (table) ── */
-.next-match-cell { min-width: 160px; }
+.next-match-cell { min-width: 0; }
 .nm-opponent { font-weight: 600; font-size: 0.82rem; color: var(--ink); white-space: nowrap; }
 .nm-ha { font-size: 0.7rem; color: var(--muted); margin-right: 3px; }
 .nm-time { font-size: 0.72rem; color: var(--ink2); margin-top: 1px; white-space: nowrap; }
-.nm-venue { font-size: 0.66rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.nm-venue { font-size: 0.66rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 145px; }
 .nm-countdown { display: inline-block; margin-top: 2px; font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: 99px; background: rgba(30,45,30,0.12); color: var(--green-pos); border: 1px solid rgba(31,107,46,0.2); white-space: nowrap; }
 .nm-countdown.soon { background: rgba(155,58,24,0.1); color: var(--rust); border-color: rgba(155,58,24,0.25); }
 .nm-countdown.stale { background: rgba(122,106,82,0.12); color: var(--muted); border-color: rgba(122,106,82,0.25); font-style: italic; }
 .nm-none { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
 /* edit btn */
-.btn-edit { font-size: 0.68rem; font-weight: 600; padding: 4px 10px; border-radius: 5px; border: 1px solid var(--border); background: var(--surface2); color: var(--ink2); cursor: pointer; transition: all 0.12s; white-space: nowrap; }
+.btn-edit { font-size: 0.65rem; font-weight: 600; padding: 4px 8px; border-radius: 5px; border: 1px solid var(--border); background: var(--surface2); color: var(--ink2); cursor: pointer; transition: all 0.12s; white-space: nowrap; }
 .btn-edit:hover { background: var(--border); color: var(--ink); }
 
 /* ── MOBILE CARDS ── */
@@ -271,7 +285,7 @@ input:focus, select:focus { border-color: var(--rust); }
         <th class="c"   data-col="gd"      onclick="sortBy('gd')">GD <span class="si">⇅</span></th>
         <th class="c"   data-col="gf"      onclick="sortBy('gf')">GF <span class="si">⇅</span></th>
         <th                                >Next Match</th>
-        <th class="c"   data-col="draftSlot">Draft Pick</th>
+        <th class="c"   data-col="draftSlot">Pick</th>
         <th class="c">Edit</th>
       </tr>
     </thead>
@@ -533,7 +547,7 @@ function renderTable(ranked) {
       <td class="c">${known?e.gf:'–'}</td>
       <td>${nextMatchHTML(e.nextGame, true, elim)}</td>
       <td class="c">${dsCell}</td>
-      <td class="c"><button class="btn-edit" onclick="openDraft('${eid}')">Edit Pick</button></td>
+      <td class="c"><button class="btn-edit" onclick="openDraft('${eid}')">Edit</button></td>
     </tr>`;
   }).join('');
 }
