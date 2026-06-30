@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jun 30 2026, 04:27 UTC",
+  "updatedAt": "Jun 30 2026, 04:53 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -112,18 +112,18 @@
       "flag": "🇧🇷",
       "country": "Brazil",
       "team_id": 764,
-      "stage": 1,
-      "stageLabel": "Round of 32",
+      "stage": 2,
+      "stageLabel": "Round of 16",
       "eliminated": false,
       "gf": 9,
       "ga": 2,
       "nextGame": {
-        "opponent": "Japan",
+        "opponent": "Winner of Ivory Coast/Norway",
         "homeAway": "vs",
-        "timeCT": "Mon, Jun 29 at 1:00 PM CT",
-        "iso": "2026-06-29T13:00:00-05:00",
-        "round": "Round of 32",
-        "venue": "NRG Stadium, Houston"
+        "timeCT": "Sun, Jul 5 at 3:00 PM CT",
+        "iso": "2026-07-05T15:00:00-05:00",
+        "round": "Round of 16",
+        "venue": ""
       },
       "draftSlot": null
     },
