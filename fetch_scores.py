@@ -65,6 +65,19 @@ KNOWN_STAGE_LABELS = {
     "FINAL":          "Final",
 }
 
+SHORT_STAGE_LABELS = {
+    "GROUP_STAGE":    "Groups",
+    "ROUND_OF_32":    "R32",
+    "ROUND_OF_16":    "R16",
+    "QUARTER_FINALS": "QF",
+    "SEMI_FINALS":    "SF",
+    "THIRD_PLACE":    "3rd Place",
+    "FINAL":          "Final",
+}
+
+def prettify_stage_short(stage_str):
+    return SHORT_STAGE_LABELS.get(stage_str, prettify_stage(stage_str))
+
 def prettify_stage(stage_str):
     return KNOWN_STAGE_LABELS.get(stage_str, stage_str.replace("_", " ").title())
 
@@ -199,6 +212,7 @@ def build_next_match_from_api(team_id, matches):
         "timeCT":   time_ct,
         "iso":      iso_ct,
         "round":    prettify_stage(m.get("stage", "")),
+        "_stageRaw": m.get("stage", ""),   # internal use only, stripped before writing data.json
         "venue":    (m.get("venue") or ""),
     }
 
@@ -210,7 +224,7 @@ def main():
 
     # Build accumulators for live scores
     team_ids   = {m["team_id"] for m in MANAGERS}
-    stats      = {m["team_id"]: {"gf": 0, "ga": 0, "best_stage": -1, "eliminated": False} for m in MANAGERS}
+    stats      = {m["team_id"]: {"gf": 0, "ga": 0, "best_stage": -1, "eliminated": False, "eliminated_stage": None} for m in MANAGERS}
     fixtures_db = load_fixtures()
     all_matches = []   # populated from API if token present; used for live next-match lookup
 
@@ -276,10 +290,12 @@ def main():
                     # eliminates the team — including a Final loss (Runner-Up).
                     if stage_str != "GROUP_STAGE" and not team_won:
                         s["eliminated"] = True
+                        s["eliminated_stage"] = stage_str
                     elif team_won:
                         # Winning a later match un-sets a stale elimination flag
                         # (shouldn't normally happen, but keeps state consistent).
                         s["eliminated"] = False
+                        s["eliminated_stage"] = None
 
             print(f"  {finished} finished matches processed")
 
@@ -309,10 +325,30 @@ def main():
         if next_game is None:
             next_game = get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
 
+        # A team that has QUALIFIED for a later round but hasn't played it yet
+        # would otherwise still show "Group Stage" (best_stage only advances on
+        # FINISHED matches). Bump the displayed stage to match their scheduled
+        # next match so the UI reflects "Round of 32" etc. as soon as they're
+        # through, not just once they've actually played it.
+        stage_raw_next = next_game.pop("_stageRaw", None) if isinstance(next_game, dict) else None
+        pending_rank = STAGE_RANK.get(stage_raw_next) if stage_raw_next else None
+        is_pending = False
+        if (not s["eliminated"]) and pending_rank is not None and pending_rank > stage_val:
+            stage_val  = pending_rank
+            is_pending = True
+
+        top_rank = max(STAGE_RANK.values()) if STAGE_RANK else None
+
+        if s["eliminated"]:
+            stage_label = f"Eliminated – {prettify_stage_short(s.get('eliminated_stage', ''))}"
+        elif FINAL_STAGE and top_rank is not None and stage_val == top_rank and is_pending:
+            stage_label = "Final"  # scheduled but not yet decided — not "Runner-Up" yet
+        else:
+            stage_label = STAGE_DISPLAY.get(stage_val) or prettify_stage(stage_raw_next or "")
+
         print(
             f"  {m['flag']} {m['country']:14s} ({m['manager']:8s}) → "
-            f"Stage: {STAGE_DISPLAY.get(stage_val, '?'):12s} "
-            f"{'[ELIMINATED] ' if s['eliminated'] else ''}"
+            f"Stage: {stage_label:18s} "
             f"GF={s['gf']} GA={s['ga']} | "
             f"Next: {next_game.get('homeAway','')} {next_game.get('opponent','TBD')} "
             f"({next_game.get('timeCT','TBD')})"
@@ -325,6 +361,7 @@ def main():
             "country":    m["country"],
             "team_id":    tid,
             "stage":      stage_val,
+            "stageLabel": stage_label,
             "eliminated": s["eliminated"],
             "gf":         s["gf"],
             "ga":         s["ga"],
