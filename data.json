@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 01 2026, 05:27 UTC",
+  "updatedAt": "Jul 01 2026, 10:00 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -34,8 +34,8 @@
       "gf": 13,
       "ga": 2,
       "nextGame": {
-        "opponent": "Winner of Germany/Paraguay",
-        "homeAway": "vs",
+        "opponent": "Paraguay",
+        "homeAway": "at",
         "timeCT": "Sat, Jul 4 at 4:00 PM CT",
         "iso": "2026-07-04T16:00:00-05:00",
         "round": "Round of 16",
@@ -118,7 +118,7 @@
       "gf": 9,
       "ga": 2,
       "nextGame": {
-        "opponent": "Winner of Ivory Coast/Norway",
+        "opponent": "Norway",
         "homeAway": "vs",
         "timeCT": "Sun, Jul 5 at 3:00 PM CT",
         "iso": "2026-07-05T15:00:00-05:00",
@@ -202,8 +202,8 @@
       "gf": 10,
       "ga": 8,
       "nextGame": {
-        "opponent": "Winner of Brazil/Japan",
-        "homeAway": "vs",
+        "opponent": "Brazil",
+        "homeAway": "at",
         "timeCT": "Sun, Jul 5 at 3:00 PM CT",
         "iso": "2026-07-05T15:00:00-05:00",
         "round": "Round of 16",
