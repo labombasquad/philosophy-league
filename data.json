@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 01 2026, 00:13 UTC",
+  "updatedAt": "Jul 01 2026, 05:27 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -217,17 +217,17 @@
       "flag": "🇲🇽",
       "country": "Mexico",
       "team_id": 769,
-      "stage": 1,
-      "stageLabel": "Round of 32",
+      "stage": 2,
+      "stageLabel": "Round of 16",
       "eliminated": false,
-      "gf": 6,
+      "gf": 8,
       "ga": 0,
       "nextGame": {
-        "opponent": "Ecuador",
+        "opponent": "Winner of England/DR Congo",
         "homeAway": "vs",
-        "timeCT": "Tue, Jun 30 at 8:00 PM CT",
-        "iso": "2026-06-30T20:00:00-05:00",
-        "round": "Round of 32",
+        "timeCT": "Sun, Jul 5 at 7:00 PM CT",
+        "iso": "2026-07-05T19:00:00-05:00",
+        "round": "Round of 16",
         "venue": ""
       },
       "draftSlot": null
