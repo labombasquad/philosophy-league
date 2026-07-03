@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 03 2026, 00:11 UTC",
+  "updatedAt": "Jul 03 2026, 04:47 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -133,17 +133,17 @@
       "flag": "🇵🇹",
       "country": "Portugal",
       "team_id": 765,
-      "stage": 1,
-      "stageLabel": "Round of 32",
+      "stage": 2,
+      "stageLabel": "Round of 16",
       "eliminated": false,
-      "gf": 6,
-      "ga": 1,
+      "gf": 8,
+      "ga": 2,
       "nextGame": {
-        "opponent": "Croatia",
+        "opponent": "Winner of Spain/Austria",
         "homeAway": "vs",
-        "timeCT": "Thu, Jul 2 at 6:00 PM CT",
-        "iso": "2026-07-02T18:00:00-05:00",
-        "round": "Round of 32",
+        "timeCT": "Mon, Jul 6 at 2:00 PM CT",
+        "iso": "2026-07-06T14:00:00-05:00",
+        "round": "Round of 16",
         "venue": ""
       },
       "draftSlot": null
