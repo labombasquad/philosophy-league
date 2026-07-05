@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 04 2026, 22:02 UTC",
+  "updatedAt": "Jul 05 2026, 00:05 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -28,17 +28,17 @@
       "flag": "🇫🇷",
       "country": "France",
       "team_id": 773,
-      "stage": 2,
-      "stageLabel": "Round of 16",
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
       "eliminated": false,
-      "gf": 13,
+      "gf": 14,
       "ga": 2,
       "nextGame": {
-        "opponent": "Paraguay",
-        "homeAway": "at",
-        "timeCT": "Sat, Jul 4 at 4:00 PM CT",
-        "iso": "2026-07-04T16:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "Winner of Canada/Morocco",
+        "homeAway": "vs",
+        "timeCT": "Thu, Jul 9 at 3:00 PM CT",
+        "iso": "2026-07-09T15:00:00-05:00",
+        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
