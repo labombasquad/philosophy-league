@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 05 2026, 21:08 UTC",
+  "updatedAt": "Jul 05 2026, 23:06 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -113,12 +113,12 @@
       "country": "Brazil",
       "team_id": 764,
       "stage": 2,
-      "stageLabel": "Round of 16",
-      "eliminated": false,
-      "gf": 9,
-      "ga": 2,
+      "stageLabel": "Eliminated – R16",
+      "eliminated": true,
+      "gf": 10,
+      "ga": 4,
       "nextGame": {
-        "opponent": "Norway",
+        "opponent": "Winner of Ivory Coast/Norway",
         "homeAway": "vs",
         "timeCT": "Sun, Jul 5 at 3:00 PM CT",
         "iso": "2026-07-05T15:00:00-05:00",
@@ -196,17 +196,17 @@
       "flag": "🇳🇴",
       "country": "Norway",
       "team_id": 8872,
-      "stage": 2,
-      "stageLabel": "Round of 16",
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
       "eliminated": false,
-      "gf": 10,
-      "ga": 8,
+      "gf": 12,
+      "ga": 9,
       "nextGame": {
-        "opponent": "Brazil",
-        "homeAway": "at",
-        "timeCT": "Sun, Jul 5 at 3:00 PM CT",
-        "iso": "2026-07-05T15:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "Winner of Mexico/England/Ecuador/DR Congo",
+        "homeAway": "vs",
+        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
+        "iso": "2026-07-11T16:00:00-05:00",
+        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
