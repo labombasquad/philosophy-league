@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 06 2026, 20:57 UTC",
+  "updatedAt": "Jul 06 2026, 22:21 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -49,17 +49,17 @@
       "flag": "🇪🇸",
       "country": "Spain",
       "team_id": 760,
-      "stage": 2,
-      "stageLabel": "Round of 16",
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
       "eliminated": false,
-      "gf": 8,
+      "gf": 9,
       "ga": 0,
       "nextGame": {
-        "opponent": "Portugal",
-        "homeAway": "at",
-        "timeCT": "Mon, Jul 6 at 2:00 PM CT",
-        "iso": "2026-07-06T14:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "Winner of USA/Belgium/Senegal",
+        "homeAway": "vs",
+        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
+        "iso": "2026-07-10T14:00:00-05:00",
+        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
@@ -134,12 +134,12 @@
       "country": "Portugal",
       "team_id": 765,
       "stage": 2,
-      "stageLabel": "Round of 16",
-      "eliminated": false,
+      "stageLabel": "Eliminated – R16",
+      "eliminated": true,
       "gf": 8,
-      "ga": 2,
+      "ga": 3,
       "nextGame": {
-        "opponent": "Spain",
+        "opponent": "Winner of Spain/Austria",
         "homeAway": "vs",
         "timeCT": "Mon, Jul 6 at 2:00 PM CT",
         "iso": "2026-07-06T14:00:00-05:00",
