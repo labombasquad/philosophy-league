@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 06 2026, 04:06 UTC",
+  "updatedAt": "Jul 06 2026, 09:03 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -13,8 +13,8 @@
       "gf": 11,
       "ga": 5,
       "nextGame": {
-        "opponent": "Winner of Brazil/Norway",
-        "homeAway": "vs",
+        "opponent": "Norway",
+        "homeAway": "at",
         "timeCT": "Sat, Jul 11 at 4:00 PM CT",
         "iso": "2026-07-11T16:00:00-05:00",
         "round": "Quarterfinals",
@@ -202,7 +202,7 @@
       "gf": 12,
       "ga": 9,
       "nextGame": {
-        "opponent": "Winner of Mexico/England/Ecuador/DR Congo",
+        "opponent": "England",
         "homeAway": "vs",
         "timeCT": "Sat, Jul 11 at 4:00 PM CT",
         "iso": "2026-07-11T16:00:00-05:00",
