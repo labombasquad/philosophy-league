@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 07 2026, 00:14 UTC",
+  "updatedAt": "Jul 07 2026, 04:57 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -92,12 +92,12 @@
       "country": "USA",
       "team_id": 771,
       "stage": 2,
-      "stageLabel": "Round of 16",
-      "eliminated": false,
-      "gf": 10,
-      "ga": 4,
+      "stageLabel": "Eliminated – R16",
+      "eliminated": true,
+      "gf": 11,
+      "ga": 8,
       "nextGame": {
-        "opponent": "Belgium",
+        "opponent": "Winner of Belgium/Senegal",
         "homeAway": "vs",
         "timeCT": "Mon, Jul 6 at 7:00 PM CT",
         "iso": "2026-07-06T19:00:00-05:00",
@@ -238,17 +238,17 @@
       "flag": "🇧🇪",
       "country": "Belgium",
       "team_id": 805,
-      "stage": 2,
-      "stageLabel": "Round of 16",
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
       "eliminated": false,
-      "gf": 9,
-      "ga": 4,
+      "gf": 13,
+      "ga": 5,
       "nextGame": {
-        "opponent": "United States",
-        "homeAway": "at",
-        "timeCT": "Mon, Jul 6 at 7:00 PM CT",
-        "iso": "2026-07-06T19:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "Winner of Portugal/Spain",
+        "homeAway": "vs",
+        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
+        "iso": "2026-07-10T14:00:00-05:00",
+        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
