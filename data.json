@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 08 2026, 00:02 UTC",
+  "updatedAt": "Jul 08 2026, 00:41 UTC",
   "entries": [
     {
       "id": "team-770",
@@ -97,11 +97,11 @@
       "gf": 11,
       "ga": 8,
       "nextGame": {
-        "opponent": "Winner of Belgium/Senegal",
-        "homeAway": "vs",
-        "timeCT": "Mon, Jul 6 at 7:00 PM CT",
-        "iso": "2026-07-06T19:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
@@ -118,11 +118,11 @@
       "gf": 10,
       "ga": 4,
       "nextGame": {
-        "opponent": "Winner of Ivory Coast/Norway",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jul 5 at 3:00 PM CT",
-        "iso": "2026-07-05T15:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
@@ -139,11 +139,11 @@
       "gf": 8,
       "ga": 3,
       "nextGame": {
-        "opponent": "Winner of Spain/Austria",
-        "homeAway": "vs",
-        "timeCT": "Mon, Jul 6 at 2:00 PM CT",
-        "iso": "2026-07-06T14:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
@@ -223,11 +223,11 @@
       "gf": 10,
       "ga": 3,
       "nextGame": {
-        "opponent": "Winner of England/DR Congo",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jul 5 at 7:00 PM CT",
-        "iso": "2026-07-05T19:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
