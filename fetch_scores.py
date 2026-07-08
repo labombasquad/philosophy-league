@@ -436,39 +436,44 @@ def main():
         stage_val = s["best_stage"]
 
         # Prefer the live API schedule (auto-resolves real opponents as the
-        # bracket fills in); fall back to the static fixtures.json (mainly
-        # useful for the group stage, or when running without a token).
+        # bracket fills in); fall back to the bracket map/static fixtures.
+        #
+        # Important: eliminated teams should never show a stale future/pending
+        # match. Once eliminated, force the next-match cell to "Eliminated."
         next_game = None
-        if not s["eliminated"] and all_matches:
-            next_game = build_next_match_from_api(tid, all_matches)
+        if s["eliminated"]:
+            next_game = get_next_game(m["country"], fixtures_db, eliminated=True)
+        else:
+            if all_matches:
+                next_game = build_next_match_from_api(tid, all_matches)
 
-        # If the API has the future match but not the opponent yet, prefer the
-        # known bracket path over a plain TBD.
-        api_opponent_unresolved = (
-            next_game is not None and
-            (not next_game.get("opponent") or "TBD" in str(next_game.get("opponent", "")).upper())
-        )
-        if api_opponent_unresolved:
-            fb = get_bracket_fallback(m["country"], stage_val)
-            if fb:
-                next_game = fb
+            # If the API has the future match but not the opponent yet, prefer
+            # the known bracket path over a plain TBD.
+            api_opponent_unresolved = (
+                next_game is not None and
+                (not next_game.get("opponent") or "TBD" in str(next_game.get("opponent", "")).upper())
+            )
+            if api_opponent_unresolved:
+                fb = get_bracket_fallback(m["country"], stage_val)
+                if fb:
+                    next_game = fb
 
-        if next_game is None:
-            fb = get_bracket_fallback(m["country"], stage_val)
-            next_game = fb or get_next_game(m["country"], fixtures_db, eliminated=s["eliminated"])
+            if next_game is None:
+                fb = get_bracket_fallback(m["country"], stage_val)
+                next_game = fb or get_next_game(m["country"], fixtures_db, eliminated=False)
 
-        # If fallback/static data points to a past match after the team has
-        # advanced, try the bracket fallback again. This avoids stale entries
-        # like Brazil still showing Japan after Brazil won the R32 match.
-        if not s["eliminated"] and next_game and next_game.get("iso"):
-            try:
-                ng_time = datetime.fromisoformat(next_game["iso"])
-                if ng_time.timestamp() < datetime.now(timezone.utc).timestamp() - 10800:
-                    fb = get_bracket_fallback(m["country"], stage_val)
-                    if fb:
-                        next_game = fb
-            except ValueError:
-                pass
+            # If fallback/static data points to a past match after the team has
+            # advanced, try the bracket fallback again. This avoids stale entries
+            # like Brazil still showing Japan after Brazil won the R32 match.
+            if next_game and next_game.get("iso"):
+                try:
+                    ng_time = datetime.fromisoformat(next_game["iso"])
+                    if ng_time.timestamp() < datetime.now(timezone.utc).timestamp() - 10800:
+                        fb = get_bracket_fallback(m["country"], stage_val)
+                        if fb:
+                            next_game = fb
+                except ValueError:
+                    pass
 
         # A team that has QUALIFIED for a later round but hasn't played it yet
         # would otherwise still show "Group Stage" (best_stage only advances on
