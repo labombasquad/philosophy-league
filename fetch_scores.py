@@ -228,18 +228,16 @@ def main():
             "draftSlot": None,
         })
 
-    results.sort(key=lambda x: (x["stage"], x["gd"], x["gf"]), reverse=True)
-
     results.sort(
-    key=lambda x: (x["stage"], x["gf"] - x["ga"], x["gf"]),
-    reverse=True,
-)
+        key=lambda x: (x["stage"], x["gd"], x["gf"]),
+        reverse=True,
+    )
 
-central = datetime.now(ZoneInfo("America/Chicago"))
+    central = datetime.now(ZoneInfo("America/Chicago"))
 
-output = {
+    output = {
         "leagueName": "The Philosophy League 2026",
-        "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "updatedAt": central.strftime("%b %d %Y, %I:%M %p %Z"),
         "entries": results,
     }
 
