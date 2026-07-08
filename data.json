@@ -1,27 +1,6 @@
 {
-  "updatedAt": "Jul 08 2026, 04:27 UTC",
+  "updatedAt": "Jul 07 2026, 11:30 PM CDT",
   "entries": [
-    {
-      "id": "team-770",
-      "manager": "Alex",
-      "flag": "🇬🇧",
-      "country": "England",
-      "team_id": 770,
-      "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 11,
-      "ga": 5,
-      "nextGame": {
-        "opponent": "Norway",
-        "homeAway": "at",
-        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
-        "iso": "2026-07-11T16:00:00-05:00",
-        "round": "Quarterfinals",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
     {
       "id": "team-773",
       "manager": "Toiv",
@@ -38,27 +17,6 @@
         "homeAway": "vs",
         "timeCT": "Thu, Jul 9 at 3:00 PM CT",
         "iso": "2026-07-09T15:00:00-05:00",
-        "round": "Quarterfinals",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-760",
-      "manager": "Miles",
-      "flag": "🇪🇸",
-      "country": "Spain",
-      "team_id": 760,
-      "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 9,
-      "ga": 0,
-      "nextGame": {
-        "opponent": "Belgium",
-        "homeAway": "vs",
-        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
-        "iso": "2026-07-10T14:00:00-05:00",
         "round": "Quarterfinals",
         "venue": ""
       },
@@ -86,16 +44,100 @@
       "draftSlot": null
     },
     {
-      "id": "team-771",
-      "manager": "Nate",
-      "flag": "🇺🇸",
-      "country": "USA",
-      "team_id": 771,
+      "id": "team-760",
+      "manager": "Miles",
+      "flag": "🇪🇸",
+      "country": "Spain",
+      "team_id": 760,
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
+      "eliminated": false,
+      "gf": 9,
+      "ga": 0,
+      "nextGame": {
+        "opponent": "Belgium",
+        "homeAway": "vs",
+        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
+        "iso": "2026-07-10T14:00:00-05:00",
+        "round": "Quarterfinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-805",
+      "manager": "Aaron",
+      "flag": "🇧🇪",
+      "country": "Belgium",
+      "team_id": 805,
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
+      "eliminated": false,
+      "gf": 13,
+      "ga": 5,
+      "nextGame": {
+        "opponent": "Spain",
+        "homeAway": "at",
+        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
+        "iso": "2026-07-10T14:00:00-05:00",
+        "round": "Quarterfinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-770",
+      "manager": "Alex",
+      "flag": "🇬🇧",
+      "country": "England",
+      "team_id": 770,
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
+      "eliminated": false,
+      "gf": 11,
+      "ga": 5,
+      "nextGame": {
+        "opponent": "Norway",
+        "homeAway": "at",
+        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
+        "iso": "2026-07-11T16:00:00-05:00",
+        "round": "Quarterfinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-8872",
+      "manager": "Hunter",
+      "flag": "🇳🇴",
+      "country": "Norway",
+      "team_id": 8872,
+      "stage": 3,
+      "stageLabel": "Quarterfinals",
+      "eliminated": false,
+      "gf": 12,
+      "ga": 9,
+      "nextGame": {
+        "opponent": "England",
+        "homeAway": "vs",
+        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
+        "iso": "2026-07-11T16:00:00-05:00",
+        "round": "Quarterfinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-769",
+      "manager": "Jonah",
+      "flag": "🇲🇽",
+      "country": "Mexico",
+      "team_id": 769,
       "stage": 2,
       "stageLabel": "Eliminated – R16",
       "eliminated": true,
-      "gf": 11,
-      "ga": 8,
+      "gf": 10,
+      "ga": 3,
       "nextGame": {
         "opponent": "TBD",
         "homeAway": "",
@@ -149,6 +191,27 @@
       "draftSlot": null
     },
     {
+      "id": "team-771",
+      "manager": "Nate",
+      "flag": "🇺🇸",
+      "country": "USA",
+      "team_id": 771,
+      "stage": 2,
+      "stageLabel": "Eliminated – R16",
+      "eliminated": true,
+      "gf": 11,
+      "ga": 8,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
       "id": "team-759",
       "manager": "Dane",
       "flag": "🇩🇪",
@@ -186,69 +249,6 @@
         "timeCT": "Eliminated",
         "iso": null,
         "round": "",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-8872",
-      "manager": "Hunter",
-      "flag": "🇳🇴",
-      "country": "Norway",
-      "team_id": 8872,
-      "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 12,
-      "ga": 9,
-      "nextGame": {
-        "opponent": "England",
-        "homeAway": "vs",
-        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
-        "iso": "2026-07-11T16:00:00-05:00",
-        "round": "Quarterfinals",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-769",
-      "manager": "Jonah",
-      "flag": "🇲🇽",
-      "country": "Mexico",
-      "team_id": 769,
-      "stage": 2,
-      "stageLabel": "Eliminated – R16",
-      "eliminated": true,
-      "gf": 10,
-      "ga": 3,
-      "nextGame": {
-        "opponent": "TBD",
-        "homeAway": "",
-        "timeCT": "Eliminated",
-        "iso": null,
-        "round": "",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-805",
-      "manager": "Aaron",
-      "flag": "🇧🇪",
-      "country": "Belgium",
-      "team_id": 805,
-      "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 13,
-      "ga": 5,
-      "nextGame": {
-        "opponent": "Spain",
-        "homeAway": "at",
-        "timeCT": "Fri, Jul 10 at 2:00 PM CT",
-        "iso": "2026-07-10T14:00:00-05:00",
-        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
