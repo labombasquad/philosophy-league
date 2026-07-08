@@ -235,8 +235,8 @@ QF_FALLBACKS = [
     ({"Brazil", "Japan", "Ivory Coast", "Norway"}, "Winner of Mexico/England/Ecuador/DR Congo", "vs", "Sat, Jul 11 at 4:00 PM CT", "2026-07-11T16:00:00-05:00"),
     ({"Mexico", "Ecuador", "England", "Congo DR", "DR Congo"}, "Winner of Brazil/Norway", "vs", "Sat, Jul 11 at 4:00 PM CT", "2026-07-11T16:00:00-05:00"),
 
-    ({"Argentina", "Cape Verde", "Cape Verde Islands", "Australia", "Egypt"}, "Winner of Switzerland/Colombia/Ghana/Algeria", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
-    ({"Switzerland", "Algeria", "Colombia", "Ghana"}, "Winner of Argentina/Australia/Egypt", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
+    ({"Argentina", "Cape Verde", "Cape Verde Islands", "Australia", "Egypt"}, "Switzerland", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
+    ({"Switzerland", "Algeria", "Colombia", "Ghana"}, "Argentina", "vs", "Sat, Jul 11 at 8:00 PM CT", "2026-07-11T20:00:00-05:00"),
 ]
 
 
