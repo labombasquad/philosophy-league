@@ -449,27 +449,30 @@ function nextMatchHTML(ng, tableMode, eliminated) {
 }
 
 function formatCountdown(iso) {
-  const now  = Date.now();
-  const then = new Date(iso).getTime();
-  const diff = then - now;
-  if (diff < 0) {
-    const hoursPast = -diff / 3600000;
-    // A match plausibly runs ~2h (90min + stoppage + halftime). Past that,
-    // this is almost certainly a finished result the hourly fetch hasn't
-    // caught up with yet, not a live match — say so plainly rather than
-    // leaving an ambiguous "in progress" label hanging around for hours.
-    if (hoursPast > 2.5) return { label: 'Result pending update', soon: false, stale: true };
+  const now = new Date();
+  const then = new Date(iso);
+
+  const diffMs = then.getTime() - now.getTime();
+
+  if (diffMs < 0) {
+    const hoursPast = -diffMs / 3600000;
+    if (hoursPast > 2.5) {
+      return { label: 'Result pending update', soon: false, stale: true };
+    }
     return { label: 'In progress', soon: false };
   }
-  const h = Math.floor(diff / 3600000);
-  const d = Math.floor(h / 24);
-  const soon = h < 24;
-  let label;
-  if (h < 1)       label = 'Starting soon';
-  else if (h < 24) label = `In ${h}h`;
-  else if (d === 1) label = 'Tomorrow';
-  else              label = `In ${d} days`;
-  return { label, soon };
+
+  const hours = Math.floor(diffMs / 3600000);
+
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const gameDay = new Date(then.getFullYear(), then.getMonth(), then.getDate());
+  const calendarDays = Math.round((gameDay - today) / 86400000);
+
+  if (hours < 1) return { label: 'Starting soon', soon: true };
+  if (calendarDays === 0) return { label: `In ${hours}h`, soon: true };
+  if (calendarDays === 1) return { label: 'Tomorrow', soon: true };
+
+  return { label: `In ${calendarDays} days`, soon: false };
 }
 
 // ── RANKING ───────────────────────────────────────────────────────────────────
