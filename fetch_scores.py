@@ -20,6 +20,7 @@ HOW IT WORKS:
 
 import json, os, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  ★  YOUR 12 MANAGERS  ★
@@ -535,8 +536,19 @@ def main():
             "draftSlot":  None,   # managed in the browser
         })
 
+    results.sort(
+        key=lambda x: (
+            x["stage"],
+            x["gf"] - x["ga"],
+            x["gf"],
+        ),
+        reverse=True,
+    )
+
+    central = datetime.now(ZoneInfo("America/Chicago"))
+
     output = {
-        "updatedAt": datetime.now(timezone.utc).strftime("%b %d %Y, %H:%M UTC"),
+        "updatedAt": central.strftime("%b %d %Y, %I:%M %p %Z"),
         "entries":   results,
     }
 
