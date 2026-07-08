@@ -289,22 +289,38 @@ def utc_iso_to_ct(utc_date_str):
     return label, iso_ct
 
 
-def build_next_match_from_api(team_id, matches):
+def build_next_match_from_api(team_id, matches, country=None):
     """Find this team's earliest non-finished match directly from the live
-    API schedule. Once a bracket slot resolves (e.g. 'Winner of R32 Match 4'
-    becomes 'Portugal'), football-data.org fills in the real team — so this
-    keeps next-round matchups, dates, and venues current automatically with
-    zero manual fixture editing."""
+    API schedule. Uses team ID first, then falls back to country/name matching
+    for future bracket slots where the API may resolve a displayed team name
+    before attaching the numeric team id."""
     candidates = []
+    country_norm = norm_name(country) if country else ""
+
     for m in matches:
         if m.get("status") in ("FINISHED", "CANCELLED", "POSTPONED"):
             continue
+
         home = m.get("homeTeam") or {}
         away = m.get("awayTeam") or {}
-        is_home = home.get("id") == team_id
-        is_away = away.get("id") == team_id
+
+        home_id = home.get("id")
+        away_id = away.get("id")
+        home_name = home.get("name") or home.get("shortName") or ""
+        away_name = away.get("name") or away.get("shortName") or ""
+
+        is_home = home_id == team_id
+        is_away = away_id == team_id
+
+        # Defensive fallback: some unresolved/partly-resolved knockout matches
+        # may have the real country name but no team id yet.
+        if not (is_home or is_away) and country_norm:
+            is_home = country_norm in norm_name(home_name) or norm_name(home_name) in country_norm
+            is_away = country_norm in norm_name(away_name) or norm_name(away_name) in country_norm
+
         if not (is_home or is_away):
             continue
+
         candidates.append((m, is_home, home, away))
 
     if not candidates:
@@ -313,7 +329,7 @@ def build_next_match_from_api(team_id, matches):
     candidates.sort(key=lambda c: c[0].get("utcDate") or "9999")
     m, is_home, home, away = candidates[0]
     opp = away if is_home else home
-    opp_name = opp.get("name") or "TBD"
+    opp_name = opp.get("name") or opp.get("shortName") or "TBD"
     time_ct, iso_ct = utc_iso_to_ct(m.get("utcDate", "")) if m.get("utcDate") else ("TBD", None)
 
     return {
@@ -322,7 +338,7 @@ def build_next_match_from_api(team_id, matches):
         "timeCT":   time_ct,
         "iso":      iso_ct,
         "round":    prettify_stage(m.get("stage", "")),
-        "_stageRaw": m.get("stage", ""),   # internal use only, stripped before writing data.json
+        "_stageRaw": m.get("stage", ""),
         "venue":    (m.get("venue") or ""),
     }
 
@@ -445,7 +461,7 @@ def main():
             next_game = get_next_game(m["country"], fixtures_db, eliminated=True)
         else:
             if all_matches:
-                next_game = build_next_match_from_api(tid, all_matches)
+                next_game = build_next_match_from_api(tid, all_matches, m["country"])
 
             # If the API has the future match but not the opponent yet, prefer
             # the known bracket path over a plain TBD.
