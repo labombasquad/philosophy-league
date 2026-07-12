@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 11 2026, 10:30 PM CDT",
+  "updatedAt": "Jul 12 2026, 01:39 AM CDT",
   "entries": [
     {
       "id": "team-773",
@@ -17,6 +17,27 @@
         "homeAway": "vs",
         "timeCT": "Tue, Jul 14 at 2:00 PM CT",
         "iso": "2026-07-14T14:00:00-05:00",
+        "round": "Semifinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-762",
+      "manager": "Alec",
+      "flag": "🇦🇷",
+      "country": "Argentina",
+      "team_id": 762,
+      "stage": 4,
+      "stageLabel": "Semifinals",
+      "eliminated": false,
+      "gf": 17,
+      "ga": 6,
+      "nextGame": {
+        "opponent": "England",
+        "homeAway": "at",
+        "timeCT": "Wed, Jul 15 at 2:00 PM CT",
+        "iso": "2026-07-15T14:00:00-05:00",
         "round": "Semifinals",
         "venue": ""
       },
@@ -52,35 +73,14 @@
       "stage": 4,
       "stageLabel": "Semifinals",
       "eliminated": false,
-      "gf": 10,
-      "ga": 4,
+      "gf": 13,
+      "ga": 6,
       "nextGame": {
-        "opponent": "Winner of Argentina/Australia/Colombia/Ghana",
+        "opponent": "Argentina",
         "homeAway": "vs",
         "timeCT": "Wed, Jul 15 at 2:00 PM CT",
         "iso": "2026-07-15T14:00:00-05:00",
         "round": "Semifinals",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-762",
-      "manager": "Alec",
-      "flag": "🇦🇷",
-      "country": "Argentina",
-      "team_id": 762,
-      "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 14,
-      "ga": 5,
-      "nextGame": {
-        "opponent": "Switzerland",
-        "homeAway": "vs",
-        "timeCT": "Sat, Jul 11 at 8:00 PM CT",
-        "iso": "2026-07-11T20:00:00-05:00",
-        "round": "Quarterfinals",
         "venue": ""
       },
       "draftSlot": null
@@ -134,16 +134,16 @@
       "country": "Mexico",
       "team_id": 769,
       "stage": 2,
-      "stageLabel": "Round of 16",
-      "eliminated": false,
-      "gf": 8,
-      "ga": 0,
+      "stageLabel": "Eliminated – R16",
+      "eliminated": true,
+      "gf": 10,
+      "ga": 3,
       "nextGame": {
-        "opponent": "Winner of England/DR Congo",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jul 5 at 7:00 PM CT",
-        "iso": "2026-07-05T19:00:00-05:00",
-        "round": "Round of 16",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
