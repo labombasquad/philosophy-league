@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 11 2026, 06:00 PM CDT",
+  "updatedAt": "Jul 11 2026, 10:30 PM CDT",
   "entries": [
     {
       "id": "team-773",
@@ -38,6 +38,27 @@
         "homeAway": "at",
         "timeCT": "Tue, Jul 14 at 2:00 PM CT",
         "iso": "2026-07-14T14:00:00-05:00",
+        "round": "Semifinals",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
+    {
+      "id": "team-770",
+      "manager": "Alex",
+      "flag": "🇬🇧",
+      "country": "England",
+      "team_id": 770,
+      "stage": 4,
+      "stageLabel": "Semifinals",
+      "eliminated": false,
+      "gf": 10,
+      "ga": 4,
+      "nextGame": {
+        "opponent": "Winner of Argentina/Australia/Colombia/Ghana",
+        "homeAway": "vs",
+        "timeCT": "Wed, Jul 15 at 2:00 PM CT",
+        "iso": "2026-07-15T14:00:00-05:00",
         "round": "Semifinals",
         "venue": ""
       },
@@ -92,16 +113,16 @@
       "country": "Norway",
       "team_id": 8872,
       "stage": 3,
-      "stageLabel": "Quarterfinals",
-      "eliminated": false,
-      "gf": 12,
-      "ga": 9,
+      "stageLabel": "Eliminated – QF",
+      "eliminated": true,
+      "gf": 13,
+      "ga": 11,
       "nextGame": {
-        "opponent": "England",
-        "homeAway": "vs",
-        "timeCT": "Sat, Jul 11 at 4:00 PM CT",
-        "iso": "2026-07-11T16:00:00-05:00",
-        "round": "Quarterfinals",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
@@ -144,27 +165,6 @@
         "timeCT": "Eliminated",
         "iso": null,
         "round": "",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-770",
-      "manager": "Alex",
-      "flag": "🇬🇧",
-      "country": "England",
-      "team_id": 770,
-      "stage": 2,
-      "stageLabel": "Round of 16",
-      "eliminated": false,
-      "gf": 8,
-      "ga": 3,
-      "nextGame": {
-        "opponent": "Winner of Mexico/Ecuador",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jul 5 at 7:00 PM CT",
-        "iso": "2026-07-05T19:00:00-05:00",
-        "round": "Round of 16",
         "venue": ""
       },
       "draftSlot": null
