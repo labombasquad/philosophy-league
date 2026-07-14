@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 14 2026, 05:46 PM CDT",
+  "updatedAt": "Jul 14 2026, 05:49 PM CDT",
   "entries": [
     {
       "id": "team-760",
@@ -8,7 +8,7 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 6,
-      "stageLabel": "Runner-Up",
+      "stageLabel": "Championship Game",
       "eliminated": false,
       "gf": 13,
       "ga": 1,
@@ -29,7 +29,7 @@
       "country": "France",
       "team_id": 773,
       "stage": 5,
-      "stageLabel": "3rd Place",
+      "stageLabel": "3rd Place Game",
       "eliminated": false,
       "gf": 16,
       "ga": 4,
