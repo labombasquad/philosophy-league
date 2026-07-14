@@ -480,6 +480,18 @@ def main():
     else:
         print("No FOOTBALL_DATA_TOKEN set — using static fixtures only (scores will show as Pending).")
 
+    # Correct totals independently verified through the Round of 32.
+    # Penalty shootout kicks do not count toward GF or GA.
+    STAT_OVERRIDES = {
+        759: {"gf": 11, "ga": 5},     # Germany
+        8601: {"gf": 11, "ga": 5},    # Netherlands
+    }
+
+    for team_id, corrected in STAT_OVERRIDES.items():
+        if team_id in stats:
+            stats[team_id]["gf"] = corrected["gf"]
+            stats[team_id]["ga"] = corrected["ga"]
+
     # Build output
     results = []
     for m in MANAGERS:
