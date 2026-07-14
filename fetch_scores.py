@@ -251,12 +251,24 @@ SF_FALLBACKS = [
 ]
 
 
+POST_SF_FALLBACKS = [
+    # Semifinal winners -> Final; semifinal losers -> 3rd Place playoff.
+    ({"France", "Spain"}, "Winner of England/Argentina", "vs", "Sun, Jul 19 at 2:00 PM CT", "2026-07-19T14:00:00-05:00", "Final"),
+]
+
+THIRD_PLACE_FALLBACKS = [
+    ({"France", "Spain"}, "Loser of England/Argentina", "vs", "Sat, Jul 18 at 4:00 PM CT", "2026-07-18T16:00:00-05:00", "3rd Place"),
+]
+
+
 def get_bracket_fallback(country, stage_val):
     """Return a bracket-path fallback for teams that have advanced but whose
     next opponent has not resolved in football-data.org yet."""
     r16_rank = STAGE_RANK.get("ROUND_OF_16", STAGE_RANK.get("LAST_16", 2))
     qf_rank = STAGE_RANK.get("QUARTER_FINALS", 3)
     sf_rank = STAGE_RANK.get("SEMI_FINALS", 4)
+    third_rank = STAGE_RANK.get("THIRD_PLACE")
+    final_rank = STAGE_RANK.get("FINAL")
 
     if stage_val == r16_rank:
         for names, opponent, ha, time_ct, iso in R32_WINNER_FALLBACKS:
@@ -272,6 +284,16 @@ def get_bracket_fallback(country, stage_val):
         for names, opponent, ha, time_ct, iso in SF_FALLBACKS:
             if name_in(country, names):
                 return make_fallback(opponent, ha, time_ct, iso, "Semifinals")
+
+    if final_rank is not None and stage_val == final_rank:
+        for names, opponent, ha, time_ct, iso, round_name in POST_SF_FALLBACKS:
+            if name_in(country, names):
+                return make_fallback(opponent, ha, time_ct, iso, round_name)
+
+    if third_rank is not None and stage_val == third_rank:
+        for names, opponent, ha, time_ct, iso, round_name in THIRD_PLACE_FALLBACKS:
+            if name_in(country, names):
+                return make_fallback(opponent, ha, time_ct, iso, round_name)
 
     return None
 
@@ -408,6 +430,15 @@ def main():
                     if FINAL_STAGE and stage_str == FINAL_STAGE:
                         # Final winner = champion, final loser = runner-up.
                         effective = top_rank + 1 if team_won else top_rank
+                    elif stage_str == "SEMI_FINALS":
+                        # The semifinal branches: winners advance to the Final,
+                        # while losers advance to the 3rd Place playoff. A plain
+                        # +1 rank is incorrect because THIRD_PLACE is scheduled
+                        # before FINAL and sits between them chronologically.
+                        if team_won:
+                            effective = STAGE_RANK.get("FINAL", top_rank)
+                        else:
+                            effective = STAGE_RANK.get("THIRD_PLACE", STAGE_RANK.get(stage_str, 0))
                     else:
                         current_round_rank = STAGE_RANK.get(stage_str, 0)
 
@@ -422,11 +453,15 @@ def main():
                     if effective > s["best_stage"]:
                         s["best_stage"] = effective
 
-                    # A knockout match (anything past Group Stage) that wasn't won
-                    # eliminates the team — including a Final loss (Runner-Up).
-                    if stage_str != "GROUP_STAGE" and not team_won:
+                    # A semifinal loser is still alive in the 3rd Place playoff.
+                    # Other knockout losses eliminate the team, including a
+                    # Final or 3rd Place loss once that match is complete.
+                    if stage_str != "GROUP_STAGE" and not team_won and stage_str != "SEMI_FINALS":
                         s["eliminated"] = True
                         s["eliminated_stage"] = stage_str
+                    elif stage_str == "SEMI_FINALS" and not team_won:
+                        s["eliminated"] = False
+                        s["eliminated_stage"] = None
                     elif team_won:
                         # Winning a later match un-sets a stale elimination flag
                         # (shouldn't normally happen, but keeps state consistent).
