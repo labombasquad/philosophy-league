@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 14 2026, 05:49 PM CDT",
+  "updatedAt": "Jul 14 2026, 05:54 PM CDT",
   "entries": [
     {
       "id": "team-760",
@@ -220,8 +220,8 @@
       "stage": 1,
       "stageLabel": "Eliminated – R32",
       "eliminated": true,
-      "gf": 14,
-      "ga": 9,
+      "gf": 11,
+      "ga": 5,
       "nextGame": {
         "opponent": "TBD",
         "homeAway": "",
@@ -241,8 +241,8 @@
       "stage": 1,
       "stageLabel": "Eliminated – R32",
       "eliminated": true,
-      "gf": 13,
-      "ga": 8,
+      "gf": 11,
+      "ga": 5,
       "nextGame": {
         "opponent": "TBD",
         "homeAway": "",
