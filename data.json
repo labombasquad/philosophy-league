@@ -1,6 +1,27 @@
 {
-  "updatedAt": "Jul 14 2026, 03:17 PM CDT",
+  "updatedAt": "Jul 14 2026, 05:03 PM CDT",
   "entries": [
+    {
+      "id": "team-760",
+      "manager": "Miles",
+      "flag": "🇪🇸",
+      "country": "Spain",
+      "team_id": 760,
+      "stage": 5,
+      "stageLabel": "3rd Place",
+      "eliminated": false,
+      "gf": 13,
+      "ga": 1,
+      "nextGame": {
+        "opponent": "TBD",
+        "homeAway": "vs",
+        "timeCT": "Sat, Jul 18 at 4:00 PM CT",
+        "iso": "2026-07-18T16:00:00-05:00",
+        "round": "3rd Place",
+        "venue": ""
+      },
+      "draftSlot": null
+    },
     {
       "id": "team-773",
       "manager": "Toiv",
@@ -8,16 +29,16 @@
       "country": "France",
       "team_id": 773,
       "stage": 4,
-      "stageLabel": "Semifinals",
-      "eliminated": false,
+      "stageLabel": "Eliminated – SF",
+      "eliminated": true,
       "gf": 16,
-      "ga": 2,
+      "ga": 4,
       "nextGame": {
-        "opponent": "Spain",
-        "homeAway": "vs",
-        "timeCT": "Tue, Jul 14 at 2:00 PM CT",
-        "iso": "2026-07-14T14:00:00-05:00",
-        "round": "Semifinals",
+        "opponent": "TBD",
+        "homeAway": "",
+        "timeCT": "Eliminated",
+        "iso": null,
+        "round": "",
         "venue": ""
       },
       "draftSlot": null
@@ -38,27 +59,6 @@
         "homeAway": "at",
         "timeCT": "Wed, Jul 15 at 2:00 PM CT",
         "iso": "2026-07-15T14:00:00-05:00",
-        "round": "Semifinals",
-        "venue": ""
-      },
-      "draftSlot": null
-    },
-    {
-      "id": "team-760",
-      "manager": "Miles",
-      "flag": "🇪🇸",
-      "country": "Spain",
-      "team_id": 760,
-      "stage": 4,
-      "stageLabel": "Semifinals",
-      "eliminated": false,
-      "gf": 11,
-      "ga": 1,
-      "nextGame": {
-        "opponent": "France",
-        "homeAway": "at",
-        "timeCT": "Tue, Jul 14 at 2:00 PM CT",
-        "iso": "2026-07-14T14:00:00-05:00",
         "round": "Semifinals",
         "venue": ""
       },
