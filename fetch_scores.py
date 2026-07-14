@@ -543,8 +543,12 @@ def main():
 
         if s["eliminated"]:
             stage_label = f"Eliminated – {prettify_stage_short(s.get('eliminated_stage', ''))}"
+        elif isinstance(next_game, dict) and next_game.get("round") == "Final":
+            stage_label = "Championship Game"
+        elif isinstance(next_game, dict) and next_game.get("round") == "3rd Place":
+            stage_label = "3rd Place Game"
         elif FINAL_STAGE and top_rank is not None and stage_val == top_rank and is_pending:
-            stage_label = "Final"  # scheduled but not yet decided — not "Runner-Up" yet
+            stage_label = "Championship Game"
         else:
             stage_label = STAGE_DISPLAY.get(stage_val) or prettify_stage(stage_raw_next or "")
 
