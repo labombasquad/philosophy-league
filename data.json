@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Jul 14 2026, 10:20 PM CDT",
+  "updatedAt": "Jul 15 2026, 01:20 AM CDT",
   "entries": [
     {
       "id": "team-760",
@@ -8,16 +8,16 @@
       "country": "Spain",
       "team_id": 760,
       "stage": 6,
-      "stageLabel": "Championship Game",
+      "stageLabel": "3rd Place Game",
       "eliminated": false,
       "gf": 13,
       "ga": 1,
       "nextGame": {
-        "opponent": "Winner of England/Argentina",
-        "homeAway": "vs",
-        "timeCT": "Sun, Jul 19 at 2:00 PM CT",
-        "iso": "2026-07-19T14:00:00-05:00",
-        "round": "Final",
+        "opponent": "France",
+        "homeAway": "at",
+        "timeCT": "Sat, Jul 18 at 4:00 PM CT",
+        "iso": "2026-07-18T16:00:00-05:00",
+        "round": "3rd Place",
         "venue": ""
       },
       "draftSlot": null
